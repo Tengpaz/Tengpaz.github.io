@@ -2454,9 +2454,11 @@ pre .deletion {
 .page-container .main-content-container {
   padding-top: 70px;
   position: relative;
+  transition: padding 0.2s ease;
 }
 .navbar-shrink .page-container .main-content-container {
   padding-top: 50.4px;
+  transition: padding 0.2s ease;
 }
 @media (max-width: 768px) {
   .navbar-shrink .page-container .main-content-container {
@@ -3978,6 +3980,7 @@ html.is-animating .swup-progress-icon {
   justify-content: space-between;
   align-items: center;
   z-index: 1005;
+  transition: max-width 0.3s ease;
 }
 .navbar-container .navbar-content.has-home-banner {
   max-width: 1200px;
@@ -3995,6 +3998,7 @@ html.is-animating .swup-progress-icon {
 .navbar-container .navbar-content .left {
   display: flex;
   align-items: center;
+  transform-origin: left;
   transition-property: color, background, box-shadow, border-color, transform;
   transition-delay: 0s, 0s, 0s, 0s, 0s;
   transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.2s;
@@ -4730,7 +4734,7 @@ html.is-animating .swup-progress-icon {
   display: block;
   top: 1em;
   position: absolute;
-  left: -8px;
+  left: -6px;
   border-radius: 10px;
   content: '';
   border: 2px solid var(--third-text-color);
@@ -7126,7 +7130,6 @@ html.is-animating .swup-progress-icon {
   }
 }
 .home-sidebar-container .sticky-container {
-  position: sticky;
   top: 70px;
 }
 .home-sidebar-container .sidebar-content {
@@ -7154,10 +7157,6 @@ html.is-animating .swup-progress-icon {
 .home-sidebar-container .sidebar-content[marginTop] {
   margin-top: 22.8px;
 }
-.home-sidebar-container .sidebar-content .avatar {
-  display: flex;
-  justify-content: center;
-}
 .home-sidebar-container .sidebar-content .avatar img {
   width: 80px;
   height: 80px;
@@ -7168,12 +7167,6 @@ html.is-animating .swup-progress-icon {
 }
 .home-sidebar-container .sidebar-content .avatar img:hover {
   box-shadow: var(--redefine-box-shadow);
-}
-.home-sidebar-container .sidebar-content .author {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 10px 0;
 }
 .home-sidebar-container .sidebar-content .author .name {
   text-align: center;
@@ -7730,55 +7723,11 @@ html.is-animating .swup-progress-icon {
 }
 .post-page-container .article-content-container .article-header {
   font-family: 'Satoshi-Variable', sans-serif, 'Noto Sans SC', 'Noto Sans', 'Noto Sans SC', sans-serif;
-  position: relative;
-  padding-left: 46px;
-  width: 100%;
-  height: 46px;
-  box-sizing: border-box;
-}
-.post-page-container .article-content-container .article-header .avatar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 46px;
-  height: 46px;
-  padding: 1px;
-  box-sizing: border-box;
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
 }
 .post-page-container .article-content-container .article-header .avatar img {
   border-radius: 12.18px;
   width: 100%;
   height: 100%;
-}
-.post-page-container .article-content-container .article-header .info {
-  padding: 2px 0;
-  margin-left: 10px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-}
-.post-page-container .article-content-container .article-header .info .author {
-  font-weight: regular;
-  font-size: 1.18rem;
-  display: flex;
-  align-items: center;
-}
-.post-page-container .article-content-container .article-header .info .author .name {
-  color: var(--default-text-color);
-}
-.post-page-container .article-content-container .article-header .info .author .author-label {
-  margin-left: 5px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 2px 8px;
-  border-radius: 9px;
-  color: var(--third-text-color);
-  border: 1px solid var(--shadow-color-1);
 }
 .post-page-container .article-content-container .article-header,
 .post-page-container .article-content-container .article-header-meta-info {
@@ -9837,6 +9786,7 @@ html.is-animating .swup-progress-icon {
 .note p {
   display: inline-block;
   margin: 0;
+  max-width: 100%;
 }
 .note-icon {
   font-size: 1rem;

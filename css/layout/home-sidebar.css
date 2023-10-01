@@ -258,15 +258,10 @@
   }
 }
 .home-sidebar-container .sticky-container {
-  position: sticky;
   top: 70px;
 }
 .home-sidebar-container .sidebar-content[marginTop] {
   margin-top: 22.8px;
-}
-.home-sidebar-container .sidebar-content .avatar {
-  display: flex;
-  justify-content: center;
 }
 .home-sidebar-container .sidebar-content .avatar img {
   width: 80px;
@@ -278,12 +273,6 @@
 }
 .home-sidebar-container .sidebar-content .avatar img:hover {
   box-shadow: var(--redefine-box-shadow);
-}
-.home-sidebar-container .sidebar-content .author {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 10px 0;
 }
 .home-sidebar-container .sidebar-content .author .name {
   text-align: center;
