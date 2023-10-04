@@ -321,7 +321,7 @@
 <h3 id="getchar()%E5%87%BD%E6%95%B0" tabindex="-1"><code>getchar()</code>函数</h3>
 <p>头文件：<code>stdio.h</code><br>
 语法/原型：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">int getchar(void);</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">getchar</span><span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure></div>
 <p>我们来看这个函数的声明，不难发现，<code>getchar</code>返回值是字符的<code>ASCII</code>码</p>
 <p><code>getchar</code>用于读取单个字符，如果此时<strong>缓存区</strong>（如果不清楚就暂且把它理解为暂时储存你输入的东西的地方）中有多个字符，那么<code>getchar</code>读取的就是上一次读取的最后一个字符的后一个字符</p>
 <h3 id="%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90" tabindex="-1">思路分析</h3>
@@ -344,55 +344,6 @@
       </categories>
       <tags>
         <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo&amp;github pages建站指南</title>
-    <url>/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
-<h1 id="hexo-%26-github-pages-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8C%97" tabindex="-1">Hexo &amp; Github pages 搭建个人博客指北</h1>
-<p>中间如果遇到问题可以直接评论或联系我询问噢，我能帮一定会帮</p>
-<h2 id="hexo" tabindex="-1">Hexo</h2>
-<h3 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E4%B8%8B%E8%BD%BDnode.js" tabindex="-1">第一步 下载<strong>Node.js</strong></h3>
-<p>建站过程中需要用到<strong>npm</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的指令下载相关代码包</p>
-<p>既然这是一个基于Node.js的工具，它的下载是伴随Node.js的，所以这里需要下载Node.js来支持网站搭建</p>
-<p><a class="link"   href="https://nodejs.org/en" >Node.js下载官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>这里不必下载最新版，下载推荐的版本即可</p>
-<h3 id="%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8B%E8%BD%BDgit" tabindex="-1">第二步 下载<strong>Git</strong></h3>
-<p>Git是一个代码版本管理器，详细可以参见搜索引擎或后期发表的文章</p>
-<p><a class="link"   href="https://git-scm.com/download/win" >Windows系统Git下载官方网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>这个网站由于是外国网站，可能你会无法正常访问，所以你也可以通过<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/"><strong>淘宝 Git for Windows 镜像</strong></a>下载Git安装包，下载最新版即可，在本文发布时最新版为<strong>v2.42.0.windows.2/</strong>，你可以在网站里找找</p>
-<h3 id="%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%AE%89%E8%A3%85hexo" tabindex="-1">第三步 安装Hexo</h3>
-<p>请确认已经成功安装了上面两个东西，再来执行这一步</p>
-<h4 id="%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85hexo" tabindex="-1">使用npm安装Hexo</h4>
-<p>在系统开始栏搜索打开cmd</p>
-<p>输入以下指令</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></div>
-<h3 id="%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%BB%BA%E7%AB%99" tabindex="-1">第四步 建站</h3>
-<p>这里需要建一个放你网站文件的文件夹</p>
-<p>请找到你想把文件夹放在的地方，比如你想放到D盘的话，你就需要在cmd中先输入<code>D:</code>，然后输入以下指令</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></div>
-<ul>
-<li>这里的<code>&lt;folder&gt;</code>是你想建的文件夹的名字，建议用英文</li>
-<li><code>cd &lt;folder&gt;</code></li>
-</ul>
-<p><strong>待更新</strong></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><strong>npm</strong>全称为<strong>Node Package Manager</strong>，看名字就大概可以猜到它的用途了，npm是基于<strong>Node.js</strong>的一个代码包的库，如果没有npm，而我们又需要一些Node.js的拓展代码来完成一些特殊任务，就需要到代码所在的相应网站去下载，问题是，如果我们需要很多代码包，它们都分处不同的网站，那么这时候去挨个访问网站去下载代码就会非常麻烦了，npm就是为了解决这个问题而出现的，npm为那些代码的开发者提供了一个平台，使得代码可以被发布到npm上，使用者可以直接通过npm下载相应的代码，而不需要另外拜访相应网站去下载了。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>建站</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -542,6 +493,55 @@
       <tags>
         <tag>C语言</tag>
         <tag>环境配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo&amp;github pages建站指南</title>
+    <url>/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
+<h1 id="hexo-%26-github-pages-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8C%97" tabindex="-1">Hexo &amp; Github pages 搭建个人博客指北</h1>
+<p>中间如果遇到问题可以直接评论或联系我询问噢，我能帮一定会帮</p>
+<h2 id="hexo" tabindex="-1">Hexo</h2>
+<h3 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E4%B8%8B%E8%BD%BDnode.js" tabindex="-1">第一步 下载<strong>Node.js</strong></h3>
+<p>建站过程中需要用到<strong>npm</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的指令下载相关代码包</p>
+<p>既然这是一个基于Node.js的工具，它的下载是伴随Node.js的，所以这里需要下载Node.js来支持网站搭建</p>
+<p><a class="link"   href="https://nodejs.org/en" >Node.js下载官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这里不必下载最新版，下载推荐的版本即可</p>
+<h3 id="%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8B%E8%BD%BDgit" tabindex="-1">第二步 下载<strong>Git</strong></h3>
+<p>Git是一个代码版本管理器，详细可以参见搜索引擎或后期发表的文章</p>
+<p><a class="link"   href="https://git-scm.com/download/win" >Windows系统Git下载官方网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这个网站由于是外国网站，可能你会无法正常访问，所以你也可以通过<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/"><strong>淘宝 Git for Windows 镜像</strong></a>下载Git安装包，下载最新版即可，在本文发布时最新版为<strong>v2.42.0.windows.2/</strong>，你可以在网站里找找</p>
+<h3 id="%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%AE%89%E8%A3%85hexo" tabindex="-1">第三步 安装Hexo</h3>
+<p>请确认已经成功安装了上面两个东西，再来执行这一步</p>
+<h4 id="%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85hexo" tabindex="-1">使用npm安装Hexo</h4>
+<p>在系统开始栏搜索打开cmd</p>
+<p>输入以下指令</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></div>
+<h3 id="%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%BB%BA%E7%AB%99" tabindex="-1">第四步 建站</h3>
+<p>这里需要建一个放你网站文件的文件夹</p>
+<p>请找到你想把文件夹放在的地方，比如你想放到D盘的话，你就需要在cmd中先输入<code>D:</code>，然后输入以下指令</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>这里的<code>&lt;folder&gt;</code>是你想建的文件夹的名字，建议用英文</li>
+<li><code>cd &lt;folder&gt;</code></li>
+</ul>
+<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><strong>npm</strong>全称为<strong>Node Package Manager</strong>，看名字就大概可以猜到它的用途了，npm是基于<strong>Node.js</strong>的一个代码包的库，如果没有npm，而我们又需要一些Node.js的拓展代码来完成一些特殊任务，就需要到代码所在的相应网站去下载，问题是，如果我们需要很多代码包，它们都分处不同的网站，那么这时候去挨个访问网站去下载代码就会非常麻烦了，npm就是为了解决这个问题而出现的，npm为那些代码的开发者提供了一个平台，使得代码可以被发布到npm上，使用者可以直接通过npm下载相应的代码，而不需要另外拜访相应网站去下载了。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>建站</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
