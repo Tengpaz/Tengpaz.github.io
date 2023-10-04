@@ -1,18 +1,414 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2023级E2练习赛</title>
+    <url>/2023/09/24/2023%E7%BA%A7E2%E7%BB%83%E4%B9%A0%E8%B5%9B/</url>
+    <content><![CDATA[<h1 id="2023%E7%BA%A7%E6%9C%AC%E7%A7%91%E6%96%B0%E7%94%9F%E7%AC%AC%E4%BA%8C%E6%AC%A1%E7%BB%83%E4%B9%A0%E8%B5%9B%E4%B9%A0%E9%A2%98%E8%AE%B2%E8%A7%A3" tabindex="-1">2023级本科新生第二次练习赛习题讲解</h1>
+<h2 id="a-%E5%9D%90%E6%A0%87%E7%B3%BB%E5%8F%98%E6%8D%A2" tabindex="-1">A 坐标系变换</h2>
+<hr>
+<h3 id="%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B" tabindex="-1">原题如下</h3>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/2023E2A.png"
+                      alt="E2A"
+                ></p>
+<h3 id="%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93" tabindex="-1">你需要知道</h3>
+<p>本题会用到</p>
+<ul>
+<li>&lt;math.h&gt;头文件中的<code>cos</code>、<code>sin</code>两个函数</li>
+<li>数学里极坐标的基本知识</li>
+<li>标准输出里如何保留小数位数输出浮点数</li>
+</ul>
+<h3 id="cos()%E5%87%BD%E6%95%B0-%E6%B1%82%E4%BD%99%E5%BC%A6" tabindex="-1">cos()函数-求余弦</h3>
+<p>头文件：<code>math.h</code><br>
+语法/原型：</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">cos</span><span class="params">(<span class="type">double</span> x)</span>;</span><br></pre></td></tr></table></figure></div>
+<p>这里<code>cos</code>前的<code>double</code>表示的是函数的返回值为<code>double</code>双精度实型<br>
+里面的<code>double x</code>表示这里函数的形式参数是double类型的实数<br>
+实际运用时，函数名前的<code>double</code>以及参数前的<code>double</code>都不用写，这里只是告诉你函数相关值的类型</p>
+<h3 id="sin()%E5%87%BD%E6%95%B0-%E6%B1%82%E6%AD%A3%E5%BC%A6" tabindex="-1">sin()函数-求正弦</h3>
+<p>同理我们可以推到正弦函数是怎么使用的<br>
+头文件：<code>math.h</code><br>
+语法/原型：</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">sin</span><span class="params">(<span class="type">double</span> x)</span>;</span><br></pre></td></tr></table></figure></div>
+<p>读者可以自行类比</p>
+<h3 id="%E6%9E%81%E5%9D%90%E6%A0%87" tabindex="-1">极坐标</h3>
+<p>在极坐标中，我们用一个点到极点的距离ρ也即极径和过极点与该点的射线与极轴在逆时针方向所成的角度θ也即极角来描述一个点的位置，不难得到，极坐标转化为直角坐标后表示为(ρcosθ,ρsinθ).<br>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E6%9E%81%E5%9D%90%E6%A0%87.png"
+                      alt="极坐标"
+                ></p>
+<h3 id="%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E6%95%B0%E8%BE%93%E5%87%BA%E6%B5%AE%E7%82%B9%E6%95%B0" tabindex="-1">保留小数位数输出浮点数</h3>
+<p>来看看如下的输出语句</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%-6.2lf&quot;</span>, x);</span><br></pre></td></tr></table></figure></div>
+<p>这个语句中</p>
+<ul>
+<li><code>-</code>表示左对齐</li>
+<li><code>6</code>表示输出占6个字符</li>
+<li><code>2</code>表示保留两位小数<br>
+如果x=3.14123，输出如下</li>
+</ul>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">3.14</span></span><br></pre></td></tr></table></figure></div>
+<p>如果去掉<code>6</code>前面的负号<br>
+输出如下(下面的·表示空格)</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line">··<span class="number">3.14</span></span><br></pre></td></tr></table></figure></div>
+<p>注意在使用时不要忘了两个数字中间的<code>.</code>，比如本题我们不需要调整输出的浮点数的对齐方式和占据的字符数，那么就可以把语句写成</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.1lf&quot;</span>,x);</span><br></pre></td></tr></table></figure></div>
+<p>这个就表示保留一位小数输出浮点数<code>x</code>啦</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0" tabindex="-1">代码实现</h3>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">double</span> a, b;<span class="comment">//a表示极径，b表示极角</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf%lf&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.1lf %.1lf&quot;</span>, a * <span class="built_in">cos</span>(b), a * <span class="built_in">sin</span>(b));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="b-%E8%BF%99%E9%87%8C%E6%98%AFbuaa-2" tabindex="-1">B 这里是BUAA 2</h2>
+<hr>
+<h3 id="%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B-1" tabindex="-1">原题如下</h3>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/2023E2B.png"
+                      alt="E2B"
+                ></p>
+<h3 id="%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93-1" tabindex="-1">你需要知道</h3>
+<ul>
+<li>在ASCII码表中，大写字母数值连续，比如<code>'B'</code>比<code>'A'</code>大1</li>
+<li>读取多个字符</li>
+</ul>
+<h3 id="%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF" tabindex="-1">分析思路</h3>
+<p>对于读取的每一个字符，我们可以做一次判断，当读取的字符在<code>'B'</code>和<code>'Z'</code>之间时才需要把字母往前调一位</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1" tabindex="-1">代码实现</h3>
+<p>这里不是最简单的版本，如果你喜欢数组和字符串的话<br>
+可以给你看看一个非常啰嗦的版本</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span><span class="comment">//引入字符串相关函数的头文件</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">10001</span>];</span><br><span class="line">    <span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">    gets(str);</span><br><span class="line">    n = <span class="built_in">strlen</span>(str);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt;= n - <span class="number">1</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,str[i] &gt;= <span class="string">&#x27;B&#x27;</span> &amp;&amp; str[i] &lt;= <span class="string">&#x27;Z&#x27;</span> ? str[i] - <span class="number">1</span> : str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>大佬直接跳，我这里稍作解释</p>
+<h3 id="strlen()%E5%87%BD%E6%95%B0" tabindex="-1">strlen()函数</h3>
+<p>头文件：<code>string.h</code><br>
+语法/原型：</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">size_t</span> <span class="title function_">strlen</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str)</span>;</span><br></pre></td></tr></table></figure></div>
+<p><code>size_t</code>表示函数返回字符串的长度,为unsigned int类型<br>
+<code>const char *str</code>是一个形式参数，类型是常量指针，<code>const</code>是<code>constant</code>的缩写，本意为不变的，不可改变的，表明该类指针指向的内存值不可改变<br>
+<code>char *str</code>是一个指向字符串的指针，如果目前没学指针的话，暂时可以理解为<code>char str[]</code>，这里其实说明调用函数传参时传的是地址不是数值<br>
+这个函数的作用是返回字符串的长度，但需要注意的是，这个函数在取字符串长度时，读取到<code>'\0'</code>时就会停止，最后读取到的长度是第一个字符到第一个<code>'\0'</code>（不包括<code>'\0'</code>）之间的字符串长度</p>
+<p>这里举个例子</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span>* p = <span class="string">&quot;abcdef&quot;</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="built_in">strlen</span>(p));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>输出为<code>6</code><br>
+再来举几个例子</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span>* p = <span class="string">&quot;abcdef&quot;</span>;<span class="comment">//[a b c d e f \0]</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">strlen</span>(p));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">strlen</span>(p + <span class="number">0</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">strlen</span>(p + <span class="number">1</span>));</span><br><span class="line">    <span class="built_in">printf</span>(*p);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>输出</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure></div>
+<p>最后一个<code>printf</code>没有打印出来，因为指针p解码后是字符串中的一个字符，而<code>strlen</code>并不能对一个数据求长度</p>
+<p>这里尤其需要与另一个函数区分一下</p>
+<h3 id="sizeof()%E5%87%BD%E6%95%B0" tabindex="-1">sizeof()函数</h3>
+<p>对于同一个合理字符串来说，sizeof函数返回的字符串长度会包含结尾的<code>'\0'</code>，而strlen不会包含，并且sizeof计算的是整个字符串占据的字节，并不会在<code>'\0'</code>处就此停下<br>
+来看一个例子</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span>* p = <span class="string">&quot;abcdef&quot;</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">strlen</span>(p));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="keyword">sizeof</span>(p))</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>输出</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="gets()%E5%87%BD%E6%95%B0" tabindex="-1">gets()函数</h3>
+<p>头文件：<code>stdio.h</code><br>
+语法/原型：</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> *<span class="title function_">gets</span><span class="params">(<span class="type">char</span> *str)</span>;</span><br></pre></td></tr></table></figure></div>
+<p><code>char *</code>表明返回的是一个指向字符串的指针<br>
+里面的<code>char *str</code>说明传参时传入的是指向字符串str的地址<br>
+<code>gets</code>函数与<code>scanf</code>函数一样都是输入函数，但是两者还是会有很多差别的</p>
+<ul>
+<li><code>scanf</code>读取字符串是以空格作为结束标志的，这就决定了它无法读取完整的含有空格字符的字符串</li>
+<li><code>gets</code>也是读取一行字符串，但是它是以回车键作为结束标记的，所以它能读取含有空格字符的字符串</li>
+</ul>
+<h2 id="c-gycy%E7%9A%84%E4%B9%98%E6%B3%95%E5%8F%A3%E8%AF%80%E8%A1%A8" tabindex="-1">C GYCY的乘法口诀表</h2>
+<hr>
+<h3 id="%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B-2" tabindex="-1">原题如下</h3>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/2023ACE2C.png"
+                      alt="ACE2C"
+                ></p>
+<h3 id="%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93-2" tabindex="-1">你需要知道</h3>
+<ul>
+<li><code>for</code>循环遍历</li>
+</ul>
+<h3 id="%E5%88%86%E6%9E%90" tabindex="-1">分析</h3>
+<p>很明显需要迭代两个<code>for</code>循环进行遍历，这里不多说，直接上代码</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2" tabindex="-1">代码实现</h3>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j &lt;= i;j++)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d*%d=%d &quot;</span>, i, j, i * j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="d-%E5%B0%8F%E4%BA%AE%E7%9A%84%E5%9C%86%E5%91%A8%E7%8E%87" tabindex="-1">D 小亮的圆周率</h2>
+<hr>
+<h3 id="%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B-3" tabindex="-1">原题如下</h3>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/2023ACE2D.png"
+                      alt="ACE2D"
+                ></p>
+<h3 id="%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93-3" tabindex="-1">你需要知道</h3>
+<ul>
+<li>各类数据类型及数据表示范围</li>
+<li>强制类型转换</li>
+<li>如果你想，可以使用<code>fabs</code>函数求两个浮点数之差的绝对值</li>
+<li>如果你想练习函数，可以故意把代码搞麻烦点弄两个计算不同公式不同项数值的函数</li>
+<li>多个数据输入</li>
+<li>保留特定小数位数输出</li>
+<li>如果你想，可以使用<code>pow()</code>函数计算次方</li>
+</ul>
+<h3 id="fabs()%E5%87%BD%E6%95%B0" tabindex="-1"><code>fabs()</code>函数</h3>
+<p>头文件：<code>math.h</code><br>
+语法/原型：</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">fabs</span><span class="params">(<span class="type">double</span> x)</span></span><br></pre></td></tr></table></figure></div>
+<p>这个函数可以用来返回<strong>浮点数</strong>x的绝对值，这样我们在做这道题时可以不用比较两个公式计算值的大小关系了<br>
+不过使用这个函数时要注意，我们看这个函数声明可以发现，传参是有要求的，<code>fabs</code>函数可以用于<code>double</code>、<code>float</code>、<code>long double</code>类型的参数如果你用它来求整数绝对值，最后求得的结果将带上小数<br>
+如果你以后需要计算某个整数的绝对值，可以选择使用<code>abs()</code>函数，这里就不详细展开了</p>
+<h3 id="pow()%E5%87%BD%E6%95%B0" tabindex="-1"><code>pow()</code>函数</h3>
+<p>头文件：<code>math.h</code><br>
+语法/原型：</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">pow</span><span class="params">(<span class="type">double</span> x, <span class="type">double</span> y)</span>;</span><br></pre></td></tr></table></figure></div>
+<p>同样我们看函数声明可以发现，该函数返回值为<code>double</code>类型，传递的参数类型为<code>double</code>类型，计算出的结果是x的y次幂</p>
+<h3 id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4" tabindex="-1">数据类型及表示范围</h3>
+<p>我们仔细观察可以发现，n的取值可以非常大，加上公式中出现的(2n+1)<sup>2</sup>数值将会达到4x10<sup>10</sup>，int能容纳得下吗？我们需要使用long long啦</p>
+<ul>
+<li>int类型数据所占内存大小为4字节32位，其中一位为符号位，计算机是以二进制储存数据的，我们通过计算可以知道int最大允许的取值为2<sup>31</sup>-1，好的，不够用了</li>
+<li>long long类型数据所占内存大小为8字节64位，这就完全够用了</li>
+</ul>
+<h3 id="%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E6%95%B0" tabindex="-1">保留小数位数</h3>
+<p>详见A</p>
+<h3 id="%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2" tabindex="-1">强制类型转换</h3>
+<p>你所需要的最终数据的类型可能与你最初给的数据的类型不同，这时候便需要转换数据的类型了，格式如下<br>
+(&lt;数据类型&gt;)x<br>
+这表示把x的数据类型强制转换为括号内的数据类型</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3" tabindex="-1">代码实现</h3>
+<p>这里给出的只是正确代码，不是最佳代码</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="title function_">x</span><span class="params">(<span class="type">int</span> j)</span>;</span><br><span class="line"><span class="type">double</span> <span class="title function_">y</span><span class="params">(<span class="type">int</span> j)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= t; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.6lf\n&quot;</span>,<span class="built_in">fabs</span>(x(n)-y(n)));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="title function_">x</span><span class="params">(<span class="type">int</span> j)</span>&#123;</span><br><span class="line">    <span class="type">double</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;j &gt;= <span class="number">1</span>; j--)&#123;</span><br><span class="line">        sum+=<span class="built_in">pow</span>(<span class="number">-1</span>,j - <span class="number">1</span>)/(<span class="number">2</span> * j - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">4</span>*sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="title function_">y</span><span class="params">(<span class="type">int</span> j)</span>&#123;</span><br><span class="line">    <span class="type">double</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;j&gt;=<span class="number">1</span>;j--)&#123;</span><br><span class="line">        sum+=(<span class="type">double</span>)<span class="number">1</span>/((<span class="type">long</span> <span class="type">long</span>)(<span class="number">2</span> * j - <span class="number">1</span>)*(<span class="number">2</span> * j - <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>(<span class="number">8</span> * sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="e-%E4%BD%93%E8%83%BD%E9%94%BB%E7%82%BC%E8%B5%B0%E5%BB%8A" tabindex="-1">E 体能锻炼走廊</h2>
+<hr>
+<h3 id="%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B-4" tabindex="-1">原题如下</h3>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/2023ACE2E.png"
+                      alt="ACE2E"
+                ></p>
+<h3 id="%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93-4" tabindex="-1">你需要知道</h3>
+<ul>
+<li>多组多个数据输入</li>
+<li>对前次循环进行数值清除</li>
+</ul>
+<h3 id="%E5%A4%9A%E6%AC%A1%E5%BE%AA%E7%8E%AF" tabindex="-1">多次循环</h3>
+<p>当你的同一个变量在多次循环中出现并作为一种判断条件，你就要注意了，如果你清楚地知道你需要用该变量做什么，你就要关注这个变量是否会带着上一轮的数据进入下一轮并作为条件进行判断了，因为这很容易导致逻辑错误而导致结果不如人意，并且这种错误很难被人察觉</p>
+<h3 id="%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF-1" tabindex="-1">分析思路</h3>
+<p>其实思路挺简单，主要就是对条件语句的运用了</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-4" tabindex="-1">代码实现</h3>
+<p>这里是正确代码，不是最佳代码，不是最简代码</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m, below = <span class="number">0</span>, up = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">6</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">            <span class="keyword">if</span>(m &gt;= <span class="number">48</span>)&#123;</span><br><span class="line">                up = m<span class="number">-48</span>;</span><br><span class="line">                <span class="keyword">if</span>(below &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">                    below += up;</span><br><span class="line">                    <span class="keyword">if</span>(below &gt; <span class="number">0</span>)</span><br><span class="line">                        below = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                below += m - <span class="number">48</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(below == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Success\n&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(below &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Failure %d\n&quot;</span>,-below);</span><br><span class="line">        below = <span class="number">0</span>;<span class="comment">//清除前一轮的数据</span></span><br><span class="line">        up = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="f-wings-%E5%92%96%E5%95%A1" tabindex="-1">F Wings 咖啡</h2>
+<hr>
+<h3 id="%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B-5" tabindex="-1">原题如下</h3>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/2023ACE2F.png"
+                      alt="ACE2F"
+                ></p>
+<h3 id="%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93-5" tabindex="-1">你需要知道</h3>
+<ul>
+<li>对于多种极端情况的考虑要求周全</li>
+<li>数据范围</li>
+<li>如何防止爆栈</li>
+<li>全局变量</li>
+<li>对数据最大值的求取</li>
+</ul>
+<h3 id="%E6%83%85%E5%86%B5%E6%9E%81%E7%AB%AF" tabindex="-1">情况极端</h3>
+<ul>
+<li>虽然说你可能凭直觉觉得6元肯定是划算的价格，不然就不会把每天用校园卡买的第一杯咖啡定为6元了，但是！！！这是编程题目不是实际情况，咖啡价格确实很有可能小于6元（bushi</li>
+<li>虽然说去找卡的那个人大概明白需要多少张卡，但是这也避免不了找到的卡的数量比需要的卡的数量要更多</li>
+<li>本人的卡和人头数你算上了吗？</li>
+<li>你有注意数据有多大吗？</li>
+<li>你有注意需要的数组的长度吗？</li>
+</ul>
+<h3 id="%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4" tabindex="-1">数据范围</h3>
+<p>之前强调过就不再强调了</p>
+<h3 id="%E7%88%86%E6%A0%88" tabindex="-1">爆栈</h3>
+<p>c语言的函数调用机制是依靠堆栈来实现的，称为函数调用栈（栈空间），程序中函数的局部变量存放在栈空间中，但是，每一个函数的栈空间有限，Windows系统下通常是2MB，所以，局部数组不能开得太大了！！！<br>
+像这道题，如果你把一个长度为3000001的int型数组作为局部数组扔那个小小的<code>main</code>函数栈空间里（辛苦你了），后果长啥样应该能知道了叭，这就是爆栈，在Debug中应该是被软件识别为<code>segmantation fault</code>（储存器区块错误），你的程序就运行不了啦</p>
+<p>解决这个问题其实也很简单<br>
+你放函数里面会爆，我扔函数外面就没事了嘛<br>
+这就是我们接下来要讲的-全局变量</p>
+<h3 id="%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F" tabindex="-1">全局变量</h3>
+<p>我们之前提到了，函数里边定义的变量其实是局部变量，为什么叫局部呢，因为这个变量的生命周期，是随着函数的调用与结束而开始和终结的，也就是说，你函数一用完，这变量就没了<br>
+而全局函数不同的是，它是定义在整个程序中而不是某个函数中的，也就是说，它的生命周期随这个程序的运行情况而定，只有当程序运行完后，变量才会“死亡”<br>
+并且，理论上讲，全局变量能使用的空间是无限的（当然得要小于你电脑得内存啦awww），所以你可以放心大胆得开你的超长数组。。。</p>
+<h3 id="%E6%9C%80%E5%A4%A7%E5%80%BC%E7%9A%84%E6%B1%82%E5%8F%96" tabindex="-1">最大值的求取</h3>
+<p>其实在c语言里有这个函数的文件的，但这个函数的头文件叫<code>algorithm</code>，如果你用的编译软件是VScode，这个软件可能找不到这个文件的位置，需要你进行配置，这里就不展开说明啦<br>
+所以就别躲了，上循环硬刚叭</p>
+<p>本题需要的不仅仅是最大值，而是最大的m+1个值，所以我们可以在每循环一次求得了最大值后，选择把最大值处理掉，使上一个最大值不再影响第二次最大值的求取</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-5" tabindex="-1">代码实现</h3>
+<p>这不是最优的，但是是正确的</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> a[<span class="number">3000001</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n,m,max,num;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> sum = <span class="number">0</span>;<span class="comment">//sum的数值后期非常大</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    num = n+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">        <span class="keyword">if</span>(a[i] &lt;= <span class="number">6</span>)&#123;<span class="comment">//算出咖啡价格大于6的人头数</span></span><br><span class="line">            n--;</span><br><span class="line">            sum += a[i];</span><br><span class="line">            a[i] = <span class="number">0</span>;<span class="comment">//把数值清零，后面就不会重复加和了</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(m &gt;= n)&#123;</span><br><span class="line">        sum += <span class="number">6</span> * (n+<span class="number">1</span>);<span class="comment">//卡足够，全部置为6</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = m + <span class="number">1</span>; j &gt;= <span class="number">1</span>; j--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i == <span class="number">0</span>||a[max] &lt; a[i])&#123;<span class="comment">//取最大值</span></span><br><span class="line">                    max = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            a[max] = <span class="number">6</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++)&#123;</span><br><span class="line">            sum += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, sum);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="g-%E6%9F%90%E5%92%B8%E9%B1%BC%E4%B8%8E%E6%8A%95%E8%B5%84" tabindex="-1">G 某咸鱼与投资</h2>
+<hr>
+<h3 id="%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B-6" tabindex="-1">原题如下</h3>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/2023ACE2G.png"
+                      alt="ACE2G"
+                ></p>
+<h3 id="%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93-6" tabindex="-1">你需要知道</h3>
+<ul>
+<li>输出数字的前导零</li>
+<li>字符串相等的判断-<code>strcmp()</code>函数</li>
+<li>你知道闰年的规则嘛</li>
+</ul>
+<h3 id="strcmp()%E5%87%BD%E6%95%B0" tabindex="-1"><code>strcmp()</code>函数</h3>
+<p>头文件：<code>string.h</code><br>
+语法/原型：</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">strcmp</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span>;</span><br></pre></td></tr></table></figure></div>
+<p>从声明中我们可以知道，这个函数返回一个int型整数值，传参为两个指向字符串的常量指针</p>
+<p>返回值的规则如下</p>
+<ul>
+<li>如果<code>str1 &gt; str2</code>，返回正数</li>
+<li>如果<code>str1 = str2</code>，返回0</li>
+<li>如果<code>str1 &lt; str2</code>，返回负数</li>
+</ul>
+<p>其中，两个字符串比较时从第一个字符开始比较，如果相同则比较下一个</p>
+<ul>
+<li>遇到不同的字符，排在字母表前面的字符小于排在后面的（可以认为是比较字符的ASCII码）</li>
+<li>如果两个字符串所有字符都相同，则二者相等</li>
+<li>如果一个字符串提前结束，那么一定是长的那个字符串大于短的那个字符串</li>
+</ul>
+<h3 id="%E8%BE%93%E5%87%BA%E5%89%8D%E5%AF%BC%E9%9B%B6" tabindex="-1">输出前导零</h3>
+<p>比如<code>%0md</code>，表示以整型输出时在数字前补充前导零，使其总位数为m位，m也即<strong>位宽</strong></p>
+<h3 id="%E9%97%B0%E5%B9%B4" tabindex="-1">闰年</h3>
+<p>对于闰年来说，它能整除4且不能被100整除，或者它能整除400，则这个年为闰年</p>
+<h3 id="%E6%80%9D%E8%B7%AF" tabindex="-1">思路</h3>
+<p>其实主要就是需要判断2月的天数，大月小月判断，以及延期是早于时间点还是晚于时间点，这些用普通条件语句可以解决啦<br>
+看代码实现叭</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-6" tabindex="-1">代码实现</h3>
+<p>这是正确的，不是最好的</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">runnian</span><span class="params">(<span class="type">int</span>)</span>;<span class="comment">//判断是否为闰年的函数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">ifdelay</span><span class="params">(<span class="type">char</span>*, <span class="type">int</span>, <span class="type">int</span>, <span class="type">int</span>)</span>;<span class="comment">//判断延期类型的函数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">monthdays</span><span class="params">(<span class="type">int</span>)</span>;<span class="comment">//判断月的天数的函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">after</span><span class="params">(<span class="type">char</span>*)</span>;<span class="comment">//日期后移的函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">print</span><span class="params">()</span>;<span class="comment">//输出函数</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a;<span class="comment">//闰年情况，全局变量</span></span><br><span class="line"><span class="type">char</span> mon[] = <span class="string">&quot;Mon&quot;</span>, tue[] = <span class="string">&quot;Tue&quot;</span>, wed[] = <span class="string">&quot;Wed&quot;</span>, thu[] = <span class="string">&quot;Thu&quot;</span>, fri[] = <span class="string">&quot;Fri&quot;</span>, sat[] = <span class="string">&quot;Sat&quot;</span>, sun[] = <span class="string">&quot;Sun&quot;</span>;</span><br><span class="line"><span class="type">int</span> year, month, day, hour, minute, second;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span> litter;<span class="comment">//吞掉空格，或者你也可以在输入代码后面做改动</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d/%d/%d %d:%d:%d&quot;</span>, &amp;year, &amp;month, &amp;day, &amp;hour, &amp;minute, &amp;second);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;litter);<span class="comment">//清除空格</span></span><br><span class="line">    <span class="type">char</span> date[<span class="number">4</span>];<span class="comment">//日期，注意把字符串结束符括进去</span></span><br><span class="line">    gets(date);</span><br><span class="line">    <span class="comment">//判断闰年</span></span><br><span class="line">    runnian(year);</span><br><span class="line">    <span class="comment">//延期情况分类</span></span><br><span class="line">    <span class="keyword">if</span>(ifdelay(date, hour, minute, second))&#123;</span><br><span class="line">        print();</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ifdelay(date, hour, minute, second) == <span class="number">0</span>)&#123;<span class="comment">//延期</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(date, sat) == <span class="number">0</span>)&#123;<span class="comment">//周六</span></span><br><span class="line">            <span class="built_in">strcpy</span>(date,mon);</span><br><span class="line">            <span class="keyword">if</span>(day &lt;= monthdays(month) - <span class="number">2</span>)&#123;</span><br><span class="line">                day += <span class="number">2</span>;</span><br><span class="line">                print();</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(month != <span class="number">12</span>)&#123;</span><br><span class="line">                month ++;</span><br><span class="line">                day = day + <span class="number">2</span> - monthdays(month);</span><br><span class="line">                print();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                year++;</span><br><span class="line">                day = day + <span class="number">2</span> - monthdays(month);</span><br><span class="line">                month = <span class="number">1</span>;</span><br><span class="line">                print();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strcmp</span>(date, sun) == <span class="number">0</span>)&#123;<span class="comment">//周日</span></span><br><span class="line">            <span class="built_in">strcpy</span>(date,mon);</span><br><span class="line">            <span class="keyword">if</span>(day &lt;= monthdays(month) - <span class="number">1</span>)&#123;</span><br><span class="line">                day++;</span><br><span class="line">                print();</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(month != <span class="number">12</span>)&#123;</span><br><span class="line">                month ++;</span><br><span class="line">                day = <span class="number">1</span>;</span><br><span class="line">                print();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                year++;</span><br><span class="line">                day = <span class="number">1</span>;</span><br><span class="line">                month = <span class="number">1</span>;</span><br><span class="line">                print();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strcmp</span>(date, fri) != <span class="number">0</span>)&#123;<span class="comment">//周一到周四</span></span><br><span class="line">            after(date);</span><br><span class="line">            <span class="keyword">if</span>(day &lt;= monthdays(month) - <span class="number">1</span>)&#123;</span><br><span class="line">                day++;</span><br><span class="line">                print();</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(month != <span class="number">12</span>)&#123;</span><br><span class="line">                month ++;</span><br><span class="line">                day = <span class="number">1</span>;</span><br><span class="line">                print();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                year++;</span><br><span class="line">                day = <span class="number">1</span>;</span><br><span class="line">                month = <span class="number">1</span>;</span><br><span class="line">                print();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//周五</span></span><br><span class="line">            <span class="built_in">strcpy</span>(date,mon);</span><br><span class="line">            <span class="keyword">if</span>(day &lt;= monthdays(month) - <span class="number">3</span>)&#123;</span><br><span class="line">                day += <span class="number">3</span>;</span><br><span class="line">                print();</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(month != <span class="number">12</span>)&#123;</span><br><span class="line">                month ++;</span><br><span class="line">                day = day + <span class="number">3</span> - monthdays(month);</span><br><span class="line">                print();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                year++;</span><br><span class="line">                day = day + <span class="number">3</span> - monthdays(month);</span><br><span class="line">                month = <span class="number">1</span>;</span><br><span class="line">                print();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;<span class="comment">//前类延期</span></span><br><span class="line">        print();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//闰年函数定义</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">runnian</span><span class="params">(<span class="type">int</span> y)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((y % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; y % <span class="number">100</span> != <span class="number">0</span>) || y % <span class="number">400</span> == <span class="number">0</span>)&#123;</span><br><span class="line">        a = <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        a = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//延期判断</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">ifdelay</span><span class="params">(<span class="type">char</span>* str, <span class="type">int</span> h, <span class="type">int</span> m, <span class="type">int</span> s)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str,sat) == <span class="number">0</span> || <span class="built_in">strcmp</span>(str,sun) == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//后移</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>((h &gt;= <span class="number">9</span> &amp;&amp; h &lt;= <span class="number">14</span>) || (h == <span class="number">15</span> &amp;&amp; m == <span class="number">0</span> &amp;&amp; s == <span class="number">0</span>))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//不延期</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(h &lt; <span class="number">9</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//前类</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//后类</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//月天数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">monthdays</span><span class="params">(<span class="type">int</span> m)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(m == <span class="number">1</span> || m == <span class="number">3</span> || m == <span class="number">5</span> || m == <span class="number">7</span> || m == <span class="number">8</span> || m == <span class="number">10</span> || m == <span class="number">12</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">31</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(m == <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> a == <span class="number">1</span> ? <span class="number">29</span> : <span class="number">28</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">30</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//日期后移</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">after</span><span class="params">(<span class="type">char</span>* str)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str,mon) == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">strcpy</span>(str,tue);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str,tue) == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">strcpy</span>(str,wed);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str,wed) == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">strcpy</span>(str,thu);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">strcpy</span>(str,fri);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">print</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%04d/%02d/%02d&quot;</span>, year, month, day);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="h-%E6%91%A9%E5%8D%A1%E8%83%8C%E5%8D%95%E8%AF%8D" tabindex="-1">H 摩卡背单词</h2>
+<hr>
+<h3 id="%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B-7" tabindex="-1">原题如下</h3>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/2023ACE2H.png"
+                      alt="ACE2H"
+                ></p>
+<h3 id="%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93-7" tabindex="-1">你需要知道</h3>
+<ul>
+<li>对于重复字符的判断转化为数字确实会容易很多，因为数字是计算机可以直接识别的整体，而字符串计算机无法直接判断是否相同</li>
+<li>输入的东西在计算机里的储存方式</li>
+<li>如何清除掉换行符</li>
+</ul>
+<h3 id="%E5%AD%97%E7%AC%A6%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%95%B0%E5%AD%97" tabindex="-1">字符转化为数字</h3>
+<p>如何把字符串翻译成数字呢？</p>
+<p>用<strong>ASCII码</strong></p>
+<p>为了不保证字符位置的改变造成的数字重复，同时也保证数字不要过于大，我们可以把不同位置的字符减去一个合理的相同的数字后分别乘以一个不同的数来转化为数字</p>
+<p>比如说moca</p>
+<p>可以把每个字符先减97</p>
+<p>第一个字符乘1000000</p>
+<p>第二个字符乘10000</p>
+<p>第三个字符乘100</p>
+<p>最后一个不乘</p>
+<p>结果加和就是我们翻译出来的数字啦嘿</p>
+<h3 id="%E8%BE%93%E5%85%A5%E7%9A%84%E4%B8%9C%E8%A5%BF%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8C%E6%98%AF%E5%A6%82%E4%BD%95%E5%82%A8%E5%AD%98%E7%9A%84" tabindex="-1">输入的东西在计算机里是如何储存的</h3>
+<p>比如我们按照题目示例那样，在第一行输入一个6后按回车键，那么这一输入在计算机里储存实际上大概长这样</p>
+<p><code>[6|\n]</code></p>
+<p>此时如果你没有处理掉<strong>回车键</strong></p>
+<p>你就可能在后面读取字符时把回车键一起读取进去，导致答案错误</p>
+<h3 id="%E5%A4%84%E7%90%86%E6%8E%89%E5%9B%9E%E8%BD%A6%E9%94%AE%E6%8D%A2%E8%A1%8C%E7%AC%A6" tabindex="-1">处理掉回车键换行符</h3>
+<p>我们可以使用<code>getchar()</code>函数，因为这个函数读取字符只读取一个，也就是说，它只会读取到<code>\n</code>，从而可以很好地解决到行尾换行符回车键的问题</p>
+<h3 id="getchar()%E5%87%BD%E6%95%B0" tabindex="-1"><code>getchar()</code>函数</h3>
+<p>头文件：<code>stdio.h</code><br>
+语法/原型：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">int getchar(void);</span><br></pre></td></tr></table></figure></div>
+<p>我们来看这个函数的声明，不难发现，<code>getchar</code>返回值是字符的<code>ASCII</code>码</p>
+<p><code>getchar</code>用于读取单个字符，如果此时<strong>缓存区</strong>（如果不清楚就暂且把它理解为暂时储存你输入的东西的地方）中有多个字符，那么<code>getchar</code>读取的就是上一次读取的最后一个字符的后一个字符</p>
+<h3 id="%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90" tabindex="-1">思路分析</h3>
+<p>既然我们已经可以把字符串转化为数字了，那我们就可以用数组来判断是否重复的问题</p>
+<p>比如如果39出现过了，我们就可以把数组的第39个元素设为1，其他位置的数据在刚开始时全部设为0，这样再次遇见39时，我们只要判断该数组的第39个元素是否为1即可</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-7" tabindex="-1">代码实现</h3>
+<p>这不是最优代码，但是是正确代码</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> x[<span class="number">26262627</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> m;</span><br><span class="line">    <span class="type">char</span> a, b, c, d;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        getchar();<span class="comment">//清除换行符</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%c%c%c%c&quot;</span>, &amp;a, &amp;b, &amp;c, &amp;d);</span><br><span class="line">        m = (a - <span class="number">97</span>) * <span class="number">1000000</span> + (b - <span class="number">97</span>) * <span class="number">10000</span> + (c - <span class="number">97</span>) * <span class="number">100</span> + d;<span class="comment">//翻译为数字</span></span><br><span class="line">        <span class="keyword">if</span> (x[m] == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Moca has already memorized this word!\n&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            x[m] = <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Moca memorized a new word!\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>最小内存版本</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">readBit</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> bit,<span class="type">char</span> *<span class="built_in">array</span>)</span>&#123;<span class="comment">//读取字节</span></span><br><span class="line">    <span class="type">int</span> shift = <span class="number">7</span> - (bit % <span class="number">8</span>);</span><br><span class="line">    <span class="keyword">return</span> ((<span class="built_in">array</span>[bit / <span class="number">8</span> ]&gt;&gt;shift)&amp;<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">writeBit</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> bit,<span class="type">int</span> value,<span class="type">char</span>*<span class="built_in">array</span>)</span>&#123;<span class="comment">//压缩字节</span></span><br><span class="line">    <span class="keyword">if</span>(readBit(bit,<span class="built_in">array</span>)==value)&#123;</span><br><span class="line">        ;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">array</span>[bit/<span class="number">8</span>] ^= (<span class="number">128</span>&gt;&gt; (bit % <span class="number">8</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这样可以做到把一个数字压缩为一个bit储存于数组内存的不同位中，达到减小内存的目的</span></span><br><span class="line"><span class="type">char</span> wordBank[<span class="number">57122</span>] = &#123;<span class="string">&#x27;\0&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n,position;</span><br><span class="line">    <span class="type">char</span> a, b, c, d;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%c%c%c%c&quot;</span>, &amp;a, &amp;b, &amp;c, &amp;d);</span><br><span class="line">        position = (a - <span class="string">&#x27;a&#x27;</span>)*<span class="number">26</span>*<span class="number">26</span>*<span class="number">26</span> + (b - <span class="string">&#x27;a&#x27;</span>) *<span class="number">26</span>*<span class="number">26</span>  + (c - <span class="string">&#x27;a&#x27;</span>) * <span class="number">26</span> + d-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (readBit(position,wordBank)) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Moca has already memorized this word!\n&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            writeBit(position,<span class="number">1</span>,wordBank);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Moca memorized a new word!\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="i-%E8%A7%84%E5%88%99%E7%9A%84%E5%BD%A2" tabindex="-1">I 规则的形</h2>
+<hr>
+<p><strong>待更新哦</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>C语言</category>
+        <category>练习题</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo&amp;github pages建站指南</title>
+    <url>/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
+<h1 id="hexo-%26-github-pages-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8C%97" tabindex="-1">Hexo &amp; Github pages 搭建个人博客指北</h1>
+<p>中间如果遇到问题可以直接评论或联系我询问噢，我能帮一定会帮</p>
+<h2 id="hexo" tabindex="-1">Hexo</h2>
+<h3 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E4%B8%8B%E8%BD%BDnode.js" tabindex="-1">第一步 下载<strong>Node.js</strong></h3>
+<p>建站过程中需要用到<strong>npm</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的指令下载相关代码包</p>
+<p>既然这是一个基于Node.js的工具，它的下载是伴随Node.js的，所以这里需要下载Node.js来支持网站搭建</p>
+<p><a class="link"   href="https://nodejs.org/en" >Node.js下载官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这里不必下载最新版，下载推荐的版本即可</p>
+<h3 id="%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8B%E8%BD%BDgit" tabindex="-1">第二步 下载<strong>Git</strong></h3>
+<p>Git是一个代码版本管理器，详细可以参见搜索引擎或后期发表的文章</p>
+<p><a class="link"   href="https://git-scm.com/download/win" >Windows系统Git下载官方网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这个网站由于是外国网站，可能你会无法正常访问，所以你也可以通过<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/"><strong>淘宝 Git for Windows 镜像</strong></a>下载Git安装包，下载最新版即可，在本文发布时最新版为<strong>v2.42.0.windows.2/</strong>，你可以在网站里找找</p>
+<h3 id="%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%AE%89%E8%A3%85hexo" tabindex="-1">第三步 安装Hexo</h3>
+<p>请确认已经成功安装了上面两个东西，再来执行这一步</p>
+<h4 id="%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85hexo" tabindex="-1">使用npm安装Hexo</h4>
+<p>在系统开始栏搜索打开cmd</p>
+<p>输入以下指令</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></div>
+<h3 id="%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%BB%BA%E7%AB%99" tabindex="-1">第四步 建站</h3>
+<p>这里需要建一个放你网站文件的文件夹</p>
+<p>请找到你想把文件夹放在的地方，比如你想放到D盘的话，你就需要在cmd中先输入<code>D:</code>，然后输入以下指令</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>这里的<code>&lt;folder&gt;</code>是你想建的文件夹的名字，建议用英文</li>
+<li><code>cd &lt;folder&gt;</code></li>
+</ul>
+<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><strong>npm</strong>全称为<strong>Node Package Manager</strong>，看名字就大概可以猜到它的用途了，npm是基于<strong>Node.js</strong>的一个代码包的库，如果没有npm，而我们又需要一些Node.js的拓展代码来完成一些特殊任务，就需要到代码所在的相应网站去下载，问题是，如果我们需要很多代码包，它们都分处不同的网站，那么这时候去挨个访问网站去下载代码就会非常麻烦了，npm就是为了解决这个问题而出现的，npm为那些代码的开发者提供了一个平台，使得代码可以被发布到npm上，使用者可以直接通过npm下载相应的代码，而不需要另外拜访相应网站去下载了。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>建站</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Visual Studio Code C语言环境配置</title>
     <url>/2023/09/22/VisualStudioCodeC%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="第一步-安装gcc编译器"><a href="#第一步-安装gcc编译器" class="headerlink" title="第一步 安装gcc编译器"></a>第一步 安装gcc编译器</h2><h3 id="已经确认无误完成这一步的朋友可以跳过-检验方法如下"><a href="#已经确认无误完成这一步的朋友可以跳过-检验方法如下" class="headerlink" title="已经确认无误完成这一步的朋友可以跳过 检验方法如下"></a>已经确认无误完成这一步的朋友可以跳过 检验方法如下</h3><p>在windows开始搜索栏里搜索cmd（命令提示符）点开命令提示符</p>
+    <content><![CDATA[<h2 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%89%E8%A3%85gcc%E7%BC%96%E8%AF%91%E5%99%A8" tabindex="-1">第一步 安装gcc编译器</h2>
+<h3 id="%E5%B7%B2%E7%BB%8F%E7%A1%AE%E8%AE%A4%E6%97%A0%E8%AF%AF%E5%AE%8C%E6%88%90%E8%BF%99%E4%B8%80%E6%AD%A5%E7%9A%84%E6%9C%8B%E5%8F%8B%E5%8F%AF%E4%BB%A5%E8%B7%B3%E8%BF%87-%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E5%A6%82%E4%B8%8B" tabindex="-1">已经确认无误完成这一步的朋友可以跳过 检验方法如下</h3>
+<p>在windows开始搜索栏里搜索cmd（命令提示符）点开命令提示符</p>
 <p>输入以下代码</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ gcc --version</span><br></pre></td></tr></table></figure></div>
-
 <p>如果输出为</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc (Rev6, Built by MSYS2 project) 13.1.0</span><br><span class="line">Copyright (C) 2023 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions.  There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure></div>
-
 <p>那么你这一步可以跳过了</p>
 <p>现在开始教你如何安装gcc编译器</p>
-<h3 id="下载MinGW-w64"><a href="#下载MinGW-w64" class="headerlink" title="下载MinGW-w64"></a>下载MinGW-w64</h3><p>在windows系统中想使用gcc编译器，一般需要安装MinGW-w64</p>
+<h3 id="%E4%B8%8B%E8%BD%BDmingw-w64" tabindex="-1">下载MinGW-w64</h3>
+<p>在windows系统中想使用gcc编译器，一般需要安装MinGW-w64</p>
 <p>搜索MinGW-w64进入<a class="link"   href="https://sourceforge.net/projects/mingw-w64/" >sourceforge网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载压缩包</p>
 <p><img  
                      lazyload
@@ -27,21 +423,30 @@
 <ul>
 <li><code>i686</code>是32位系统，<code>x86_64</code>为64位系统</li>
 <li><code>win32</code>是windows系统使用的标准，<code>posix</code>是其他系统（如Linux、Unix、Mac OS）使用的标准</li>
-<li><code>ucrt</code>是微软提供的一个通用C++运行时库，提供了许多与C标准库兼容的函数和一些新的C函数，同时还支持Unicode字符集和安全函数，如strcpy_s、strcat_s、_itoa_s等，支持新的C11和C++11标准，适用于win10及更高的系统；<code>msvcrt</code>是微软提供的一个C++运行库，提供了许多与C标准库兼容的函数，不支持新的C11和C++11标准</li>
+<li><code>ucrt</code>是微软提供的一个通用C<ins>运行时库，提供了许多与C标准库兼容的函数和一些新的C函数，同时还支持Unicode字符集和安全函数，如strcpy_s、strcat_s、_itoa_s等，支持新的C11和C</ins>11标准，适用于win10及更高的系统；<code>msvcrt</code>是微软提供的一个C<ins>运行库，提供了许多与C标准库兼容的函数，不支持新的C11和C</ins>11标准</li>
 <li><code>dwarf</code>只有32位可用，没有永久的运行时间开销，需要整个调用堆栈被启用，所以exception不能被抛出；<code>seh</code>可以用于64位GCC</li>
 </ul>
 <p>无论放在哪个目录下，请复制或记住里面文件bin的位置</p>
 <p>例如C:\msys64\mingw64\x86_64-w64-mingw32\bin</p>
-<h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h3><p>然后在win11中，依次点击开始-设置-（系统）系统信息-（设备规格下面的相关链接）高级系统设置-环境变量（N）…<br>选定系统变量下的Path一行后点击编辑-新建<br>把之前记住的文件位置粘贴或输入进去<br>点击确定-确定-确定</p>
+<h3 id="%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" tabindex="-1">添加环境变量</h3>
+<p>然后在win11中，依次点击开始-设置-（系统）系统信息-（设备规格下面的相关链接）高级系统设置-环境变量（N）…<br>
+选定系统变量下的Path一行后点击编辑-新建<br>
+把之前记住的文件位置粘贴或输入进去<br>
+点击确定-确定-确定</p>
 <p>做完这些后你就可以在cmd中检测有没有装好啦，检测方法见文首</p>
-<h2 id="第二步-安装Visual-Studio-Code"><a href="#第二步-安装Visual-Studio-Code" class="headerlink" title="第二步 安装Visual Studio Code"></a>第二步 安装Visual Studio Code</h2><h3 id="安装VScode"><a href="#安装VScode" class="headerlink" title="安装VScode"></a>安装VScode</h3><p>搜索Visual Studio Code进入<a href="https://code.visualstudio.com/"><strong>官网</strong></a></p>
+<h2 id="%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%AE%89%E8%A3%85visual-studio-code" tabindex="-1">第二步 安装Visual Studio Code</h2>
+<h3 id="%E5%AE%89%E8%A3%85vscode" tabindex="-1">安装VScode</h3>
+<p>搜索Visual Studio Code进入<a href="https://code.visualstudio.com/"><strong>官网</strong></a></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/VScodewebsite.png"
                       alt="vscode官网"
                 ></p>
-<p>点击Download for Windows<br>下载完安装包后打开<br>安装到你想要的位置<br>注意安装过程中建议勾选 “将”通过Code打开”操作添加到Windows资源管理器文件&amp;&amp;目录上下文菜单”</p>
+<p>点击Download for Windows<br>
+下载完安装包后打开<br>
+安装到你想要的位置<br>
+注意安装过程中建议勾选 “将&quot;通过Code打开&quot;操作添加到Windows资源管理器文件&amp;&amp;目录上下文菜单”</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -49,7 +454,9 @@
                       alt="安装"
                 ></p>
 <p>安装完后打开vscode</p>
-<h2 id="第三步-VScode配置"><a href="#第三步-VScode配置" class="headerlink" title="第三步 VScode配置"></a>第三步 VScode配置</h2><h3 id="安装vscode拓展插件"><a href="#安装vscode拓展插件" class="headerlink" title="安装vscode拓展插件"></a>安装vscode拓展插件</h3><p>打开vscode后，在左侧栏选择</p>
+<h2 id="%E7%AC%AC%E4%B8%89%E6%AD%A5-vscode%E9%85%8D%E7%BD%AE" tabindex="-1">第三步 VScode配置</h2>
+<h3 id="%E5%AE%89%E8%A3%85vscode%E6%8B%93%E5%B1%95%E6%8F%92%E4%BB%B6" tabindex="-1">安装vscode拓展插件</h3>
+<p>打开vscode后，在左侧栏选择</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -57,55 +464,77 @@
                       alt="进入vscode后的界面"
                 ></p>
 <p>下载图上的四个东西以及CMake、CMake Tools、Code Runner，下完后关闭vscode</p>
-<h3 id="代码文件夹"><a href="#代码文件夹" class="headerlink" title="代码文件夹"></a>代码文件夹</h3><p>在配置完成前，你要确定你的代码（准确地说是VScode的代码）放在哪里   </p>
+<h3 id="%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%A4%B9" tabindex="-1">代码文件夹</h3>
+<p>在配置完成前，你要确定你的代码（准确地说是VScode的代码）放在哪里</p>
 <p>在一个没有中文的路径位置上新建一个文件夹，文件夹的名字和位置你最好要记住，否则找起来挺麻烦</p>
 <div class="note warning"><p>注意 文件夹的名字也不能有中文！因为c语言是不支持中文的，有中文后期配置会出大问题。</p>
 </div>
-
 <p>如果你之前已经有了一个合格的文件夹，那么你这步也可以跳过</p>
 <p>创建好文件夹后，在vscode中打开这个文件夹，此时如果你是第一次打开这个文件夹，页面上会弹出一段警告，选择“是，信任此作者”即可</p>
-<h3 id="开始正式配置"><a href="#开始正式配置" class="headerlink" title="开始正式配置"></a>开始正式配置</h3><p>点回拓展，点击C&#x2F;C++插件右下角的齿轮，点击安装另一个版本，选择1.8.4版的，改完版本重新开启一下vscode</p>
-<p>之前不是弄了一个文件夹嘛，点击左栏第一个图标，在你的文件夹里新建一个c语言程序，随便写些可执行代码，之后，按运行代码的快捷键（F5）运行，不要用“run code”运行,此时软件上面会弹出一个选择框，选择C++(GDB&#x2F;LLDB)<br><img  
+<h3 id="%E5%BC%80%E5%A7%8B%E6%AD%A3%E5%BC%8F%E9%85%8D%E7%BD%AE" tabindex="-1">开始正式配置</h3>
+<p>点回拓展，点击C/C++插件右下角的齿轮，点击安装另一个版本，选择1.8.4版的，改完版本重新开启一下vscode</p>
+<p>之前不是弄了一个文件夹嘛，点击左栏第一个图标，在你的文件夹里新建一个c语言程序，随便写些可执行代码，之后，按运行代码的快捷键（F5）运行，不要用“run code”运行,此时软件上面会弹出一个选择框，选择C++(GDB/LLDB)<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BC%B9%E5%87%BA%E6%A1%86.png"
                       alt="第一个弹出框"
                 ></p>
-<p>然后再选择最上面的”gcc.exe-生成和调试活动文件”<br><img  
+<p>然后再选择最上面的&quot;gcc.exe-生成和调试活动文件&quot;<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%BC%B9%E5%87%BA%E6%A1%86.jpg"
                       alt="第二个弹出框"
                 ></p>
-<p>然后就没什么问题了，你这时再回到文件夹里看会发现新增了一个叫作”.vscode”的文件夹，里面会有”tasks.json”和”launch.json”两个配置文件，之后你可以选择再把之前那个插件改回最新版，但是注意不要删除或修改新生成的那个叫作”launch.json”的配置文件就行</p>
+<p>然后就没什么问题了，你这时再回到文件夹里看会发现新增了一个叫作&quot;.vscode&quot;的文件夹，里面会有&quot;tasks.json&quot;和&quot;launch.json&quot;两个配置文件，之后你可以选择再把之前那个插件改回最新版，但是注意不要删除或修改新生成的那个叫作&quot;launch.json&quot;的配置文件就行</p>
 <p>至此，基本就配置好了，对于一些特殊情况请在下面继续看</p>
-<h2 id="已经有配置经历并出了问题"><a href="#已经有配置经历并出了问题" class="headerlink" title="已经有配置经历并出了问题"></a>已经有配置经历并出了问题</h2><h3 id="检查代码所在文件夹的路径"><a href="#检查代码所在文件夹的路径" class="headerlink" title="检查代码所在文件夹的路径"></a>检查代码所在文件夹的路径</h3><p>如果你的代码文件夹路径上有中文名，你可能会遇到下面这种情况<br><img  
+<h2 id="%E5%B7%B2%E7%BB%8F%E6%9C%89%E9%85%8D%E7%BD%AE%E7%BB%8F%E5%8E%86%E5%B9%B6%E5%87%BA%E4%BA%86%E9%97%AE%E9%A2%98" tabindex="-1">已经有配置经历并出了问题</h2>
+<h3 id="%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E6%89%80%E5%9C%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%B7%AF%E5%BE%84" tabindex="-1">检查代码所在文件夹的路径</h3>
+<p>如果你的代码文件夹路径上有中文名，你可能会遇到下面这种情况<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E8%B7%AF%E5%BE%84%E5%87%BA%E7%8E%B0%E4%B8%AD%E6%96%87%E5%90%8D.png"
                       alt="路径出现中文名"
-                ><br>此时只要把文件夹转移到没有中文名的路径上即可再重复之前的操作</p>
-<h3 id="检查是否已经有了配置文件"><a href="#检查是否已经有了配置文件" class="headerlink" title="检查是否已经有了配置文件"></a>检查是否已经有了配置文件</h3><p>如果你之前有尝试配置过vscode，可能在你的文件夹里已经有了”launch.json”的配置文件，如果配置依旧有问题，请把这个文件删除，重复之前的操作</p>
-<h3 id="运行使用的按键"><a href="#运行使用的按键" class="headerlink" title="运行使用的按键"></a>运行使用的按键</h3><p>如果你点击右上角的三角形，可能它会给你三种运行方式，这里建议直接使用F5运行即可，如果你不需要进行调试，那么选择Run code也毫无问题</p>
-<h2 id="第四步-完善其他配置"><a href="#第四步-完善其他配置" class="headerlink" title="第四步 完善其他配置"></a>第四步 完善其他配置</h2><p>这里有一些其他有用的配置</p>
-<h3 id="让程序在终端中运行-保存程序"><a href="#让程序在终端中运行-保存程序" class="headerlink" title="让程序在终端中运行&amp;&amp;保存程序"></a>让程序在终端中运行&amp;&amp;保存程序</h3><p>点击左栏最下方的齿轮（管理），点击设置<br><img  
+                ><br>
+此时只要把文件夹转移到没有中文名的路径上即可再重复之前的操作</p>
+<h3 id="%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E6%9C%89%E4%BA%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" tabindex="-1">检查是否已经有了配置文件</h3>
+<p>如果你之前有尝试配置过vscode，可能在你的文件夹里已经有了&quot;launch.json&quot;的配置文件，如果配置依旧有问题，请把这个文件删除，重复之前的操作</p>
+<h3 id="%E8%BF%90%E8%A1%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8C%89%E9%94%AE" tabindex="-1">运行使用的按键</h3>
+<p>如果你点击右上角的三角形，可能它会给你三种运行方式，这里建议直接使用F5运行即可，如果你不需要进行调试，那么选择Run code也毫无问题</p>
+<h2 id="%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%AE%8C%E5%96%84%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE" tabindex="-1">第四步 完善其他配置</h2>
+<p>这里有一些其他有用的配置</p>
+<h3 id="%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E8%BF%90%E8%A1%8C%26%26%E4%BF%9D%E5%AD%98%E7%A8%8B%E5%BA%8F" tabindex="-1">让程序在终端中运行&amp;&amp;保存程序</h3>
+<p>点击左栏最下方的齿轮（管理），点击设置<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E8%AE%BE%E7%BD%AE.png"
                       alt="设置"
-                ><br>找到Run Code Configuration那一块<br><img  
+                ><br>
+找到Run Code Configuration那一块<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/runcodeconfiguration.png"
                       alt="Run Code Configuration"
-                ><br>向下划，找到这三项并勾选<br><img  
+                ><br>
+向下划，找到这三项并勾选<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E4%B8%89%E9%A1%B9.png"
                       alt="三项"
-                ><br>这能让你的程序直接在终端运行，并在你每次运行程序时保存你的程序，避免修改或程序丢失</p>
-<h3 id="删除执行程序时生成的-exe文件"><a href="#删除执行程序时生成的-exe文件" class="headerlink" title="删除执行程序时生成的.exe文件"></a>删除执行程序时生成的.exe文件</h3><p>当你的代码一多，满屏的.c和.exe可能会让你目不暇接，这里推荐一个方法，这个教程可以看看一个学长的博客，非常有用<br><a class="link"   href="https://swkfk.top/2023/07/30/VSCode-%E4%B8%AD-C-%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88for-Windows%EF%BC%89/" >搬运工:) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="如果本文有什么问题，欢迎指正"><a href="#如果本文有什么问题，欢迎指正" class="headerlink" title="如果本文有什么问题，欢迎指正\ (^-^) &#x2F;"></a>如果本文有什么问题，欢迎指正\ (^-^) &#x2F;</h3>]]></content>
+                ><br>
+这能让你的程序直接在终端运行，并在你每次运行程序时保存你的程序，避免修改或程序丢失</p>
+<h3 id="%E5%88%A0%E9%99%A4%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%97%B6%E7%94%9F%E6%88%90%E7%9A%84.exe%E6%96%87%E4%BB%B6" tabindex="-1">删除执行程序时生成的.exe文件</h3>
+<p>当你的代码一多，满屏的.c和.exe可能会让你目不暇接，这里推荐一个方法，这个教程可以看看一个学长的博客，非常有用<br>
+<a class="link"   href="https://swkfk.top/2023/07/30/VSCode-%E4%B8%AD-C-%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88for-Windows%EF%BC%89/" >搬运工:) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="%E5%A6%82%E6%9E%9C%E6%9C%AC%E6%96%87%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8C%87%E6%AD%A3%5C-(-)-%2F" tabindex="-1">如果本文有什么问题，欢迎指正\ (<sup>-</sup>) /</h3>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
       <categories>
         <category>C语言</category>
         <category>开发环境与配置</category>
@@ -113,314 +542,6 @@
       <tags>
         <tag>C语言</tag>
         <tag>环境配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo&amp;github pages建站指南</title>
-    <url>/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
-<h1 id="Hexo-Github-pages-搭建个人博客指北"><a href="#Hexo-Github-pages-搭建个人博客指北" class="headerlink" title="Hexo &amp; Github pages 搭建个人博客指北"></a>Hexo &amp; Github pages 搭建个人博客指北</h1><p>中间如果遇到问题可以直接评论或联系我询问噢，我能帮一定会帮</p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="第一步-下载Node-js"><a href="#第一步-下载Node-js" class="headerlink" title="第一步 下载Node.js"></a>第一步 下载<strong>Node.js</strong></h3><p>建站过程中需要用到<strong>npm</strong>[^1]的指令下载相关代码包</p>
-<p>[^1]: <strong>npm</strong>全称为<strong>Node Package Manager</strong>，看名字就大概可以猜到它的用途了，npm是基于<strong>Node.js</strong>的一个代码包的库，如果没有npm，而我们又需要一些Node.js的拓展代码来完成一些特殊任务，就需要到代码所在的相应网站去下载，问题是，如果我们需要很多代码包，它们都分处不同的网站，那么这时候去挨个访问网站去下载代码就会非常麻烦了，npm就是为了解决这个问题而出现的，npm为那些代码的开发者提供了一个平台，使得代码可以被发布到npm上，使用者可以直接通过npm下载相应的代码，而不需要另外拜访相应网站去下载了。</p>
-<p>既然这是一个基于Node.js的工具，它的下载是伴随Node.js的，所以这里需要下载Node.js来支持网站搭建</p>
-<p><a class="link"   href="https://nodejs.org/en" >Node.js下载官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>这里不必下载最新版，下载推荐的版本即可</p>
-<h3 id="第二步-下载Git"><a href="#第二步-下载Git" class="headerlink" title="第二步 下载Git"></a>第二步 下载<strong>Git</strong></h3><p>Git是一个代码版本管理器，详细可以参见搜索引擎或后期发表的文章</p>
-<p><a class="link"   href="https://git-scm.com/download/win" >Windows系统Git下载官方网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>这个网站由于是外国网站，可能你会无法正常访问，所以你也可以通过<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/"><strong>淘宝 Git for Windows 镜像</strong></a>下载Git安装包，下载最新版即可，在本文发布时最新版为**v2.42.0.windows.2&#x2F;**，你可以在网站里找找</p>
-<h3 id="第三步-安装Hexo"><a href="#第三步-安装Hexo" class="headerlink" title="第三步 安装Hexo"></a>第三步 安装Hexo</h3><p>请确认已经成功安装了上面两个东西，再来执行这一步</p>
-<h4 id="使用npm安装Hexo"><a href="#使用npm安装Hexo" class="headerlink" title="使用npm安装Hexo"></a>使用npm安装Hexo</h4><p>在系统开始栏搜索打开cmd</p>
-<p>输入以下指令</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="第四步-建站"><a href="#第四步-建站" class="headerlink" title="第四步 建站"></a>第四步 建站</h3><p>这里需要建一个放你网站文件的文件夹</p>
-<p>请找到你想把文件夹放在的地方，比如你想放到D盘的话，你就需要在cmd中先输入<code>D:</code>，然后输入以下指令</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>这里的<code>&lt;folder&gt;</code>是你想建的文件夹的名字，建议用英文</li>
-<li><code>cd &lt;folder&gt;</code></li>
-</ul>
-<p><strong>待更新</strong></p>
-]]></content>
-      <categories>
-        <category>建站</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2023级E2练习赛</title>
-    <url>/2023/09/24/2023%E7%BA%A7E2%E7%BB%83%E4%B9%A0%E8%B5%9B/</url>
-    <content><![CDATA[<h1 id="2023级本科新生第二次练习赛习题讲解"><a href="#2023级本科新生第二次练习赛习题讲解" class="headerlink" title="2023级本科新生第二次练习赛习题讲解"></a>2023级本科新生第二次练习赛习题讲解</h1><h2 id="A-坐标系变换"><a href="#A-坐标系变换" class="headerlink" title="A 坐标系变换"></a>A 坐标系变换</h2><hr>
-<h3 id="原题如下"><a href="#原题如下" class="headerlink" title="原题如下"></a>原题如下</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/2023E2A.png"
-                      alt="E2A"
-                ></p>
-<h3 id="你需要知道"><a href="#你需要知道" class="headerlink" title="你需要知道"></a>你需要知道</h3><p>本题会用到</p>
-<ul>
-<li>&lt;math.h&gt;头文件中的<code>cos</code>、<code>sin</code>两个函数  </li>
-<li>数学里极坐标的基本知识</li>
-<li>标准输出里如何保留小数位数输出浮点数</li>
-</ul>
-<h3 id="cos-函数-求余弦"><a href="#cos-函数-求余弦" class="headerlink" title="cos()函数-求余弦"></a>cos()函数-求余弦</h3><p>头文件：<code>math.h</code><br>语法&#x2F;原型： </p>
-<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">double cos(double x);</span><br></pre></td></tr></table></figure></div>
-
-<p>这里<code>cos</code>前的<code>double</code>表示的是函数的返回值为<code>double</code>双精度实型<br>里面的<code>double x</code>表示这里函数的形式参数是double类型的实数<br>实际运用时，函数名前的<code>double</code>以及参数前的<code>double</code>都不用写，这里只是告诉你函数相关值的类型</p>
-<h3 id="sin-函数-求正弦"><a href="#sin-函数-求正弦" class="headerlink" title="sin()函数-求正弦"></a>sin()函数-求正弦</h3><p>同理我们可以推到正弦函数是怎么使用的<br>头文件：<code>math.h</code><br>语法&#x2F;原型：</p>
-<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">double sin(double x);</span><br></pre></td></tr></table></figure></div>
-<p>读者可以自行类比</p>
-<h3 id="极坐标"><a href="#极坐标" class="headerlink" title="极坐标"></a>极坐标</h3><p>在极坐标中，我们用一个点到极点的距离ρ也即极径和过极点与该点的射线与极轴在逆时针方向所成的角度θ也即极角来描述一个点的位置，不难得到，极坐标转化为直角坐标后表示为(ρcosθ,ρsinθ).<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/%E6%9E%81%E5%9D%90%E6%A0%87.png"
-                      alt="极坐标"
-                ></p>
-<h3 id="保留小数位数输出浮点数"><a href="#保留小数位数输出浮点数" class="headerlink" title="保留小数位数输出浮点数"></a>保留小数位数输出浮点数</h3><p>来看看如下的输出语句</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">printf(&quot;%-6.2lf&quot;, x);</span><br></pre></td></tr></table></figure></div>
-
-<p>这个语句中  </p>
-<ul>
-<li><code>-</code>表示左对齐</li>
-<li><code>6</code>表示输出占6个字符</li>
-<li><code>2</code>表示保留两位小数<br>如果x&#x3D;3.14123，输出如下</li>
-</ul>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">3.14</span><br></pre></td></tr></table></figure></div>
-
-<p>如果去掉<code>6</code>前面的负号<br>输出如下(下面的·表示空格)</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">··3.14</span><br></pre></td></tr></table></figure></div>
-
-<p>注意在使用时不要忘了两个数字中间的<code>.</code>，比如本题我们不需要调整输出的浮点数的对齐方式和占据的字符数，那么就可以把语句写成</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">printf(&quot;%.1lf&quot;,x);</span><br></pre></td></tr></table></figure></div>
-
-<p>这个就表示保留一位小数输出浮点数<code>x</code>啦</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    double a, b;//a表示极径，b表示极角</span><br><span class="line">    scanf(&quot;%lf%lf&quot;, &amp;a, &amp;b);</span><br><span class="line">    printf(&quot;%.1lf %.1lf&quot;, a * cos(b), a * sin(b));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="B-这里是BUAA-2"><a href="#B-这里是BUAA-2" class="headerlink" title="B 这里是BUAA 2"></a>B 这里是BUAA 2</h2><hr>
-<h3 id="原题如下-1"><a href="#原题如下-1" class="headerlink" title="原题如下"></a>原题如下</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/2023E2B.png"
-                      alt="E2B"
-                ></p>
-<h3 id="你需要知道-1"><a href="#你需要知道-1" class="headerlink" title="你需要知道"></a>你需要知道</h3><ul>
-<li>在ASCII码表中，大写字母数值连续，比如<code>&#39;B&#39;</code>比<code>&#39;A&#39;</code>大1</li>
-<li>读取多个字符</li>
-</ul>
-<h3 id="分析思路"><a href="#分析思路" class="headerlink" title="分析思路"></a>分析思路</h3><p>对于读取的每一个字符，我们可以做一次判断，当读取的字符在<code>&#39;B&#39;</code>和<code>&#39;Z&#39;</code>之间时才需要把字母往前调一位</p>
-<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p>这里不是最简单的版本，如果你喜欢数组和字符串的话<br>可以给你看看一个非常啰嗦的版本</p>
-<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;<span class="comment">//引入字符串相关函数的头文件</span></span><br><span class="line"></span><br><span class="line">int main()<span class="punctuation">&#123;</span></span><br><span class="line">    char str<span class="punctuation">[</span><span class="number">10001</span><span class="punctuation">]</span>;</span><br><span class="line">    int n = <span class="number">0</span>;</span><br><span class="line">    gets(str);</span><br><span class="line">    n = strlen(str);</span><br><span class="line">    for(int i = <span class="number">0</span>;i &lt;= n - <span class="number">1</span>;i++)<span class="punctuation">&#123;</span></span><br><span class="line">        printf(<span class="string">&quot;%c&quot;</span><span class="punctuation">,</span>str<span class="punctuation">[</span>i<span class="punctuation">]</span> &gt;= &#x27;B&#x27; &amp;&amp; str<span class="punctuation">[</span>i<span class="punctuation">]</span> &lt;= &#x27;Z&#x27; ? str<span class="punctuation">[</span>i<span class="punctuation">]</span> - <span class="number">1</span> <span class="punctuation">:</span> str<span class="punctuation">[</span>i<span class="punctuation">]</span>);</span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>大佬直接跳，我这里稍作解释</p>
-<h3 id="strlen-函数"><a href="#strlen-函数" class="headerlink" title="strlen()函数"></a>strlen()函数</h3><p>头文件：<code>string.h</code><br>语法&#x2F;原型：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">size_t strlen(const char *str);</span><br></pre></td></tr></table></figure></div>
-
-<p><code>size_t</code>表示函数返回字符串的长度,为unsigned int类型<br><code>const char *str</code>是一个形式参数，类型是常量指针，<code>const</code>是<code>constant</code>的缩写，本意为不变的，不可改变的，表明该类指针指向的内存值不可改变<br><code>char *str</code>是一个指向字符串的指针，如果目前没学指针的话，暂时可以理解为<code>char str[]</code>，这里其实说明调用函数传参时传的是地址不是数值<br>这个函数的作用是返回字符串的长度，但需要注意的是，这个函数在取字符串长度时，读取到<code>&#39;\0&#39;</code>时就会停止，最后读取到的长度是第一个字符到第一个<code>&#39;\0&#39;</code>（不包括<code>&#39;\0&#39;</code>）之间的字符串长度  </p>
-<p>这里举个例子</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    char* p = &quot;abcdef&quot;;</span><br><span class="line">    printf(&quot;%d&quot;,strlen(p));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>输出为<code>6</code><br>再来举几个例子  </p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    char* p = &quot;abcdef&quot;;//[a b c d e f \0]</span><br><span class="line">    printf(&quot;%d\n&quot;,strlen(p));</span><br><span class="line">    printf(&quot;%d\n&quot;,strlen(p + 0));</span><br><span class="line">    printf(&quot;%d\n&quot;,strlen(p + 1));</span><br><span class="line">    printf(*p);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>输出</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">6</span><br><span class="line">6</span><br><span class="line">5</span><br></pre></td></tr></table></figure></div>
-
-<p>最后一个<code>printf</code>没有打印出来，因为指针p解码后是字符串中的一个字符，而<code>strlen</code>并不能对一个数据求长度  </p>
-<p>这里尤其需要与另一个函数区分一下</p>
-<h3 id="sizeof-函数"><a href="#sizeof-函数" class="headerlink" title="sizeof()函数"></a>sizeof()函数</h3><p>对于同一个合理字符串来说，sizeof函数返回的字符串长度会包含结尾的<code>&#39;\0&#39;</code>，而strlen不会包含，并且sizeof计算的是整个字符串占据的字节，并不会在<code>&#39;\0&#39;</code>处就此停下<br>来看一个例子  </p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    char* p = &quot;abcdef&quot;;</span><br><span class="line">    printf(&quot;%d\n&quot;,strlen(p));</span><br><span class="line">    printf(&quot;%d&quot;,sizeof(p))</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>输出</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">6</span><br><span class="line">7</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="gets-函数"><a href="#gets-函数" class="headerlink" title="gets()函数"></a>gets()函数</h3><p>头文件：<code>stdio.h</code><br>语法&#x2F;原型：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">char *gets(char *str);</span><br></pre></td></tr></table></figure></div>
-
-<p><code>char *</code>表明返回的是一个指向字符串的指针<br>里面的<code>char *str</code>说明传参时传入的是指向字符串str的地址<br><code>gets</code>函数与<code>scanf</code>函数一样都是输入函数，但是两者还是会有很多差别的  </p>
-<ul>
-<li><code>scanf</code>读取字符串是以空格作为结束标志的，这就决定了它无法读取完整的含有空格字符的字符串</li>
-<li><code>gets</code>也是读取一行字符串，但是它是以回车键作为结束标记的，所以它能读取含有空格字符的字符串</li>
-</ul>
-<h2 id="C-GYCY的乘法口诀表"><a href="#C-GYCY的乘法口诀表" class="headerlink" title="C GYCY的乘法口诀表"></a>C GYCY的乘法口诀表</h2><hr>
-<h3 id="原题如下-2"><a href="#原题如下-2" class="headerlink" title="原题如下"></a>原题如下</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/2023ACE2C.png"
-                      alt="ACE2C"
-                ></p>
-<h3 id="你需要知道-2"><a href="#你需要知道-2" class="headerlink" title="你需要知道"></a>你需要知道</h3><ul>
-<li><code>for</code>循环遍历</li>
-</ul>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>很明显需要迭代两个<code>for</code>循环进行遍历，这里不多说，直接上代码</p>
-<h3 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(int i = 1;i &lt;= n;i++)&#123;</span><br><span class="line">        for(int j = 1;j &lt;= i;j++)&#123;</span><br><span class="line">                printf(&quot;%d*%d=%d &quot;, i, j, i * j);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="D-小亮的圆周率"><a href="#D-小亮的圆周率" class="headerlink" title="D 小亮的圆周率"></a>D 小亮的圆周率</h2><hr>
-<h3 id="原题如下-3"><a href="#原题如下-3" class="headerlink" title="原题如下"></a>原题如下</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/2023ACE2D.png"
-                      alt="ACE2D"
-                ></p>
-<h3 id="你需要知道-3"><a href="#你需要知道-3" class="headerlink" title="你需要知道"></a>你需要知道</h3><ul>
-<li>各类数据类型及数据表示范围</li>
-<li>强制类型转换</li>
-<li>如果你想，可以使用<code>fabs</code>函数求两个浮点数之差的绝对值</li>
-<li>如果你想练习函数，可以故意把代码搞麻烦点弄两个计算不同公式不同项数值的函数</li>
-<li>多个数据输入</li>
-<li>保留特定小数位数输出</li>
-<li>如果你想，可以使用<code>pow()</code>函数计算次方</li>
-</ul>
-<h3 id="fabs-函数"><a href="#fabs-函数" class="headerlink" title="fabs()函数"></a><code>fabs()</code>函数</h3><p>头文件：<code>math.h</code><br>语法&#x2F;原型：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">double fabs(double x)</span><br></pre></td></tr></table></figure></div>
-
-<p>这个函数可以用来返回<strong>浮点数</strong>x的绝对值，这样我们在做这道题时可以不用比较两个公式计算值的大小关系了<br>不过使用这个函数时要注意，我们看这个函数声明可以发现，传参是有要求的，<code>fabs</code>函数可以用于<code>double</code>、<code>float</code>、<code>long double</code>类型的参数如果你用它来求整数绝对值，最后求得的结果将带上小数<br>如果你以后需要计算某个整数的绝对值，可以选择使用<code>abs()</code>函数，这里就不详细展开了</p>
-<h3 id="pow-函数"><a href="#pow-函数" class="headerlink" title="pow()函数"></a><code>pow()</code>函数</h3><p>头文件：<code>math.h</code><br>语法&#x2F;原型：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">double pow(double x, double y);</span><br></pre></td></tr></table></figure></div>
-
-<p>同样我们看函数声明可以发现，该函数返回值为<code>double</code>类型，传递的参数类型为<code>double</code>类型，计算出的结果是x的y次幂</p>
-<h3 id="数据类型及表示范围"><a href="#数据类型及表示范围" class="headerlink" title="数据类型及表示范围"></a>数据类型及表示范围</h3><p>我们仔细观察可以发现，n的取值可以非常大，加上公式中出现的(2n+1)^2^数值将会达到4x10^10^，int能容纳得下吗？我们需要使用long long啦</p>
-<ul>
-<li>int类型数据所占内存大小为4字节32位，其中一位为符号位，计算机是以二进制储存数据的，我们通过计算可以知道int最大允许的取值为2^31^-1，好的，不够用了</li>
-<li>long long类型数据所占内存大小为8字节64位，这就完全够用了</li>
-</ul>
-<h3 id="保留小数位数"><a href="#保留小数位数" class="headerlink" title="保留小数位数"></a>保留小数位数</h3><p>详见A</p>
-<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><p>你所需要的最终数据的类型可能与你最初给的数据的类型不同，这时候便需要转换数据的类型了，格式如下<br>(&lt;数据类型&gt;)x<br>这表示把x的数据类型强制转换为括号内的数据类型</p>
-<h3 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h3><p>这里给出的只是正确代码，不是最佳代码</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">double x(int j);</span><br><span class="line">double y(int j);</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int t;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;t);</span><br><span class="line">    for(int i = 1; i &lt;= t; i++)&#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">        printf(&quot;%.6lf\n&quot;,fabs(x(n)-y(n)));</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">double x(int j)&#123;</span><br><span class="line">    double sum=0;</span><br><span class="line">    for(;j &gt;= 1; j--)&#123;</span><br><span class="line">        sum+=pow(-1,j - 1)/(2 * j - 1);</span><br><span class="line">    &#125;</span><br><span class="line">    return 4*sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">double y(int j)&#123;</span><br><span class="line">    double sum=0;</span><br><span class="line">    for(;j&gt;=1;j--)&#123;</span><br><span class="line">        sum+=(double)1/((long long)(2 * j - 1)*(2 * j - 1));</span><br><span class="line">    &#125;</span><br><span class="line">    return sqrt(8 * sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="E-体能锻炼走廊"><a href="#E-体能锻炼走廊" class="headerlink" title="E 体能锻炼走廊"></a>E 体能锻炼走廊</h2><hr>
-<h3 id="原题如下-4"><a href="#原题如下-4" class="headerlink" title="原题如下"></a>原题如下</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/2023ACE2E.png"
-                      alt="ACE2E"
-                ></p>
-<h3 id="你需要知道-4"><a href="#你需要知道-4" class="headerlink" title="你需要知道"></a>你需要知道</h3><ul>
-<li>多组多个数据输入</li>
-<li>对前次循环进行数值清除</li>
-</ul>
-<h3 id="多次循环"><a href="#多次循环" class="headerlink" title="多次循环"></a>多次循环</h3><p>当你的同一个变量在多次循环中出现并作为一种判断条件，你就要注意了，如果你清楚地知道你需要用该变量做什么，你就要关注这个变量是否会带着上一轮的数据进入下一轮并作为条件进行判断了，因为这很容易导致逻辑错误而导致结果不如人意，并且这种错误很难被人察觉</p>
-<h3 id="分析思路-1"><a href="#分析思路-1" class="headerlink" title="分析思路"></a>分析思路</h3><p>其实思路挺简单，主要就是对条件语句的运用了</p>
-<h3 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h3><p>这里是正确代码，不是最佳代码，不是最简代码</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int n, m, below = 0, up = 0;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j = 1; j &lt;= 6; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            scanf(&quot;%d&quot;,&amp;m);</span><br><span class="line">            if(m &gt;= 48)&#123;</span><br><span class="line">                up = m-48;</span><br><span class="line">                if(below &lt;= 0)&#123;</span><br><span class="line">                    below += up;</span><br><span class="line">                    if(below &gt; 0)</span><br><span class="line">                        below = 0;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;else</span><br><span class="line">                below += m - 48;</span><br><span class="line">        &#125;</span><br><span class="line">        if(below == 0)</span><br><span class="line">            printf(&quot;Success\n&quot;);</span><br><span class="line">        else if(below &lt; 0)</span><br><span class="line">            printf(&quot;Failure %d\n&quot;,-below);</span><br><span class="line">        below = 0;//清除前一轮的数据</span><br><span class="line">        up = 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="F-Wings-咖啡"><a href="#F-Wings-咖啡" class="headerlink" title="F Wings 咖啡"></a>F Wings 咖啡</h2><hr>
-<h3 id="原题如下-5"><a href="#原题如下-5" class="headerlink" title="原题如下"></a>原题如下</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/2023ACE2F.png"
-                      alt="ACE2F"
-                ></p>
-<h3 id="你需要知道-5"><a href="#你需要知道-5" class="headerlink" title="你需要知道"></a>你需要知道</h3><ul>
-<li>对于多种极端情况的考虑要求周全</li>
-<li>数据范围</li>
-<li>如何防止爆栈</li>
-<li>全局变量</li>
-<li>对数据最大值的求取</li>
-</ul>
-<h3 id="情况极端"><a href="#情况极端" class="headerlink" title="情况极端"></a>情况极端</h3><ul>
-<li>虽然说你可能凭直觉觉得6元肯定是划算的价格，不然就不会把每天用校园卡买的第一杯咖啡定为6元了，但是！！！这是编程题目不是实际情况，咖啡价格确实很有可能小于6元（bushi</li>
-<li>虽然说去找卡的那个人大概明白需要多少张卡，但是这也避免不了找到的卡的数量比需要的卡的数量要更多</li>
-<li>本人的卡和人头数你算上了吗？</li>
-<li>你有注意数据有多大吗？</li>
-<li>你有注意需要的数组的长度吗？</li>
-</ul>
-<h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>之前强调过就不再强调了</p>
-<h3 id="爆栈"><a href="#爆栈" class="headerlink" title="爆栈"></a>爆栈</h3><p>c语言的函数调用机制是依靠堆栈来实现的，称为函数调用栈（栈空间），程序中函数的局部变量存放在栈空间中，但是，每一个函数的栈空间有限，Windows系统下通常是2MB，所以，局部数组不能开得太大了！！！<br>像这道题，如果你把一个长度为3000001的int型数组作为局部数组扔那个小小的<code>main</code>函数栈空间里（辛苦你了），后果长啥样应该能知道了叭，这就是爆栈，在Debug中应该是被软件识别为<code>segmantation fault</code>（储存器区块错误），你的程序就运行不了啦  </p>
-<p>解决这个问题其实也很简单<br>你放函数里面会爆，我扔函数外面就没事了嘛<br>这就是我们接下来要讲的-全局变量</p>
-<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>我们之前提到了，函数里边定义的变量其实是局部变量，为什么叫局部呢，因为这个变量的生命周期，是随着函数的调用与结束而开始和终结的，也就是说，你函数一用完，这变量就没了<br>而全局函数不同的是，它是定义在整个程序中而不是某个函数中的，也就是说，它的生命周期随这个程序的运行情况而定，只有当程序运行完后，变量才会“死亡”<br>并且，理论上讲，全局变量能使用的空间是无限的（当然得要小于你电脑得内存啦awww），所以你可以放心大胆得开你的超长数组。。。</p>
-<h3 id="最大值的求取"><a href="#最大值的求取" class="headerlink" title="最大值的求取"></a>最大值的求取</h3><p>其实在c语言里有这个函数的文件的，但这个函数的头文件叫<code>algorithm</code>，如果你用的编译软件是VScode，这个软件可能找不到这个文件的位置，需要你进行配置，这里就不展开说明啦<br>所以就别躲了，上循环硬刚叭  </p>
-<p>本题需要的不仅仅是最大值，而是最大的m+1个值，所以我们可以在每循环一次求得了最大值后，选择把最大值处理掉，使上一个最大值不再影响第二次最大值的求取</p>
-<h3 id="代码实现-5"><a href="#代码实现-5" class="headerlink" title="代码实现"></a>代码实现</h3><p>这不是最优的，但是是正确的</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int a[3000001]=&#123;0&#125;;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int n,m,max,num;</span><br><span class="line">    long long sum = 0;//sum的数值后期非常大</span><br><span class="line">    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);</span><br><span class="line">    num = n+1;</span><br><span class="line">    for(int i = 0; i &lt; num; i++)&#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">        if(a[i] &lt;= 6)&#123;//算出咖啡价格大于6的人头数</span><br><span class="line">            n--;</span><br><span class="line">            sum += a[i];</span><br><span class="line">            a[i] = 0;//把数值清零，后面就不会重复加和了</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(m &gt;= n)&#123;</span><br><span class="line">        sum += 6 * (n+1);//卡足够，全部置为6</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        for(int j = m + 1; j &gt;= 1; j--)&#123;</span><br><span class="line">            for(int i = 0; i &lt; num; i++)&#123;</span><br><span class="line">                if(i == 0||a[max] &lt; a[i])&#123;//取最大值</span><br><span class="line">                    max = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            a[max] = 6;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i = 0; i &lt; num; i++)&#123;</span><br><span class="line">            sum += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%lld&quot;, sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="G-某咸鱼与投资"><a href="#G-某咸鱼与投资" class="headerlink" title="G 某咸鱼与投资"></a>G 某咸鱼与投资</h2><hr>
-<h3 id="原题如下-6"><a href="#原题如下-6" class="headerlink" title="原题如下"></a>原题如下</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/2023ACE2G.png"
-                      alt="ACE2G"
-                ></p>
-<h3 id="你需要知道-6"><a href="#你需要知道-6" class="headerlink" title="你需要知道"></a>你需要知道</h3><ul>
-<li>输出数字的前导零</li>
-<li>字符串相等的判断-<code>strcmp()</code>函数</li>
-<li>你知道闰年的规则嘛</li>
-</ul>
-<h3 id="strcmp-函数"><a href="#strcmp-函数" class="headerlink" title="strcmp()函数"></a><code>strcmp()</code>函数</h3><p>头文件：<code>string.h</code><br>语法&#x2F;原型：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">int strcmp(const char *str1, const char *str2);</span><br></pre></td></tr></table></figure></div>
-
-<p>从声明中我们可以知道，这个函数返回一个int型整数值，传参为两个指向字符串的常量指针  </p>
-<p>返回值的规则如下  </p>
-<ul>
-<li>如果<code>str1 &gt; str2</code>，返回正数</li>
-<li>如果<code>str1 = str2</code>，返回0</li>
-<li>如果<code>str1 &lt; str2</code>，返回负数</li>
-</ul>
-<p>其中，两个字符串比较时从第一个字符开始比较，如果相同则比较下一个  </p>
-<ul>
-<li>遇到不同的字符，排在字母表前面的字符小于排在后面的（可以认为是比较字符的ASCII码）</li>
-<li>如果两个字符串所有字符都相同，则二者相等</li>
-<li>如果一个字符串提前结束，那么一定是长的那个字符串大于短的那个字符串</li>
-</ul>
-<h3 id="输出前导零"><a href="#输出前导零" class="headerlink" title="输出前导零"></a>输出前导零</h3><p>比如<code>%0md</code>，表示以整型输出时在数字前补充前导零，使其总位数为m位，m也即<strong>位宽</strong></p>
-<h3 id="闰年"><a href="#闰年" class="headerlink" title="闰年"></a>闰年</h3><p>对于闰年来说，它能整除4且不能被100整除，或者它能整除400，则这个年为闰年</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>其实主要就是需要判断2月的天数，大月小月判断，以及延期是早于时间点还是晚于时间点，这些用普通条件语句可以解决啦<br>看代码实现叭</p>
-<h3 id="代码实现-6"><a href="#代码实现-6" class="headerlink" title="代码实现"></a>代码实现</h3><p>这是正确的，不是最好的</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">void runnian(int);//判断是否为闰年的函数</span><br><span class="line">int ifdelay(char*, int, int, int);//判断延期类型的函数</span><br><span class="line">int monthdays(int);//判断月的天数的函数</span><br><span class="line">void after(char*);//日期后移的函数</span><br><span class="line">void print();//输出函数</span><br><span class="line"></span><br><span class="line">int a;//闰年情况，全局变量</span><br><span class="line">char mon[] = &quot;Mon&quot;, tue[] = &quot;Tue&quot;, wed[] = &quot;Wed&quot;, thu[] = &quot;Thu&quot;, fri[] = &quot;Fri&quot;, sat[] = &quot;Sat&quot;, sun[] = &quot;Sun&quot;;</span><br><span class="line">int year, month, day, hour, minute, second;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    char litter;//吞掉空格，或者你也可以在输入代码后面做改动</span><br><span class="line">    scanf(&quot;%d/%d/%d %d:%d:%d&quot;, &amp;year, &amp;month, &amp;day, &amp;hour, &amp;minute, &amp;second);</span><br><span class="line">    scanf(&quot;%c&quot;,&amp;litter);//清除空格</span><br><span class="line">    char date[4];//日期，注意把字符串结束符括进去</span><br><span class="line">    gets(date);</span><br><span class="line">    //判断闰年</span><br><span class="line">    runnian(year);</span><br><span class="line">    //延期情况分类</span><br><span class="line">    if(ifdelay(date, hour, minute, second))&#123;</span><br><span class="line">        print();</span><br><span class="line">    &#125;else if(ifdelay(date, hour, minute, second) == 0)&#123;//延期</span><br><span class="line">        if(strcmp(date, sat) == 0)&#123;//周六</span><br><span class="line">            strcpy(date,mon);</span><br><span class="line">            if(day &lt;= monthdays(month) - 2)&#123;</span><br><span class="line">                day += 2;</span><br><span class="line">                print();</span><br><span class="line">            &#125;else if(month != 12)&#123;</span><br><span class="line">                month ++;</span><br><span class="line">                day = day + 2 - monthdays(month);</span><br><span class="line">                print();</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                year++;</span><br><span class="line">                day = day + 2 - monthdays(month);</span><br><span class="line">                month = 1;</span><br><span class="line">                print();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else if(strcmp(date, sun) == 0)&#123;//周日</span><br><span class="line">            strcpy(date,mon);</span><br><span class="line">            if(day &lt;= monthdays(month) - 1)&#123;</span><br><span class="line">                day++;</span><br><span class="line">                print();</span><br><span class="line">            &#125;else if(month != 12)&#123;</span><br><span class="line">                month ++;</span><br><span class="line">                day = 1;</span><br><span class="line">                print();</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                year++;</span><br><span class="line">                day = 1;</span><br><span class="line">                month = 1;</span><br><span class="line">                print();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else if(strcmp(date, fri) != 0)&#123;//周一到周四</span><br><span class="line">            after(date);</span><br><span class="line">            if(day &lt;= monthdays(month) - 1)&#123;</span><br><span class="line">                day++;</span><br><span class="line">                print();</span><br><span class="line">            &#125;else if(month != 12)&#123;</span><br><span class="line">                month ++;</span><br><span class="line">                day = 1;</span><br><span class="line">                print();</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                year++;</span><br><span class="line">                day = 1;</span><br><span class="line">                month = 1;</span><br><span class="line">                print();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;//周五</span><br><span class="line">            strcpy(date,mon);</span><br><span class="line">            if(day &lt;= monthdays(month) - 3)&#123;</span><br><span class="line">                day += 3;</span><br><span class="line">                print();</span><br><span class="line">            &#125;else if(month != 12)&#123;</span><br><span class="line">                month ++;</span><br><span class="line">                day = day + 3 - monthdays(month);</span><br><span class="line">                print();</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                year++;</span><br><span class="line">                day = day + 3 - monthdays(month);</span><br><span class="line">                month = 1;</span><br><span class="line">                print();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;//前类延期</span><br><span class="line">        print();</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//闰年函数定义</span><br><span class="line">void runnian(int y)&#123;</span><br><span class="line">    if((y % 4 == 0 &amp;&amp; y % 100 != 0) || y % 400 == 0)&#123;</span><br><span class="line">        a = 1;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        a = 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//延期判断</span><br><span class="line">int ifdelay(char* str, int h, int m, int s)&#123;</span><br><span class="line">    if(strcmp(str,sat) == 0 || strcmp(str,sun) == 0)&#123;</span><br><span class="line">        return 0;//后移</span><br><span class="line">    &#125;else if((h &gt;= 9 &amp;&amp; h &lt;= 14) || (h == 15 &amp;&amp; m == 0 &amp;&amp; s == 0))&#123;</span><br><span class="line">        return 1;//不延期</span><br><span class="line">    &#125;else if(h &lt; 9)&#123;</span><br><span class="line">        return -1;//前类</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return 0;//后类</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//月天数</span><br><span class="line">int monthdays(int m)&#123;</span><br><span class="line">    if(m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12)&#123;</span><br><span class="line">        return 31;</span><br><span class="line">    &#125;else if(m == 2)&#123;</span><br><span class="line">        return a == 1 ? 29 : 28;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return 30;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//日期后移</span><br><span class="line">void after(char* str)&#123;</span><br><span class="line">    if(strcmp(str,mon) == 0)&#123;</span><br><span class="line">        strcpy(str,tue);</span><br><span class="line">    &#125;else if(strcmp(str,tue) == 0)&#123;</span><br><span class="line">        strcpy(str,wed);</span><br><span class="line">    &#125;else if(strcmp(str,wed) == 0)&#123;</span><br><span class="line">        strcpy(str,thu);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        strcpy(str,fri);</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//输出函数</span><br><span class="line">void print()&#123;</span><br><span class="line">    printf(&quot;%04d/%02d/%02d&quot;, year, month, day);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="H-摩卡背单词"><a href="#H-摩卡背单词" class="headerlink" title="H 摩卡背单词"></a>H 摩卡背单词</h2><hr>
-<h3 id="原题如下-7"><a href="#原题如下-7" class="headerlink" title="原题如下"></a>原题如下</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/2023ACE2H.png"
-                      alt="ACE2H"
-                ></p>
-<h3 id="你需要知道-7"><a href="#你需要知道-7" class="headerlink" title="你需要知道"></a>你需要知道</h3><ul>
-<li>对于重复字符的判断转化为数字确实会容易很多，因为数字是计算机可以直接识别的整体，而字符串计算机无法直接判断是否相同</li>
-<li>输入的东西在计算机里的储存方式</li>
-<li>如何清除掉换行符</li>
-</ul>
-<h3 id="字符转化为数字"><a href="#字符转化为数字" class="headerlink" title="字符转化为数字"></a>字符转化为数字</h3><p>如何把字符串翻译成数字呢？</p>
-<p>用<strong>ASCII码</strong></p>
-<p>为了不保证字符位置的改变造成的数字重复，同时也保证数字不要过于大，我们可以把不同位置的字符减去一个合理的相同的数字后分别乘以一个不同的数来转化为数字</p>
-<p>比如说moca</p>
-<p>可以把每个字符先减97</p>
-<p>第一个字符乘1000000</p>
-<p>第二个字符乘10000</p>
-<p>第三个字符乘100</p>
-<p>最后一个不乘</p>
-<p>结果加和就是我们翻译出来的数字啦嘿</p>
-<h3 id="输入的东西在计算机里是如何储存的"><a href="#输入的东西在计算机里是如何储存的" class="headerlink" title="输入的东西在计算机里是如何储存的"></a>输入的东西在计算机里是如何储存的</h3><p>比如我们按照题目示例那样，在第一行输入一个6后按回车键，那么这一输入在计算机里储存实际上大概长这样</p>
-<p><code>[6|\n]</code></p>
-<p>此时如果你没有处理掉<strong>回车键</strong></p>
-<p>你就可能在后面读取字符时把回车键一起读取进去，导致答案错误</p>
-<h3 id="处理掉回车键换行符"><a href="#处理掉回车键换行符" class="headerlink" title="处理掉回车键换行符"></a>处理掉回车键换行符</h3><p>我们可以使用<code>getchar()</code>函数，因为这个函数读取字符只读取一个，也就是说，它只会读取到<code>\n</code>，从而可以很好地解决到行尾换行符回车键的问题</p>
-<h3 id="getchar-函数"><a href="#getchar-函数" class="headerlink" title="getchar()函数"></a><code>getchar()</code>函数</h3><p>头文件：<code>stdio.h</code><br>语法&#x2F;原型：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">int getchar(void);</span><br></pre></td></tr></table></figure></div>
-
-<p>我们来看这个函数的声明，不难发现，<code>getchar</code>返回值是字符的<code>ASCII</code>码</p>
-<p><code>getchar</code>用于读取单个字符，如果此时<strong>缓存区</strong>（如果不清楚就暂且把它理解为暂时储存你输入的东西的地方）中有多个字符，那么<code>getchar</code>读取的就是上一次读取的最后一个字符的后一个字符</p>
-<h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>既然我们已经可以把字符串转化为数字了，那我们就可以用数组来判断是否重复的问题</p>
-<p>比如如果39出现过了，我们就可以把数组的第39个元素设为1，其他位置的数据在刚开始时全部设为0，这样再次遇见39时，我们只要判断该数组的第39个元素是否为1即可</p>
-<h3 id="代码实现-7"><a href="#代码实现-7" class="headerlink" title="代码实现"></a>代码实现</h3><p>这不是最优代码，但是是正确代码</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int x[26262627] = &#123;0&#125;;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int n;</span><br><span class="line">    long long m;</span><br><span class="line">    char a, b, c, d;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    for(int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        getchar();//清除换行符</span><br><span class="line">        scanf(&quot;%c%c%c%c&quot;, &amp;a, &amp;b, &amp;c, &amp;d);</span><br><span class="line">        m = (a - 97) * 1000000 + (b - 97) * 10000 + (c - 97) * 100 + d;//翻译为数字</span><br><span class="line">        if (x[m] == 1) &#123;</span><br><span class="line">            printf(&quot;Moca has already memorized this word!\n&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            x[m] = 1;</span><br><span class="line">            printf(&quot;Moca memorized a new word!\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>最小内存版本</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int readBit(unsigned int bit,char *array)&#123;//读取字节</span><br><span class="line">    int shift = 7 - (bit % 8);</span><br><span class="line">    return ((array[bit / 8 ]&gt;&gt;shift)&amp;1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void writeBit(unsigned int bit,int value,char*array)&#123;//压缩字节</span><br><span class="line">    if(readBit(bit,array)==value)&#123;</span><br><span class="line">        ;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        array[bit/8] ^= (128&gt;&gt; (bit % 8));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//这样可以做到把一个数字压缩为一个bit储存于数组内存的不同位中，达到减小内存的目的</span><br><span class="line">char wordBank[57122] = &#123;&#x27;\0&#x27;&#125;;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int n,position;</span><br><span class="line">    char a, b, c, d;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    for(int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        getchar();</span><br><span class="line">        scanf(&quot;%c%c%c%c&quot;, &amp;a, &amp;b, &amp;c, &amp;d);</span><br><span class="line">        position = (a - &#x27;a&#x27;)*26*26*26 + (b - &#x27;a&#x27;) *26*26  + (c - &#x27;a&#x27;) * 26 + d-&#x27;a&#x27;;</span><br><span class="line">        if (readBit(position,wordBank)) &#123;</span><br><span class="line">            printf(&quot;Moca has already memorized this word!\n&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            writeBit(position,1,wordBank);</span><br><span class="line">            printf(&quot;Moca memorized a new word!\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="I-规则的形"><a href="#I-规则的形" class="headerlink" title="I 规则的形"></a>I 规则的形</h2><hr>
-<p><strong>待更新哦</strong></p>
-]]></content>
-      <categories>
-        <category>C语言</category>
-        <category>练习题</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
       </tags>
   </entry>
 </search>

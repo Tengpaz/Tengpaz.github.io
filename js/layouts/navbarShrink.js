@@ -1,5 +1,3 @@
-import { navigationState } from "../utils.js";
-
 export const navbarShrink = {
   navbarDom: document.querySelector(".navbar-container"),
   leftAsideDom: document.querySelector(".page-aside"),
@@ -8,14 +6,14 @@ export const navbarShrink = {
 
   init() {
     this.navbarHeight = this.navbarDom.getBoundingClientRect().height;
-    this.shrink();
+    this.navbarShrink();
     this.togglenavbarDrawerShow();
     window.addEventListener("scroll", () => {
-      this.shrink();
+      this.navbarShrink();
     });
   },
 
-  shrink() {
+  navbarShrink() {
     const scrollTop =
       document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -38,6 +36,11 @@ export const navbarShrink = {
       domList.push(
         ...document.querySelectorAll(
           ".navbar-drawer .drawer-navbar-list .drawer-navbar-item",
+        ),
+      );
+      domList.push(
+        ...document.querySelectorAll(
+          ".navbar-drawer .drawer-navbar-list .dropdown-item",
         ),
       );
     }
@@ -63,17 +66,4 @@ export const navbarShrink = {
   },
 };
 
-swup.hooks.on("page:view", () => {
-  navbarShrink.init();
-  navigationState.isNavigating = false;
-});
-
-swup.hooks.on("visit:start", () => {
-  navigationState.isNavigating = true;
-  document.body.classList.remove("navbar-shrink");
-  // navbarShrink.init();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  navbarShrink.init();
-});
+navbarShrink.init();

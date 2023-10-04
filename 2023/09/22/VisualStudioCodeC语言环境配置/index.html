@@ -9,7 +9,7 @@
     <!-- preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
     
     <!--- Seo Part-->
     
@@ -63,7 +63,7 @@
 
     
         
-<link rel="stylesheet" href="/assets/build/styles.css">
+<link rel="stylesheet" href="/css/build/styles.css">
 
     
 
@@ -87,10 +87,11 @@
     <!--- Inject Part-->
     
     <script id="hexo-configurations">
-    window.config = {"hostname":"tengpaz.github.io","root":"/","language":"zh-CN","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Sans SC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Tengpaz","subtitle":{"text":["喜欢Debug嘛","不要放弃不断失败","希望你有所顿悟","从零开始走向巅峰","大佬总是会很低调所以我不是大佬","每天两小时代码"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/Tengpaz","instagram":null,"zhihu":"https://www.zhihu.com/people/84-23-2-19-92","twitter":"https://twitter.com/tengpaz33290","email":"tengpaz_zhen@outlook.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/Tengpaz","友链":"/links/"}},"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"友链":{"icon":"fa-solid fa-link","path":"/links/"}},"search":{"enable":true,"preload":true},"categories":{"分类":{"icon":"fa-solid fa-folder","path":"/categories/"}},"tags":{"标签":{"icon":"fa-solid fa-tags","path":"/tags/"}}},"page_templates":{"friends_column":3,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"这里是藤爬的大脑终端# Announcement text","links":{"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tags"},"分类":{"path":"/categories","icon":"fa-regular fa-folder"},"友链":{"path":"/links","icon":"fa-solid fa-link"}}},"article_date_format":"auto","categories":{"enable":true,"limit":5},"tags":{"enable":true,"limit":5}},"footerStart":"2023/9/21 24:00:00"};
-    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
-    window.data = {"masonry":false};
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"tengpaz.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Sans SC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Tengpaz","subtitle":{"text":["喜欢Debug嘛","不要放弃不断失败","希望你有所顿悟","从零开始走向巅峰","大佬总是会很低调所以我不是大佬","每天两小时代码"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/Tengpaz","instagram":null,"zhihu":"https://www.zhihu.com/people/84-23-2-19-92","twitter":"https://twitter.com/tengpaz33290","email":"tengpaz_zhen@outlook.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.4.4","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/Tengpaz","友链":"/links/"}},"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"友链":{"icon":"fa-solid fa-link","path":"/links/"}},"search":{"enable":true,"preload":true},"categories":{"分类":{"icon":"fa-solid fa-folder","path":"/categories/"}},"tags":{"标签":{"icon":"fa-solid fa-tags","path":"/tags/"}}},"page_templates":{"friends_column":3,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"这里是藤爬的大脑终端# Announcement text","links":{"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tags"},"分类":{"path":"/categories","icon":"fa-regular fa-folder"},"友链":{"path":"/links","icon":"fa-solid fa-link"}}},"article_date_format":"auto","categories":{"enable":true,"limit":5},"tags":{"enable":true,"limit":5}},"footerStart":"2023/9/21 24:00:00"};
+    Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    Global.data_config = {"masonry":false};
   </script>
     
     <!--- Fontawesome Part-->
@@ -139,11 +140,11 @@
     <div class="navbar-content">
         <div class="left">
             
-                <a class="logo-image" href="/">
+                <a class="logo-image" href="https://tengpaz.github.io/">
                     <img src="/images/tengpaz.JPG">
                 </a>
             
-            <a class="logo-title" href="/">
+            <a class="logo-title" href="https://tengpaz.github.io/">
                 
                 Tengpaz.io
                 
@@ -333,11 +334,11 @@
                     <!-- Submenu -->
                               
                         
-                            <li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                            <li class="text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
                                 <a class="py-0.5" target="_blank" rel="noopener" href="https://github.com/Tengpaz">GITHUB</a>
                             </li>
                         
-                            <li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                            <li class="text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
                                 <a class="py-0.5" href="/links/">友链</a>
                             </li>
                         
@@ -422,15 +423,15 @@
                     
         
         
-            <div class="article-header flex flex-row gap-2 items-center">
-                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+            <div class="article-header">
+                <div class="avatar">
                     <img src="/images/tengpaz.JPG">
                 </div>
-                <div class="info flex flex-col justify-between">
-                    <div class="author flex items-center">
-                        <span class="name text-default-text-color text-lg font-semibold">Tengpaz</span>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Tengpaz</span>
                         
-                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+                            <span class="author-label">Lv1</span>
                         
                     </div>
                     <div class="meta-info">
@@ -513,16 +514,17 @@
 
 
         <div class="article-content markdown-body">
-            <h2 id="第一步-安装gcc编译器"><a href="#第一步-安装gcc编译器" class="headerlink" title="第一步 安装gcc编译器"></a>第一步 安装gcc编译器</h2><h3 id="已经确认无误完成这一步的朋友可以跳过-检验方法如下"><a href="#已经确认无误完成这一步的朋友可以跳过-检验方法如下" class="headerlink" title="已经确认无误完成这一步的朋友可以跳过 检验方法如下"></a>已经确认无误完成这一步的朋友可以跳过 检验方法如下</h3><p>在windows开始搜索栏里搜索cmd（命令提示符）点开命令提示符</p>
+            <h2 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%89%E8%A3%85gcc%E7%BC%96%E8%AF%91%E5%99%A8" tabindex="-1">第一步 安装gcc编译器</h2>
+<h3 id="%E5%B7%B2%E7%BB%8F%E7%A1%AE%E8%AE%A4%E6%97%A0%E8%AF%AF%E5%AE%8C%E6%88%90%E8%BF%99%E4%B8%80%E6%AD%A5%E7%9A%84%E6%9C%8B%E5%8F%8B%E5%8F%AF%E4%BB%A5%E8%B7%B3%E8%BF%87-%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E5%A6%82%E4%B8%8B" tabindex="-1">已经确认无误完成这一步的朋友可以跳过 检验方法如下</h3>
+<p>在windows开始搜索栏里搜索cmd（命令提示符）点开命令提示符</p>
 <p>输入以下代码</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gcc --version</span><br></pre></td></tr></table></figure></div>
-
 <p>如果输出为</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gcc (Rev6, Built by MSYS2 project) 13.1.0</span><br><span class="line">Copyright (C) 2023 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions.  There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure></div>
-
 <p>那么你这一步可以跳过了</p>
 <p>现在开始教你如何安装gcc编译器</p>
-<h3 id="下载MinGW-w64"><a href="#下载MinGW-w64" class="headerlink" title="下载MinGW-w64"></a>下载MinGW-w64</h3><p>在windows系统中想使用gcc编译器，一般需要安装MinGW-w64</p>
+<h3 id="%E4%B8%8B%E8%BD%BDmingw-w64" tabindex="-1">下载MinGW-w64</h3>
+<p>在windows系统中想使用gcc编译器，一般需要安装MinGW-w64</p>
 <p>搜索MinGW-w64进入<a class="link"   target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/" >sourceforge网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载压缩包</p>
 <p><img  
                      lazyload
@@ -537,21 +539,30 @@
 <ul>
 <li><code>i686</code>是32位系统，<code>x86_64</code>为64位系统</li>
 <li><code>win32</code>是windows系统使用的标准，<code>posix</code>是其他系统（如Linux、Unix、Mac OS）使用的标准</li>
-<li><code>ucrt</code>是微软提供的一个通用C++运行时库，提供了许多与C标准库兼容的函数和一些新的C函数，同时还支持Unicode字符集和安全函数，如strcpy_s、strcat_s、_itoa_s等，支持新的C11和C++11标准，适用于win10及更高的系统；<code>msvcrt</code>是微软提供的一个C++运行库，提供了许多与C标准库兼容的函数，不支持新的C11和C++11标准</li>
+<li><code>ucrt</code>是微软提供的一个通用C<ins>运行时库，提供了许多与C标准库兼容的函数和一些新的C函数，同时还支持Unicode字符集和安全函数，如strcpy_s、strcat_s、_itoa_s等，支持新的C11和C</ins>11标准，适用于win10及更高的系统；<code>msvcrt</code>是微软提供的一个C<ins>运行库，提供了许多与C标准库兼容的函数，不支持新的C11和C</ins>11标准</li>
 <li><code>dwarf</code>只有32位可用，没有永久的运行时间开销，需要整个调用堆栈被启用，所以exception不能被抛出；<code>seh</code>可以用于64位GCC</li>
 </ul>
 <p>无论放在哪个目录下，请复制或记住里面文件bin的位置</p>
 <p>例如C:\msys64\mingw64\x86_64-w64-mingw32\bin</p>
-<h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h3><p>然后在win11中，依次点击开始-设置-（系统）系统信息-（设备规格下面的相关链接）高级系统设置-环境变量（N）…<br>选定系统变量下的Path一行后点击编辑-新建<br>把之前记住的文件位置粘贴或输入进去<br>点击确定-确定-确定</p>
+<h3 id="%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" tabindex="-1">添加环境变量</h3>
+<p>然后在win11中，依次点击开始-设置-（系统）系统信息-（设备规格下面的相关链接）高级系统设置-环境变量（N）…<br>
+选定系统变量下的Path一行后点击编辑-新建<br>
+把之前记住的文件位置粘贴或输入进去<br>
+点击确定-确定-确定</p>
 <p>做完这些后你就可以在cmd中检测有没有装好啦，检测方法见文首</p>
-<h2 id="第二步-安装Visual-Studio-Code"><a href="#第二步-安装Visual-Studio-Code" class="headerlink" title="第二步 安装Visual Studio Code"></a>第二步 安装Visual Studio Code</h2><h3 id="安装VScode"><a href="#安装VScode" class="headerlink" title="安装VScode"></a>安装VScode</h3><p>搜索Visual Studio Code进入<a target="_blank" rel="noopener" href="https://code.visualstudio.com/"><strong>官网</strong></a></p>
+<h2 id="%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%AE%89%E8%A3%85visual-studio-code" tabindex="-1">第二步 安装Visual Studio Code</h2>
+<h3 id="%E5%AE%89%E8%A3%85vscode" tabindex="-1">安装VScode</h3>
+<p>搜索Visual Studio Code进入<a target="_blank" rel="noopener" href="https://code.visualstudio.com/"><strong>官网</strong></a></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/VScodewebsite.png"
                       alt="vscode官网"
                 ></p>
-<p>点击Download for Windows<br>下载完安装包后打开<br>安装到你想要的位置<br>注意安装过程中建议勾选 “将”通过Code打开”操作添加到Windows资源管理器文件&amp;&amp;目录上下文菜单”</p>
+<p>点击Download for Windows<br>
+下载完安装包后打开<br>
+安装到你想要的位置<br>
+注意安装过程中建议勾选 “将&quot;通过Code打开&quot;操作添加到Windows资源管理器文件&amp;&amp;目录上下文菜单”</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -559,7 +570,9 @@
                       alt="安装"
                 ></p>
 <p>安装完后打开vscode</p>
-<h2 id="第三步-VScode配置"><a href="#第三步-VScode配置" class="headerlink" title="第三步 VScode配置"></a>第三步 VScode配置</h2><h3 id="安装vscode拓展插件"><a href="#安装vscode拓展插件" class="headerlink" title="安装vscode拓展插件"></a>安装vscode拓展插件</h3><p>打开vscode后，在左侧栏选择</p>
+<h2 id="%E7%AC%AC%E4%B8%89%E6%AD%A5-vscode%E9%85%8D%E7%BD%AE" tabindex="-1">第三步 VScode配置</h2>
+<h3 id="%E5%AE%89%E8%A3%85vscode%E6%8B%93%E5%B1%95%E6%8F%92%E4%BB%B6" tabindex="-1">安装vscode拓展插件</h3>
+<p>打开vscode后，在左侧栏选择</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -567,55 +580,77 @@
                       alt="进入vscode后的界面"
                 ></p>
 <p>下载图上的四个东西以及CMake、CMake Tools、Code Runner，下完后关闭vscode</p>
-<h3 id="代码文件夹"><a href="#代码文件夹" class="headerlink" title="代码文件夹"></a>代码文件夹</h3><p>在配置完成前，你要确定你的代码（准确地说是VScode的代码）放在哪里   </p>
+<h3 id="%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%A4%B9" tabindex="-1">代码文件夹</h3>
+<p>在配置完成前，你要确定你的代码（准确地说是VScode的代码）放在哪里</p>
 <p>在一个没有中文的路径位置上新建一个文件夹，文件夹的名字和位置你最好要记住，否则找起来挺麻烦</p>
 <div class="note warning"><p>注意 文件夹的名字也不能有中文！因为c语言是不支持中文的，有中文后期配置会出大问题。</p>
 </div>
-
 <p>如果你之前已经有了一个合格的文件夹，那么你这步也可以跳过</p>
 <p>创建好文件夹后，在vscode中打开这个文件夹，此时如果你是第一次打开这个文件夹，页面上会弹出一段警告，选择“是，信任此作者”即可</p>
-<h3 id="开始正式配置"><a href="#开始正式配置" class="headerlink" title="开始正式配置"></a>开始正式配置</h3><p>点回拓展，点击C&#x2F;C++插件右下角的齿轮，点击安装另一个版本，选择1.8.4版的，改完版本重新开启一下vscode</p>
-<p>之前不是弄了一个文件夹嘛，点击左栏第一个图标，在你的文件夹里新建一个c语言程序，随便写些可执行代码，之后，按运行代码的快捷键（F5）运行，不要用“run code”运行,此时软件上面会弹出一个选择框，选择C++(GDB&#x2F;LLDB)<br><img  
+<h3 id="%E5%BC%80%E5%A7%8B%E6%AD%A3%E5%BC%8F%E9%85%8D%E7%BD%AE" tabindex="-1">开始正式配置</h3>
+<p>点回拓展，点击C/C++插件右下角的齿轮，点击安装另一个版本，选择1.8.4版的，改完版本重新开启一下vscode</p>
+<p>之前不是弄了一个文件夹嘛，点击左栏第一个图标，在你的文件夹里新建一个c语言程序，随便写些可执行代码，之后，按运行代码的快捷键（F5）运行，不要用“run code”运行,此时软件上面会弹出一个选择框，选择C++(GDB/LLDB)<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BC%B9%E5%87%BA%E6%A1%86.png"
                       alt="第一个弹出框"
                 ></p>
-<p>然后再选择最上面的”gcc.exe-生成和调试活动文件”<br><img  
+<p>然后再选择最上面的&quot;gcc.exe-生成和调试活动文件&quot;<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%BC%B9%E5%87%BA%E6%A1%86.jpg"
                       alt="第二个弹出框"
                 ></p>
-<p>然后就没什么问题了，你这时再回到文件夹里看会发现新增了一个叫作”.vscode”的文件夹，里面会有”tasks.json”和”launch.json”两个配置文件，之后你可以选择再把之前那个插件改回最新版，但是注意不要删除或修改新生成的那个叫作”launch.json”的配置文件就行</p>
+<p>然后就没什么问题了，你这时再回到文件夹里看会发现新增了一个叫作&quot;.vscode&quot;的文件夹，里面会有&quot;tasks.json&quot;和&quot;launch.json&quot;两个配置文件，之后你可以选择再把之前那个插件改回最新版，但是注意不要删除或修改新生成的那个叫作&quot;launch.json&quot;的配置文件就行</p>
 <p>至此，基本就配置好了，对于一些特殊情况请在下面继续看</p>
-<h2 id="已经有配置经历并出了问题"><a href="#已经有配置经历并出了问题" class="headerlink" title="已经有配置经历并出了问题"></a>已经有配置经历并出了问题</h2><h3 id="检查代码所在文件夹的路径"><a href="#检查代码所在文件夹的路径" class="headerlink" title="检查代码所在文件夹的路径"></a>检查代码所在文件夹的路径</h3><p>如果你的代码文件夹路径上有中文名，你可能会遇到下面这种情况<br><img  
+<h2 id="%E5%B7%B2%E7%BB%8F%E6%9C%89%E9%85%8D%E7%BD%AE%E7%BB%8F%E5%8E%86%E5%B9%B6%E5%87%BA%E4%BA%86%E9%97%AE%E9%A2%98" tabindex="-1">已经有配置经历并出了问题</h2>
+<h3 id="%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E6%89%80%E5%9C%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%B7%AF%E5%BE%84" tabindex="-1">检查代码所在文件夹的路径</h3>
+<p>如果你的代码文件夹路径上有中文名，你可能会遇到下面这种情况<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E8%B7%AF%E5%BE%84%E5%87%BA%E7%8E%B0%E4%B8%AD%E6%96%87%E5%90%8D.png"
                       alt="路径出现中文名"
-                ><br>此时只要把文件夹转移到没有中文名的路径上即可再重复之前的操作</p>
-<h3 id="检查是否已经有了配置文件"><a href="#检查是否已经有了配置文件" class="headerlink" title="检查是否已经有了配置文件"></a>检查是否已经有了配置文件</h3><p>如果你之前有尝试配置过vscode，可能在你的文件夹里已经有了”launch.json”的配置文件，如果配置依旧有问题，请把这个文件删除，重复之前的操作</p>
-<h3 id="运行使用的按键"><a href="#运行使用的按键" class="headerlink" title="运行使用的按键"></a>运行使用的按键</h3><p>如果你点击右上角的三角形，可能它会给你三种运行方式，这里建议直接使用F5运行即可，如果你不需要进行调试，那么选择Run code也毫无问题</p>
-<h2 id="第四步-完善其他配置"><a href="#第四步-完善其他配置" class="headerlink" title="第四步 完善其他配置"></a>第四步 完善其他配置</h2><p>这里有一些其他有用的配置</p>
-<h3 id="让程序在终端中运行-保存程序"><a href="#让程序在终端中运行-保存程序" class="headerlink" title="让程序在终端中运行&amp;&amp;保存程序"></a>让程序在终端中运行&amp;&amp;保存程序</h3><p>点击左栏最下方的齿轮（管理），点击设置<br><img  
+                ><br>
+此时只要把文件夹转移到没有中文名的路径上即可再重复之前的操作</p>
+<h3 id="%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E6%9C%89%E4%BA%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" tabindex="-1">检查是否已经有了配置文件</h3>
+<p>如果你之前有尝试配置过vscode，可能在你的文件夹里已经有了&quot;launch.json&quot;的配置文件，如果配置依旧有问题，请把这个文件删除，重复之前的操作</p>
+<h3 id="%E8%BF%90%E8%A1%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8C%89%E9%94%AE" tabindex="-1">运行使用的按键</h3>
+<p>如果你点击右上角的三角形，可能它会给你三种运行方式，这里建议直接使用F5运行即可，如果你不需要进行调试，那么选择Run code也毫无问题</p>
+<h2 id="%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%AE%8C%E5%96%84%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE" tabindex="-1">第四步 完善其他配置</h2>
+<p>这里有一些其他有用的配置</p>
+<h3 id="%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E8%BF%90%E8%A1%8C%26%26%E4%BF%9D%E5%AD%98%E7%A8%8B%E5%BA%8F" tabindex="-1">让程序在终端中运行&amp;&amp;保存程序</h3>
+<p>点击左栏最下方的齿轮（管理），点击设置<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E8%AE%BE%E7%BD%AE.png"
                       alt="设置"
-                ><br>找到Run Code Configuration那一块<br><img  
+                ><br>
+找到Run Code Configuration那一块<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/runcodeconfiguration.png"
                       alt="Run Code Configuration"
-                ><br>向下划，找到这三项并勾选<br><img  
+                ><br>
+向下划，找到这三项并勾选<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/%E4%B8%89%E9%A1%B9.png"
                       alt="三项"
-                ><br>这能让你的程序直接在终端运行，并在你每次运行程序时保存你的程序，避免修改或程序丢失</p>
-<h3 id="删除执行程序时生成的-exe文件"><a href="#删除执行程序时生成的-exe文件" class="headerlink" title="删除执行程序时生成的.exe文件"></a>删除执行程序时生成的.exe文件</h3><p>当你的代码一多，满屏的.c和.exe可能会让你目不暇接，这里推荐一个方法，这个教程可以看看一个学长的博客，非常有用<br><a class="link"   target="_blank" rel="noopener" href="https://swkfk.top/2023/07/30/VSCode-%E4%B8%AD-C-%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88for-Windows%EF%BC%89/" >搬运工:) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="如果本文有什么问题，欢迎指正"><a href="#如果本文有什么问题，欢迎指正" class="headerlink" title="如果本文有什么问题，欢迎指正\ (^-^) &#x2F;"></a>如果本文有什么问题，欢迎指正\ (^-^) &#x2F;</h3>
+                ><br>
+这能让你的程序直接在终端运行，并在你每次运行程序时保存你的程序，避免修改或程序丢失</p>
+<h3 id="%E5%88%A0%E9%99%A4%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%97%B6%E7%94%9F%E6%88%90%E7%9A%84.exe%E6%96%87%E4%BB%B6" tabindex="-1">删除执行程序时生成的.exe文件</h3>
+<p>当你的代码一多，满屏的.c和.exe可能会让你目不暇接，这里推荐一个方法，这个教程可以看看一个学长的博客，非常有用<br>
+<a class="link"   target="_blank" rel="noopener" href="https://swkfk.top/2023/07/30/VSCode-%E4%B8%AD-C-%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88for-Windows%EF%BC%89/" >搬运工:) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="%E5%A6%82%E6%9E%9C%E6%9C%AC%E6%96%87%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8C%87%E6%AD%A3%5C-(-)-%2F" tabindex="-1">如果本文有什么问题，欢迎指正\ (<sup>-</sup>) /</h3>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+
         </div>
 
         
@@ -755,7 +790,7 @@
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">Visual Studio Code C语言环境配置</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%89%E8%A3%85gcc%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">第一步 安装gcc编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E7%A1%AE%E8%AE%A4%E6%97%A0%E8%AF%AF%E5%AE%8C%E6%88%90%E8%BF%99%E4%B8%80%E6%AD%A5%E7%9A%84%E6%9C%8B%E5%8F%8B%E5%8F%AF%E4%BB%A5%E8%B7%B3%E8%BF%87-%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E5%A6%82%E4%B8%8B"><span class="nav-text">已经确认无误完成这一步的朋友可以跳过 检验方法如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDMinGW-w64"><span class="nav-text">下载MinGW-w64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">添加环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%AE%89%E8%A3%85Visual-Studio-Code"><span class="nav-text">第二步 安装Visual Studio Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85VScode"><span class="nav-text">安装VScode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-VScode%E9%85%8D%E7%BD%AE"><span class="nav-text">第三步 VScode配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vscode%E6%8B%93%E5%B1%95%E6%8F%92%E4%BB%B6"><span class="nav-text">安装vscode拓展插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">代码文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E6%AD%A3%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-text">开始正式配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E6%9C%89%E9%85%8D%E7%BD%AE%E7%BB%8F%E5%8E%86%E5%B9%B6%E5%87%BA%E4%BA%86%E9%97%AE%E9%A2%98"><span class="nav-text">已经有配置经历并出了问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E6%89%80%E5%9C%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">检查代码所在文件夹的路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E6%9C%89%E4%BA%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">检查是否已经有了配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8C%89%E9%94%AE"><span class="nav-text">运行使用的按键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%AE%8C%E5%96%84%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-text">第四步 完善其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E8%BF%90%E8%A1%8C-%E4%BF%9D%E5%AD%98%E7%A8%8B%E5%BA%8F"><span class="nav-text">让程序在终端中运行&amp;&amp;保存程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%97%B6%E7%94%9F%E6%88%90%E7%9A%84-exe%E6%96%87%E4%BB%B6"><span class="nav-text">删除执行程序时生成的.exe文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%9C%AC%E6%96%87%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8C%87%E6%AD%A3"><span class="nav-text">如果本文有什么问题，欢迎指正\ (^-^) &#x2F;</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%89%E8%A3%85gcc%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">第一步 安装gcc编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E7%A1%AE%E8%AE%A4%E6%97%A0%E8%AF%AF%E5%AE%8C%E6%88%90%E8%BF%99%E4%B8%80%E6%AD%A5%E7%9A%84%E6%9C%8B%E5%8F%8B%E5%8F%AF%E4%BB%A5%E8%B7%B3%E8%BF%87-%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E5%A6%82%E4%B8%8B"><span class="nav-text">已经确认无误完成这一步的朋友可以跳过 检验方法如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDmingw-w64"><span class="nav-text">下载MinGW-w64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">添加环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%AE%89%E8%A3%85visual-studio-code"><span class="nav-text">第二步 安装Visual Studio Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vscode"><span class="nav-text">安装VScode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-vscode%E9%85%8D%E7%BD%AE"><span class="nav-text">第三步 VScode配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vscode%E6%8B%93%E5%B1%95%E6%8F%92%E4%BB%B6"><span class="nav-text">安装vscode拓展插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">代码文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E6%AD%A3%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-text">开始正式配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E6%9C%89%E9%85%8D%E7%BD%AE%E7%BB%8F%E5%8E%86%E5%B9%B6%E5%87%BA%E4%BA%86%E9%97%AE%E9%A2%98"><span class="nav-text">已经有配置经历并出了问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E6%89%80%E5%9C%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">检查代码所在文件夹的路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E6%9C%89%E4%BA%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">检查是否已经有了配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8C%89%E9%94%AE"><span class="nav-text">运行使用的按键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%AE%8C%E5%96%84%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-text">第四步 完善其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E8%BF%90%E8%A1%8C&&%E4%BF%9D%E5%AD%98%E7%A8%8B%E5%BA%8F"><span class="nav-text">让程序在终端中运行&amp;&amp;保存程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%97%B6%E7%94%9F%E6%88%90%E7%9A%84.exe%E6%96%87%E4%BB%B6"><span class="nav-text">删除执行程序时生成的.exe文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%9C%AC%E6%96%87%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8C%87%E6%AD%A3%5C-(-)-/"><span class="nav-text">如果本文有什么问题，欢迎指正\ (-) &#x2F;</span></a></li></ol></li></ol>
 
     </div>
 </div>
@@ -806,7 +841,7 @@
         
         <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
             <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
-            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.4.4</a></span>
         </div>
         
         
@@ -870,6 +905,10 @@
 
         <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
             <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex justify-center items-center">
+            <i class="fa-regular fa-expand"></i>
         </li>
 
         <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
@@ -952,8 +991,6 @@
 
 <script src="/js/libs/SwupScrollPlugin.min.js"></script>
 
-<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
-
 <script>
     const swup = new Swup({
         plugins: [
@@ -967,19 +1004,25 @@
             new SwupSlideTheme({
                 mainElement: ".main-content-body",
             }),
-            new SwupPreloadPlugin(),
         ],
         containers: ["#swup"],
     });
+
+    swup.hooks.on("page:view", () => {
+        Global.refresh();
+    });
+
+    // if (document.readyState === "complete") {
+    //
+    // } else {
+    //     document.addEventListener("DOMContentLoaded", () => init());
+    // }
 </script>
 
 
 
 
 
-
-
-<script src="/js/tools/imageViewer.js" type="module"></script>
 
 <script src="/js/utils.js" type="module"></script>
 
@@ -996,19 +1039,19 @@
 
 
     
-<script src="/js/tools/localSearch.js" type="module"></script>
+<script src="/js/tools/localSearch.js"></script>
 
 
 
 
     
-<script src="/js/tools/codeBlock.js" type="module"></script>
+<script src="/js/tools/codeBlock.js"></script>
 
 
 
 
     
-<script src="/js/layouts/lazyload.js" type="module"></script>
+<script src="/js/layouts/lazyload.js"></script>
 
 
 
@@ -1029,7 +1072,7 @@
 <script src="/js/libs/Typed.min.js"></script>
 
   
-<script src="/js/plugins/typed.js" type="module"></script>
+<script src="/js/plugins/typed.js"></script>
 
 
 

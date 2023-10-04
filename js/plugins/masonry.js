@@ -48,7 +48,7 @@ export function initMasonry() {
   }
 }
 
-if (data.masonry) {
+if (Global.data_config.masonry) {
   try {
     swup.hooks.on("page:view", initMasonry);
   } catch (e) {}
