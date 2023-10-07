@@ -1,6 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言基础</title>
+    <url>/2023/10/07/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
+<h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%AE%80%E4%BB%8B" tabindex="-1">语言基础简介</h1>
+<h2 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h2>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">C语言程序开发步骤</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">数据表示</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">数据处理与储存</label>
+<ul>
+<li>编码</li>
+<li>进制</li>
+<li>储存</li>
+<li>浮点数的表达与储存</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">运算</label>
+<ul>
+<li>关系运算</li>
+<li>算术运算</li>
+<li>逻辑运算</li>
+<li>位运算</li>
+<li>复合赋值运算</li>
+<li>自增自减运算</li>
+<li>运算优先级</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">控制结构</label>
+<ul>
+<li>选择结构</li>
+<li>循环结构</li>
+<li>goto语句</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">函数</label>
+<ul>
+<li>定义与调用</li>
+<li>参数传递原理</li>
+<li>递归函数</li>
+<li>标准库函数</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">复杂数据类型之数组</label>
+<ul>
+<li>一维数组</li>
+<li>二维数组</li>
+<li>变长数组</li>
+<li>多维数组</li>
+<li>字符型数组与字符串</li>
+<li>标准字符串strings处理函数</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">复杂数据类型之指针</label>
+<ul>
+<li>什么是指针</li>
+<li>指针变量</li>
+<li>指针运算</li>
+<li>空指针</li>
+<li>字符串指针</li>
+<li>数组指针</li>
+<li>多重指针</li>
+<li>指针数组</li>
+<li>函数指针</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">复杂数据类型之结构体</label></li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">复杂数据类型之联合体</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">文件</label></li>
+</ul>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编译语言</category>
+        <category>C语言</category>
+        <category>语言基础</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>语言基础</tag>
+        <tag>编译语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2023级E2练习赛</title>
     <url>/2023/09/24/2023%E7%BA%A7E2%E7%BB%83%E4%B9%A0%E8%B5%9B/</url>
     <content><![CDATA[<h1 id="2023%E7%BA%A7%E6%9C%AC%E7%A7%91%E6%96%B0%E7%94%9F%E7%AC%AC%E4%BA%8C%E6%AC%A1%E7%BB%83%E4%B9%A0%E8%B5%9B%E4%B9%A0%E9%A2%98%E8%AE%B2%E8%A7%A3" tabindex="-1">2023级本科新生第二次练习赛习题讲解</h1>
@@ -339,11 +424,42 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
       <categories>
+        <category>编程</category>
+        <category>编译语言</category>
         <category>C语言</category>
         <category>练习题</category>
       </categories>
       <tags>
         <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Geany</title>
+    <url>/2023/10/07/Geany/</url>
+    <content><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编程工具</category>
+      </categories>
+      <tags>
+        <tag>编程工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VisualStudioCode</title>
+    <url>/2023/10/07/VisualStudioCode/</url>
+    <content><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编程工具</category>
+      </categories>
+      <tags>
+        <tag>编程工具</tag>
+        <tag>编辑器</tag>
       </tags>
   </entry>
   <entry>
@@ -487,11 +603,16 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
       <categories>
+        <category>编程</category>
+        <category>编译语言</category>
         <category>C语言</category>
+        <category>编辑器</category>
+        <category>vscode</category>
         <category>开发环境与配置</category>
       </categories>
       <tags>
         <tag>C语言</tag>
+        <tag>vscode</tag>
         <tag>环境配置</tag>
       </tags>
   </entry>
@@ -523,7 +644,8 @@
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></div>
 <ul>
 <li>这里的<code>&lt;folder&gt;</code>是你想建的文件夹的名字，建议用英文</li>
-<li><code>cd &lt;folder&gt;</code></li>
+<li><code>cd &lt;folder&gt;</code>表示在终端中切换到你的博客文件夹中进行操作</li>
+<li><code>npm install</code>表示在选中的文件夹里安装npm相关的文件</li>
 </ul>
 <p><strong>待更新</strong></p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
@@ -541,7 +663,58 @@
         <category>hexo</category>
       </categories>
       <tags>
+        <tag>静态网站</tag>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python语言基础</title>
+    <url>/2023/10/07/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
+<h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%AE%80%E4%BB%8B" tabindex="-1">语言基础简介</h1>
+<h2 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h2>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">数据类型</label>
+<ul>
+<li>变量</li>
+<li>字符串</li>
+<li>数字</li>
+<li>注释</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">列表</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">字典</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">元组</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">if语句</label></li>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">循环语句</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">用户输入</label></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">函数</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">类</label></li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">文件</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">测试</label></li>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11">项目</label>
+<ul>
+<li>网站</li>
+<li>爬虫</li>
+<li>游戏</li>
+<li>数据可视化</li>
+<li>excel</li>
+</ul>
+</li>
+</ul>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>脚本语言</category>
+        <category>python</category>
+        <category>语言基础</category>
+      </categories>
+      <tags>
+        <tag>语言基础</tag>
+        <tag>python</tag>
+        <tag>脚本语言</tag>
       </tags>
   </entry>
   <entry>
