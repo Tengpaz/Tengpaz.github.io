@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Geany</title>
-    <url>/2023/10/07/Geany/</url>
-    <content><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>编程工具</category>
-      </categories>
-      <tags>
-        <tag>编程工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言基础</title>
     <url>/2023/10/07/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
@@ -82,7 +68,8 @@
 </li>
 <li><input type="checkbox" id="checkbox8"><label for="checkbox8">复杂数据类型之结构体</label></li>
 <li><input type="checkbox" id="checkbox9"><label for="checkbox9">复杂数据类型之联合体</label></li>
-<li><input type="checkbox" id="checkbox10"><label for="checkbox10">文件</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">文件</label><br>
+<strong>待更新</strong></li>
 </ul>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
@@ -448,9 +435,179 @@
       </tags>
   </entry>
   <entry>
+    <title>VisualStudio2022-C/C++语言环境配置</title>
+    <url>/2023/10/08/VisualStudio2022-C-C-%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>这个软件的C语言环境配置还是很容易的，难就难在，不同电脑的状况不太一样，总有一些电脑的环境等等会出一些问题，所以这里想对我已经发现的一些问题提出我的解决方案，方法不唯一，能用就行。</p>
+<h2 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E4%B8%8B%E8%BD%BD-visual-studio-2022-%E7%9A%84%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6" tabindex="-1">第一步 下载 Visual Studio 2022 的安装软件</h2>
+<h3 id="%E7%9B%B4%E6%8E%A5%E5%86%B2%E5%90%91%E5%AE%98%E7%BD%91" tabindex="-1">直接冲向官网</h3>
+<p>这是<a class="link"   href="https://visualstudio.microsoft.com/zh-hans/vs/" >Visual Studio 2022 官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>的连接，直接点击进入即可</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/vs.png"
+                      alt="Visual Studio 2022 官网"
+                ></p>
+<p>点击导航栏上的下载进入下载页面</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/vsdownload.png"
+                      alt="下载界面"
+                ></p>
+<p>如果你没有特殊需求，选择下载社区版，毕竟那是免费的</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/vscommunity.png"
+                      alt="下载community"
+                ></p>
+<p>没说错的话，下载的目前只是一个安装程序Visual Studio Installer</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../images/vsinstaller.png"
+                      alt="vs"
+                ></p>
+<h2 id="%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8B%E8%BD%BD-visual-studio-community-2022" tabindex="-1">第二步 下载 Visual Studio Community 2022</h2>
+<p>一般Visual Studio Installer下载完在桌面上不会存在快捷方式，此时你可以打开开始菜单搜索这个东西的名字，找到它（如果你下载成功了的话）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/vsinstaller2.png"
+                      alt="vsinstaller"
+                ></p>
+<p>打开它</p>
+<p>选择下载 Visual Studio Community 2022</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/vscommunityinstall.png"
+                      alt="vscommunityinstall"
+                ></p>
+<p>后面会让你选择要安装的工作负荷，请勾选 <strong>Desktop development with C++</strong> 或中文 <strong>使用C++的桌面开发</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/packages.png"
+                      alt="工作负荷"
+                ></p>
+<p>关注一下右侧的<strong>安装详细信息</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/installdetails.png"
+                      alt="安装详细信息"
+                ></p>
+<ul>
+<li>如果使用的是<strong>Win11</strong>，看看有没有下载<strong>MSVC v143 -VS 2022 C++ x64/x86 生成工具</strong> 和 <strong>Windows 11 SDK</strong></li>
+<li>如果使用的是<strong>Win10</strong>，看看有没有下载<strong>MSVC v143 -VS 2022 C++ x64/x86 生成工具</strong> 和 <strong>Windows 10 SDK</strong></li>
+</ul>
+<p>请不要为了省空间不安装，因为这两个包会直接决定你的程序能否在<strong>不更改库路径和源路径和配置</strong>的情况下编写运行C/C++程序，如果你真的不小心没有安装或安装出现了失误，我在文章的末尾给了解决方案，你可以去看看能不能帮到你，实在不能解决，重新下载来一遍会是一个不错的选择。</p>
+<p>弄完上面的东西后点击<strong>安装</strong></p>
+<h3 id="%E6%9B%B4%E6%94%B9%E5%AE%89%E8%A3%85%E4%BD%8D%E7%BD%AE%EF%BC%88%E5%8F%AF%E9%80%89%7C%E6%9C%89%E7%82%B9%E7%82%B9%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86%E8%83%BD%E5%8A%9B%E7%9A%84%E9%83%BD%E5%8F%AF%E4%BB%A5%E8%80%83%E8%99%91%EF%BC%89" tabindex="-1">更改安装位置（可选|有点点文件处理能力的都可以考虑）</h3>
+<p>安装时也可以选择把软件安装到C盘外的其他盘中，因为这个编辑器实在是太占内存了呜呜呜<br>
+但是有些软件默认的重要文件还是会安装在C盘默认的目录里，让它去便是</p>
+<h2 id="%E7%AC%AC%E4%B8%89%E6%AD%A5-%E9%85%8D%E7%BD%AEc%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" tabindex="-1">第三步 配置C语言开发环境</h2>
+<p>其实实际上只是教你如何创建一个C语言文件项目而已，因为环境啥的在之前的下载安装软件的过程中已经帮你自动配置好了，所以我说这个软件环境配置还是很容易的，当然，这是在你电脑没出什么问题的情况下，比如我神奇的电脑就出了基本市面上能出现的所有问题awwwwwwww</p>
+<p>打开软件，如果你找不到软件，可以到开始菜单里搜索</p>
+<p>打开后的界面应该大致长成这样</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/vsstart.png"
+                      alt="vsstart"
+                ></p>
+<h3 id="%E5%88%9B%E5%BB%BA%E4%BD%A0%E7%9A%84c%2Fc%2B%2B%E9%A1%B9%E7%9B%AE" tabindex="-1">创建你的C/C++项目</h3>
+<p>点击<strong>创建新项目</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/vsstartaproject.png"
+                      alt="make a new project"
+                ></p>
+<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编译语言</category>
+        <category>C语言</category>
+        <category>编辑器</category>
+        <category>VisualStdio2022</category>
+        <category>开发环境配置</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>环境配置</tag>
+        <tag>VisualStdio2022</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Geany</title>
+    <url>/2023/10/07/Geany/</url>
+    <content><![CDATA[<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编程工具</category>
+      </categories>
+      <tags>
+        <tag>编程工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python实现网站邮箱爬取</title>
+    <url>/2023/10/08/Python%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E9%82%AE%E7%AE%B1%E7%88%AC%E5%8F%96/</url>
+    <content><![CDATA[<h1 id="%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E4%B9%8B%E9%82%AE%E7%AE%B1%E7%88%AC%E5%8F%96" tabindex="-1">网络爬虫之邮箱爬取</h1>
+<h2 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87" tabindex="-1">第一步 编程环境准备</h2>
+<h3 id="windows" tabindex="-1">Windows</h3>
+<h4 id="python%E7%9A%84%E5%AE%89%E8%A3%85" tabindex="-1">Python的安装</h4>
+<h5 id="%E6%A3%80%E6%9F%A5%E4%BD%A0%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E4%BA%86python" tabindex="-1">检查你的系统是否安装了Python</h5>
+<p>在开始菜单中搜索cmd打开命令提示符，或者按住Shift并右击桌面选择<strong>在终端中打开</strong></p>
+<p>在终端窗口中输入<code>python</code>并按下回车键Enter</p>
+<ul>
+<li>如果出现了Python提示符<code>&gt;&gt;&gt;</code>，就说明你的系统安装了Python</li>
+<li>如果看到一条错误信息说<strong>python是无法识别的指令</strong>那么就说明你的系统里还没有安装Python</li>
+</ul>
+<h5 id="%E5%AE%89%E8%A3%85python" tabindex="-1">安装Python</h5>
+<p>有些Windows系统中不会默认安装Python，比如我的。。。所以你需要安装Python</p>
+<p>这是python官网的连接：<a class="link"   href="https://www.python.org/" >https://www.python.org/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>因为我使用的是windows11，所以对于win7以及更早的版本没有什么很好的建议，如果你是这一类的用户，可以参见官网的指导</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/python.png"
+                      alt="python官网"
+                ></p>
+<p>直接点击<strong>python 3.12.0</strong>下载最新版即可，如果由于文章未更新而最新版本信息未匹配，请下载官网提供的最新版即可</p>
+<p>运行安装程序时，请勾选<strong>Add Python to PATH</strong>，否则你的配置会麻烦许多</p>
+<h3 id="linux" tabindex="-1">Linux</h3>
+<h4 id="python%E7%9A%84%E5%AE%89%E8%A3%85-1" tabindex="-1">Python的安装</h4>
+<p>Linux系统是专门为编程而设计的，在绝大多数Linux系统中都默认安装了Python，所以你基本不需要安装什么软件或修改什么设置</p>
+<h3 id="%E4%BB%A3%E7%A0%81" tabindex="-1">代码</h3>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> getopt</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment">#主函数，传入用户输入的参数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start</span>(<span class="params">argv</span>):</span><br><span class="line">    url = <span class="string">&quot;&quot;</span></span><br><span class="line">    pages = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;-h 帮助信息;\n&quot;</span>)</span><br><span class="line">        sys.exit()</span><br><span class="line">    <span class="comment">#定义异常处理</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        banner()</span><br><span class="line">        opts,args = getopt.getopt(argv,<span class="string">&quot;-u:-p:-h&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> getopt.GetoptError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Error an argument!&#x27;</span>)</span><br><span class="line">        sys.exit()</span><br><span class="line">    <span class="keyword">for</span> opt,arg <span class="keyword">in</span> opts:</span><br><span class="line">        <span class="keyword">if</span> opt == <span class="string">&quot;-u&quot;</span>:</span><br><span class="line">            url = arg</span><br><span class="line">        <span class="keyword">elif</span> opt == <span class="string">&quot;-p&quot;</span>:</span><br><span class="line">            pages = arg</span><br><span class="line">        <span class="keyword">elif</span> opt == <span class="string">&quot;-h&quot;</span>:</span><br><span class="line">            <span class="built_in">print</span>(usage())</span><br><span class="line"></span><br><span class="line">    launcher(url,pages)</span><br><span class="line"></span><br><span class="line"><span class="comment">#banner信息</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">banner</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;\033[0;31;42m 爬虫不控频,亲人两行泪 \033[0m&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用规则</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">usage</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-h: --help 帮助;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-u: --url 域名;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-p: --pages 页数;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;eg: python -u &quot;www.baidu.com&quot; -p 100&#x27;</span> + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br><span class="line"><span class="comment">#漏洞回调函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">launcher</span>(<span class="params">url,pages</span>):   <span class="comment">#调用bing_search()和baidu_search()函数并且将bing爬到的和baidu爬到的合并去重</span></span><br><span class="line">    email_num = []</span><br><span class="line">    key_words = [<span class="string">&#x27;email&#x27;</span>,<span class="string">&#x27;mail&#x27;</span>,<span class="string">&#x27;mailbox&#x27;</span>,<span class="string">&#x27;邮件&#x27;</span>,<span class="string">&#x27;邮箱&#x27;</span>,<span class="string">&#x27;postbox&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">int</span>(pages)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> key_word <span class="keyword">in</span> key_words:</span><br><span class="line">            bing_emails = bing_search(url,page,key_word)</span><br><span class="line">            baidu_emails = baidu_search(url,page,key_word)</span><br><span class="line">            sum_emails = bing_emails + baidu_emails</span><br><span class="line">            <span class="keyword">for</span> email <span class="keyword">in</span> sum_emails:</span><br><span class="line">                <span class="keyword">if</span> email <span class="keyword">in</span> email_num:</span><br><span class="line">                    <span class="keyword">pass</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="built_in">print</span>(email)</span><br><span class="line">                    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>,<span class="string">&#x27;a+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                        f.write(email + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">                    email_num.append(email)</span><br><span class="line"></span><br><span class="line"><span class="comment">#bingSearch</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bing_search</span>(<span class="params">url,page,key_word</span>): <span class="comment">#绕过Bing搜索引擎反爬(校验referer和cookie)</span></span><br><span class="line">    referer = <span class="string">&quot;http://cn.bing.com/search?q=email+site%3abaidu.com&amp;qs=n&amp;sp=-1&amp;pq=emailsite%3abaidu.com&amp;first=1&amp;FORM=PERE1&quot;</span></span><br><span class="line">    conn = requests.session()</span><br><span class="line">    bing_url = <span class="string">&quot;https://cn.bing.com/search?q=&quot;</span>+key_word+<span class="string">&quot;site%3a&quot;</span>+url+<span class="string">&quot;&amp;qs=n&amp;sp=-1&amp;pq=&quot;</span>+key_word+<span class="string">&quot;site%3a&quot;</span>+url+<span class="string">&quot;&amp;first=&quot;</span>+<span class="built_in">str</span>((page-<span class="number">1</span>)*<span class="number">10</span>)+<span class="string">&quot;&amp;FORM=PERE1&quot;</span></span><br><span class="line">    conn.get(<span class="string">&#x27;http://cn.bing.com&#x27;</span>,headers=headers(referer))</span><br><span class="line">    r = conn.get(bing_url,stream=<span class="literal">True</span>,headers=headers(referer),timeout=<span class="number">8</span>)</span><br><span class="line">    emails = search_email(r.text)</span><br><span class="line">    <span class="keyword">return</span> emails</span><br><span class="line"></span><br><span class="line"><span class="comment">#baiduSearch</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">baidu_search</span>(<span class="params">url,page,key_word</span>):   <span class="comment">#绕过百度搜索引擎的反爬(JS请求链)</span></span><br><span class="line">    email_list = []</span><br><span class="line">    emails = []</span><br><span class="line">    referer = <span class="string">&quot;https://www.baidu.com/s?wd=email+site%3Abaidu.com&amp;pn=1&quot;</span></span><br><span class="line">    baidu_url = <span class="string">&quot;https://www.baidu.com/s?wd=&quot;</span>+key_word+<span class="string">&quot;+site%3A&quot;</span>+url+<span class="string">&quot;&amp;pn=&quot;</span>+<span class="built_in">str</span>((page-<span class="number">1</span>)*<span class="number">10</span>)</span><br><span class="line">    conn = requests.session()</span><br><span class="line">    conn.get(referer,headers=headers(referer))</span><br><span class="line">    r = conn.get(baidu_url, headers=headers(referer))</span><br><span class="line">    soup = BeautifulSoup(r.text, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">    tagh3 = soup.find_all(<span class="string">&#x27;h3&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> h3 <span class="keyword">in</span> tagh3:</span><br><span class="line">        href = h3.find(<span class="string">&#x27;a&#x27;</span>).get(<span class="string">&#x27;href&#x27;</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            r = requests.get(href, headers=headers(referer),timeout=<span class="number">8</span>)</span><br><span class="line">            emails = search_email(r.text)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">for</span> email <span class="keyword">in</span> emails:</span><br><span class="line">            email_list.append(email)</span><br><span class="line">    <span class="keyword">return</span> email_list</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search_email</span>(<span class="params">html</span>):</span><br><span class="line">    emails = re.findall(<span class="string">r&quot;[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+&quot;</span>,html,re.I)  <span class="comment">#正则表达式获取邮箱号码</span></span><br><span class="line">    <span class="keyword">return</span> emails</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">headers</span>(<span class="params">referer</span>):</span><br><span class="line">    headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;*/*&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Accept-Language&#x27;</span>:<span class="string">&#x27;en-US,en;q=0.5&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Accept-Encoding&#x27;</span>:<span class="string">&#x27;gzip,deflate&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Referer&#x27;</span>:referer&#125;</span><br><span class="line">    <span class="keyword">return</span> headers</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment">#定义异常</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        start(sys.argv[<span class="number">1</span>:])</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;interrupted by user,killing all threads...&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>脚本语言</category>
+        <category>python</category>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VisualStudioCode</title>
     <url>/2023/10/07/VisualStudioCode/</url>
-    <content><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+    <content><![CDATA[<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
       <categories>
@@ -460,6 +617,57 @@
       <tags>
         <tag>编程工具</tag>
         <tag>编辑器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo&amp;github pages建站指南</title>
+    <url>/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
+<h1 id="hexo-%26-github-pages-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8C%97" tabindex="-1">Hexo &amp; Github pages 搭建个人博客指北</h1>
+<p>中间如果遇到问题可以直接评论或联系我询问噢，我能帮一定会帮</p>
+<h2 id="hexo" tabindex="-1">Hexo</h2>
+<h3 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E4%B8%8B%E8%BD%BDnode.js" tabindex="-1">第一步 下载<strong>Node.js</strong></h3>
+<p>建站过程中需要用到<strong>npm</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的指令下载相关代码包</p>
+<p>既然这是一个基于Node.js的工具，它的下载是伴随Node.js的，所以这里需要下载Node.js来支持网站搭建</p>
+<p><a class="link"   href="https://nodejs.org/en" >Node.js下载官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这里不必下载最新版，下载推荐的版本即可</p>
+<h3 id="%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8B%E8%BD%BDgit" tabindex="-1">第二步 下载<strong>Git</strong></h3>
+<p>Git是一个代码版本管理器，详细可以参见搜索引擎或后期发表的文章</p>
+<p><a class="link"   href="https://git-scm.com/download/win" >Windows系统Git下载官方网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这个网站由于是外国网站，可能你会无法正常访问，所以你也可以通过<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/"><strong>淘宝 Git for Windows 镜像</strong></a>下载Git安装包，下载最新版即可，在本文发布时最新版为<strong>v2.42.0.windows.2/</strong>，你可以在网站里找找</p>
+<h3 id="%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%AE%89%E8%A3%85hexo" tabindex="-1">第三步 安装Hexo</h3>
+<p>请确认已经成功安装了上面两个东西，再来执行这一步</p>
+<h4 id="%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85hexo" tabindex="-1">使用npm安装Hexo</h4>
+<p>在系统开始栏搜索打开cmd</p>
+<p>输入以下指令</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></div>
+<h3 id="%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%BB%BA%E7%AB%99" tabindex="-1">第四步 建站</h3>
+<p>这里需要建一个放你网站文件的文件夹</p>
+<p>请找到你想把文件夹放在的地方，比如你想放到D盘的话，你就需要在cmd中先输入<code>D:</code>，然后输入以下指令</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>这里的<code>&lt;folder&gt;</code>是你想建的文件夹的名字，建议用英文</li>
+<li><code>cd &lt;folder&gt;</code>表示在终端中切换到你的博客文件夹中进行操作</li>
+<li><code>npm install</code>表示在选中的文件夹里安装npm相关的文件</li>
+</ul>
+<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><strong>npm</strong>全称为<strong>Node Package Manager</strong>，看名字就大概可以猜到它的用途了，npm是基于<strong>Node.js</strong>的一个代码包的库，如果没有npm，而我们又需要一些Node.js的拓展代码来完成一些特殊任务，就需要到代码所在的相应网站去下载，问题是，如果我们需要很多代码包，它们都分处不同的网站，那么这时候去挨个访问网站去下载代码就会非常麻烦了，npm就是为了解决这个问题而出现的，npm为那些代码的开发者提供了一个平台，使得代码可以被发布到npm上，使用者可以直接通过npm下载相应的代码，而不需要另外拜访相应网站去下载了。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>建站</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>静态网站</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -612,59 +820,8 @@
       </categories>
       <tags>
         <tag>C语言</tag>
-        <tag>vscode</tag>
         <tag>环境配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo&amp;github pages建站指南</title>
-    <url>/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
-<h1 id="hexo-%26-github-pages-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8C%97" tabindex="-1">Hexo &amp; Github pages 搭建个人博客指北</h1>
-<p>中间如果遇到问题可以直接评论或联系我询问噢，我能帮一定会帮</p>
-<h2 id="hexo" tabindex="-1">Hexo</h2>
-<h3 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E4%B8%8B%E8%BD%BDnode.js" tabindex="-1">第一步 下载<strong>Node.js</strong></h3>
-<p>建站过程中需要用到<strong>npm</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的指令下载相关代码包</p>
-<p>既然这是一个基于Node.js的工具，它的下载是伴随Node.js的，所以这里需要下载Node.js来支持网站搭建</p>
-<p><a class="link"   href="https://nodejs.org/en" >Node.js下载官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>这里不必下载最新版，下载推荐的版本即可</p>
-<h3 id="%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8B%E8%BD%BDgit" tabindex="-1">第二步 下载<strong>Git</strong></h3>
-<p>Git是一个代码版本管理器，详细可以参见搜索引擎或后期发表的文章</p>
-<p><a class="link"   href="https://git-scm.com/download/win" >Windows系统Git下载官方网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>这个网站由于是外国网站，可能你会无法正常访问，所以你也可以通过<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/"><strong>淘宝 Git for Windows 镜像</strong></a>下载Git安装包，下载最新版即可，在本文发布时最新版为<strong>v2.42.0.windows.2/</strong>，你可以在网站里找找</p>
-<h3 id="%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%AE%89%E8%A3%85hexo" tabindex="-1">第三步 安装Hexo</h3>
-<p>请确认已经成功安装了上面两个东西，再来执行这一步</p>
-<h4 id="%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85hexo" tabindex="-1">使用npm安装Hexo</h4>
-<p>在系统开始栏搜索打开cmd</p>
-<p>输入以下指令</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></div>
-<h3 id="%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%BB%BA%E7%AB%99" tabindex="-1">第四步 建站</h3>
-<p>这里需要建一个放你网站文件的文件夹</p>
-<p>请找到你想把文件夹放在的地方，比如你想放到D盘的话，你就需要在cmd中先输入<code>D:</code>，然后输入以下指令</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></div>
-<ul>
-<li>这里的<code>&lt;folder&gt;</code>是你想建的文件夹的名字，建议用英文</li>
-<li><code>cd &lt;folder&gt;</code>表示在终端中切换到你的博客文件夹中进行操作</li>
-<li><code>npm install</code>表示在选中的文件夹里安装npm相关的文件</li>
-</ul>
-<p><strong>待更新</strong></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><strong>npm</strong>全称为<strong>Node Package Manager</strong>，看名字就大概可以猜到它的用途了，npm是基于<strong>Node.js</strong>的一个代码包的库，如果没有npm，而我们又需要一些Node.js的拓展代码来完成一些特殊任务，就需要到代码所在的相应网站去下载，问题是，如果我们需要很多代码包，它们都分处不同的网站，那么这时候去挨个访问网站去下载代码就会非常麻烦了，npm就是为了解决这个问题而出现的，npm为那些代码的开发者提供了一个平台，使得代码可以被发布到npm上，使用者可以直接通过npm下载相应的代码，而不需要另外拜访相应网站去下载了。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>建站</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>静态网站</tag>
-        <tag>hexo</tag>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -698,7 +855,8 @@
 <li>爬虫</li>
 <li>游戏</li>
 <li>数据可视化</li>
-<li>excel</li>
+<li>excel<br>
+<strong>待更新</strong></li>
 </ul>
 </li>
 </ul>
