@@ -90,6 +90,10 @@
     <title>2023级E2练习赛</title>
     <url>/2023/09/24/2023%E7%BA%A7E2%E7%BB%83%E4%B9%A0%E8%B5%9B/</url>
     <content><![CDATA[<h1 id="2023%E7%BA%A7%E6%9C%AC%E7%A7%91%E6%96%B0%E7%94%9F%E7%AC%AC%E4%BA%8C%E6%AC%A1%E7%BB%83%E4%B9%A0%E8%B5%9B%E4%B9%A0%E9%A2%98%E8%AE%B2%E8%A7%A3" tabindex="-1">2023级本科新生第二次练习赛习题讲解</h1>
+<h2 id="%E6%94%B9%E5%8A%A8" tabindex="-1">改动</h2>
+<ul>
+<li>2023/10/15 sizeof()是操作符不是函数</li>
+</ul>
 <h2 id="a-%E5%9D%90%E6%A0%87%E7%B3%BB%E5%8F%98%E6%8D%A2" tabindex="-1">A 坐标系变换</h2>
 <hr>
 <h3 id="%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B" tabindex="-1">原题如下</h3>
@@ -183,9 +187,9 @@
 <p>输出</p>
 <div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure></div>
 <p>最后一个<code>printf</code>没有打印出来，因为指针p解码后是字符串中的一个字符，而<code>strlen</code>并不能对一个数据求长度</p>
-<p>这里尤其需要与另一个函数区分一下</p>
-<h3 id="sizeof()%E5%87%BD%E6%95%B0" tabindex="-1">sizeof()函数</h3>
-<p>对于同一个合理字符串来说，sizeof函数返回的字符串长度会包含结尾的<code>'\0'</code>，而strlen不会包含，并且sizeof计算的是整个字符串占据的字节，并不会在<code>'\0'</code>处就此停下<br>
+<p>这里尤其需要与另一个操作符区分一下</p>
+<h3 id="sizeof()%E6%93%8D%E4%BD%9C%E7%AC%A6" tabindex="-1">sizeof()操作符</h3>
+<p>对于同一个合理字符串来说，sizeof操作符返回的字符串长度会包含结尾的<code>'\0'</code>，而strlen不会包含，并且sizeof计算的是整个字符串占据的字节，并不会在<code>'\0'</code>处就此停下<br>
 来看一个例子</p>
 <div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span>* p = <span class="string">&quot;abcdef&quot;</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">strlen</span>(p));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="keyword">sizeof</span>(p))</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <p>输出</p>
@@ -321,7 +325,7 @@
 <h3 id="%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F" tabindex="-1">全局变量</h3>
 <p>我们之前提到了，函数里边定义的变量其实是局部变量，为什么叫局部呢，因为这个变量的生命周期，是随着函数的调用与结束而开始和终结的，也就是说，你函数一用完，这变量就没了<br>
 而全局函数不同的是，它是定义在整个程序中而不是某个函数中的，也就是说，它的生命周期随这个程序的运行情况而定，只有当程序运行完后，变量才会“死亡”<br>
-并且，理论上讲，全局变量能使用的空间是无限的（当然得要小于你电脑得内存啦awww），所以你可以放心大胆得开你的超长数组。。。</p>
+并且，理论上讲，全局变量能使用的空间是无限的（当然得要小于你电脑的内存啦awww），所以你可以放心大胆得开你的超长数组。。。</p>
 <h3 id="%E6%9C%80%E5%A4%A7%E5%80%BC%E7%9A%84%E6%B1%82%E5%8F%96" tabindex="-1">最大值的求取</h3>
 <p>其实在c语言里有这个函数的文件的，但这个函数的头文件叫<code>algorithm</code>，如果你用的编译软件是VScode，这个软件可能找不到这个文件的位置，需要你进行配置，这里就不展开说明啦<br>
 所以就别躲了，上循环硬刚叭</p>
@@ -604,22 +608,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VisualStudioCode</title>
-    <url>/2023/10/07/VisualStudioCode/</url>
-    <content><![CDATA[<p><strong>待更新</strong></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>编程工具</category>
-      </categories>
-      <tags>
-        <tag>编程工具</tag>
-        <tag>编辑器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo&amp;github pages建站指南</title>
     <url>/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
@@ -668,6 +656,183 @@
       <tags>
         <tag>静态网站</tag>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VisualStudioCode</title>
+    <url>/2023/10/07/VisualStudioCode/</url>
+    <content><![CDATA[<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编程工具</category>
+      </categories>
+      <tags>
+        <tag>编程工具</tag>
+        <tag>编辑器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python语言基础</title>
+    <url>/2023/10/07/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
+<h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%AE%80%E4%BB%8B" tabindex="-1">语言基础简介</h1>
+<h2 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h2>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">数据类型</label>
+<ul>
+<li>变量</li>
+<li>字符串</li>
+<li>数字</li>
+<li>注释</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">列表</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">字典</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">元组</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">if语句</label></li>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">循环语句</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">用户输入</label></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">函数</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">类</label></li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">文件</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">测试</label></li>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11">项目</label>
+<ul>
+<li>网站</li>
+<li>爬虫</li>
+<li>游戏</li>
+<li>数据可视化</li>
+<li>excel<br>
+<strong>待更新</strong></li>
+</ul>
+</li>
+</ul>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>脚本语言</category>
+        <category>python</category>
+        <category>语言基础</category>
+      </categories>
+      <tags>
+        <tag>语言基础</tag>
+        <tag>python</tag>
+        <tag>脚本语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《Python黑帽子-黑客与渗透编程测试之道》问题解答</title>
+    <url>/2023/10/21/%E3%80%8APython%E9%BB%91%E5%B8%BD%E5%AD%90-%E9%BB%91%E5%AE%A2%E4%B8%8E%E6%B8%97%E9%80%8F%E7%BC%96%E7%A8%8B%E6%B5%8B%E8%AF%95%E4%B9%8B%E9%81%93%E3%80%8B%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</url>
+    <content><![CDATA[<h1 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h1>
+<h2 id="1-%E8%AE%BE%E7%BD%AE%E4%BD%A0%E7%9A%84python%E7%8E%AF%E5%A2%83" tabindex="-1">1 设置你的Python环境</h2>
+<h3 id="%E5%AE%89%E8%A3%85kali-linux%E8%99%9A%E6%8B%9F%E6%9C%BA" tabindex="-1">安装Kali Linux虚拟机</h3>
+<h4 id="%E5%AE%89%E8%A3%85%E5%85%B7%E4%BD%93%E8%BF%87%E7%A8%8B" tabindex="-1">安装具体过程</h4>
+<h5 id="%E4%B8%8B%E8%BD%BD%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AF%E4%BB%B6" tabindex="-1">下载虚拟机软件</h5>
+<hr>
+<p><strong>1.安装什么虚拟机软件</strong></p>
+<p>我下载的是<strong>VMware Player</strong>，因为我不清楚其他软件对于Win11的兼容性怎么样，下载这个软件要注意的就是不需要下载<strong>VMware</strong>，这是要付费的，加了<strong>Player</strong>的是不用付费的，注意这个就行</p>
+<p>下载连接：<a class="link"   href="https://www.vmware.com/cn/products/workstation-player.html" >VMware Workstation Player <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<hr>
+<p><strong>2.如何下载Kali虚拟机镜像</strong></p>
+<p>连接：<a class="link"   href="https://www.kali.org/get-kali/#kali-installer-images" >Kali install <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>选择下载<strong>Installer</strong>即可，记住安装位置</p>
+<hr>
+<p><strong>3.如何把Kali安装到虚拟机软件中</strong></p>
+<p>打开虚拟机软件，点<strong>创建新虚拟机</strong></p>
+<p>然后选择<strong>稍后安装操作系统</strong></p>
+<p>点<strong>下一步</strong></p>
+<p><strong>客户机操作系统</strong>选择<strong>Linux</strong></p>
+<p><strong>版本</strong>选择最新版的<strong>Debian 64位</strong>，本文发布时最新版是<strong>11.x</strong></p>
+<p>点<strong>下一步</strong></p>
+<p><strong>虚拟机名称</strong>取一个你记得住的就行</p>
+<p><strong>位置</strong>找你想放的地方就行，建议不要放<strong>C盘</strong></p>
+<p>点<strong>下一步</strong></p>
+<p><strong>最大磁盘大小</strong>按默认值可以了</p>
+<p>勾选<strong>将虚拟磁盘拆分成多个文件</strong></p>
+<p>点<strong>下一步</strong></p>
+<p>点击<strong>自定义硬件</strong></p>
+<p>在<strong>新 CD/DVD(IDE)<strong>那一栏里勾选</strong>使用ISO映像文件</strong>，把之前让你记住的位置输入进去</p>
+<p>点<strong>关闭</strong></p>
+<p>点<strong>完成</strong></p>
+<p>打开刚建的虚拟机</p>
+<p>后面如果有选择项，选择应用到全部磁盘即可，账号密码请一定记住，一般设置默认都可以</p>
+<h4 id="%E5%AE%89%E8%A3%85%E5%AE%8C%E7%9A%84%E9%85%8D%E7%BD%AE" tabindex="-1">安装完的配置</h4>
+<p><strong>1.如何打开shell窗口</strong></p>
+<p>进虚拟机后左上角处有一个黑方框的应用图标，点击进入即可</p>
+<p><strong>2.更新指令无法正常执行</strong></p>
+<p>按照书中的指令输入可能会出现一些情况</p>
+<p><strong>如果你输入了某一行指令后窗口出现一个文字框，有一个<code>[OK]</code>的选项你不知道怎么点</strong></p>
+<p>点击键盘上的<strong>Tab</strong>键，当<code>[OK]</code>变成光亮时点<strong>Enter</strong>即可</p>
+<hr>
+<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>脚本语言</category>
+        <category>python</category>
+        <category>黑客</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>win11神奇操作指北</title>
+    <url>/2023/11/09/win11%E7%A5%9E%E5%A5%87%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8C%97/</url>
+    <content><![CDATA[<h1 id="%E9%94%99%E8%AF%AF%E7%B1%BB" tabindex="-1">错误类</h1>
+<h2 id="%E6%89%93%E5%AD%97%E4%B9%88%E6%9C%89%E6%89%93%E5%AD%97%E6%A1%86" tabindex="-1">打字么有打字框</h2>
+<p>有些人使用（应该是绝大部分人）win11系统的电脑时可能某一时候突然发现，系统输入法打字没有打字框了叻，很神奇是不是</p>
+<p>但是咋解决捏</p>
+<p>很简单，原理我不是很懂，但是确实可以这样做</p>
+<p>打开任务管理器，如果你不会打开的话，右键<strong>开始</strong>的图标选择<strong>任务管理器</strong>即可，然后找到进程中的<strong>explorer.exe</strong>(找的话不方便直接搜索)或者中文名<strong>Windows资源管理器</strong>，右键这东西大胆点击重新启动，等待它重启完成后问题基本就解决了，如果还没解决，可能你得另找办法叻</p>
+<h1 id="%E6%93%8D%E4%BD%9C%E7%B1%BB" tabindex="-1">操作类</h1>
+<h2 id="cmd" tabindex="-1">cmd</h2>
+<h3 id="%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8" tabindex="-1">打开注册表编辑器</h3>
+<p>打开cmd输入regidit</p>
+<h3 id="%E6%89%93%E5%BC%80%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E7%9A%84%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2" tabindex="-1">打开用户账户的管理界面</h3>
+<p>打开cmd输入netplwiz</p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>win11</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>许安的文章</title>
+    <url>/2023/10/06/%E8%AE%B8%E5%AE%89%E7%9A%84%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[
+<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="a3684dab4b6d08643e4cd90ad4423a1701e0a651041e242fe8f30fbdc16d102a">c2f758448b966c920bba3b17b8fb2a50b0f7210799e061a8f7da74d199805fa93a668353939e6447d0b9a5f0f9ef319d7601bb252a4208e9adaa137faac54c1da324ac228c5499f8bd8174dd67b849e2b785ff74286abd1e982ae625c3bacf9c528c208b9d0391e03649e8928c13d98e441e140a6007ccab9f253b388a208c5ade476d55ef58629ca216c3157f068bd2561a0f491b6f8f423ebc208914e91a48d436aaa5c605b00e157e585e00e4fc9c9fdf96a4e5b301132d7e538ba5f4080727c4507adf05bd5b0fc47950dda34b54a5ce034be1c15b250d1c33ea5e3a0ae107c978f27fa415537ca4c2ea5815d633f7208a87d7b50799d08cf55965c2cdd1adb77aef02f8b2399a1f441c9640402a9d6c9d82abbd959cff2238ae6fb9fa234aba47e2e4c0dc21a2565fa66dc41ce3c61fecc32f8131d86a78ed9983d7a7eef07c4dbb7279f1d1cd834b4a90f390d43c966771bb72da3aef96113e562cb60b5804d3c7bb6b7d279ddd558c3a62e9a1122dd6f031e966bc6383bdb8524bc9fa6a4ce5a90ca38255450fd41f9c40bfca83706779e0de5c670b2cc7b566c99a8f6f188141076bb4921ec7ad77d02ace95907dcce6b4923a841a8e07c53aca77313557ca162a5896e63b3591c2af9e46d35fee783035186c285f29f21de460b38962707a16cf2bcf1f4f32722a94b3773e4184612f863aa81a6cf8d87c7148b929fafce45e7499932611280337e54d85608f3389d64029300f07e6bc761989be28b5bbc8542d9acf503a0fc351de3484c2745f47178045ccc6b4fcf5e8c85abfa8c344cda36e5402c87da368153064b3118152a4aa3acfd1c0c5a4bb6f839bfef78ae4366dbd0c97d249bb945ab1337ab7fef4273ac3c182c97a449cc99bacb489624b458d49a332e3841e1f1acf191bbeeafd1b8b7d6e8fa827eea08fa6659a2175d000505ec17b379e8b8295bc59b41fbf29caaf94c488a7b42d67418f8276cb516195fd58fc418bdb3342937109e925564d327feb965392923b486f66c621efc62f1505e6795b2b17496c3285f3203a106e2a8e1e9b7503289720c84966c9ef8baff07a5a48fe0eff529791c8eb333b370f41257f2b3a66c85abb96615b32c728344722d378e9c5a1e7886c00ba254cafb50d6e1186ad1d2ded6c8de54c509eddf09c00f59048dbe12b65a756446a1b561f073fc3688346c07dc89ce00caf3fa42b05f293b9983f1b07422e15a8b8ab413428ff0a6296c9647dc279e366a8400a69ef787428068c91c20149487cd8dae5705bb367e89b9c08977a354edfcfc80d096ac0232cbab40e1535742ba0e41772d8c403a15afe76082a5df2177a1bd6bd90c06fde059fc998b4f845cf226d98a8f806b9e88c2057d8e1f921ba6ce6a3aa81b13e1979f1938f0dfd9aecb2ea0911cff2f9660821c699de6493b32b277bf96fea484a8d6dec0f406a2fed978b0552363f453b3fd66f883e833eb1f6884369835bef5519cd6d0e37eac8093ea6a3e770c6f4a8e665224d54983699cf15b0ffda0f6c3285f20b6d8f6a3527dcec8ac54b18e392840897623e44a754f6e0dae8813dfcc26f01df1b1283edaf3c4682e8d2adc6777a778a2ca3c937ac9229e671857c9e5c6862e68f88cb7d944da89dd2635354677ff81a494d1182fa5a953161ed80c98fa2a6ebb0bf00859bfc77477ecced9747f3c6011f9df4bee5bbaa08fbe573dbf5de53d3ae2dc65e2434119d333c41d171dc8533b7df373da826e360eba0dc81731b5d06eb3edf25a3741e6b3d314028b24b14f1e6051d42a7f369b1fceff0cc59954f8c60706b330b82fb8f5146cb207bb0354cea9e5c270dbff5b0d4354a8de0d83af3019bce42a5a2f0a8e057b055b442a7f7c1c697fb5a3dc5caf9b65c3b5c35cbfbacf7448b7faf4cdc7624ad7c00f4417ba02542ebe5976751b35a8b759669cd51e5f6fdbdc182e22f77391a384c31aad300b69280877c4ac8722d9cc6431d2ebadbe7c2f8a80175181e8dc39647b7208baf16b48f62ed14c76fed0bae9b738983924215b472b975f2387464fa1d15fd3ac3f2b14561bb803a6a7e584361e32e9f2b2aca5b8183841ce3a16845f7e8b3720242c7644f28b6da3c1057ec2e3a6b6bf0ae31d9efbc924d2c0cb743d54291fe8616c7c25c023cb153940e54791835e3c7065f87523a0389b0ab4c6a68b2349520fcc6ead13e1e1411bde244b89345fdfaac665eabafbbfa4bd1e69fd6960bf36a31e90bbcc0efe57d0adf2e1ccaa2c94d92f17e7103b6ba11c9fbc1d95f36af2c1dc8cf1c3d6228a6eceb0cf3035165d89639253e91cc87737e834681ce2922c85b13589c147bde8aacca5a69fa5f039fbbd9100d28164230a3c35aea45cbd939c36ad6e6b14e87ea0c0fea2b919a382d5ec548228083883a872806e509d4ed8421d0b2ee3eb0c4dbab46b7d21b6a2c658a56f28bab41fdcc6563f3192b4c91aa51abccf54b53fc14d9caaa2f3f8df81d899eb846d12e606e11d48834bc11050b765af322e300ef19404b0da7c0cd5592abf23d606375edd50b012938a6d676e576657869a7b36262cd8ea3e56934cf5949498a02252275c1253b0e070d1d557b5373c9029c5c22abc016f01c819be4e8f921ec95c91996053ba50af79380fe97060037d29dd43800e0a22173e82231b5ced286c7cbefbc4169ba1b983acf494507702e6f7be14d0eca32d15af54c42f1e0789ea55a3f07e96d4c0e2d2108b0acd37c3c8b4f331b5860cc413d11585cf9597cffda5e296500b25394f5193d9f4ce50e381e6ebeb2d7b4c59a7d421895c703d96b52ede8f953c2851bf9d0593e3d52a1cabaf6228cc26f5e819ac19ba6dd2789a994b4ff62d5535224cde3d7e16fe7a68695f04e2727facac560abf5f306c8b6debab4b4076aa7a01799db4046dd427011991ec79b34cdbe624a9b19e8ea10d0e018f1b74271f8e0e35b0c8f73baa16a16bb94cd73edd35e43f4fcef193baa900cc441a7eaa331dbbd77120826bbc9c3360d89a8c6dc7cd0b6a13f2ff280260388411bd05246a1079d2a26078332038fd50042e77af218f3a9754bb3f2ece57507d1b1db507eb5a379816c42ec6e7952234dd589d652d4a39e0dd21a233de941da156a38b28f8d24ae582e7d3a73dcebb6a47258658c37fb6db7cee0f4d7121459f15031dcd13bbacf2891037c7e0638e9c745c558d696a8401447dce0448c770bad73f7a7ea1b2afd08b61226728949d1495c3401f5da2e68e8ded94599175ae6383668906e4be9051a59bd309992aad368a5fed251488ce2e0f527dd6507b59100667a5988fe3690100994a614657262f46bba371b65f65e34a03dac9e16be55d665a5df792c7375cb07c73498a36cb1ffacdd3132dfec076f00860fac126e6e52b03c6e8ec37b61f0e1c1045ef7c068cbc60c157dc85619937252be03bca9fef660a201891cd44e35523505a15b93f0dd2ec3a3dd390cff73ede77db645d899506593d2df7e7fe5cacb0e96c14c12360ed857572ef2eb51908e8ab98b9502a3838209dbbfa9db56fd8cf9ea8fd85e7be2ec01bced94e7794f17a6c52a2b953243ff06117bac2114a09740f72945721d1e2378f6a1c2cbb209c4d0c875fcf6f1c450ccdfb650708b7f8a0d2a9aeeb7aa100c2f11510185d39862480be6b52bc6adc29a04cd45c9070e665081ad1765de7da2214b2ba77c408b3a98d4ee34245ed2e5cd701365012269d83d5a187d8fd0383b78685d9cd647376b7b44d5033f6dc589566962bca72a2d9ca6d5f0dc867362235c28cd2960c6562cc02c07e56efe609cbafe13c51d1ccccff5bddd3b978986584da575861c248a3dc3deb74b116b479dae644699d3b8e67a77c75c5642023b548e56e63d9a439bea098b329270d634174e93fe8094ee60fbeb9a9fe5e436ebcc0c81c95498e420b90b64a4c6bae3cbc1a2abb7452d1e8990aff9cca771ff3ca8940e00d7643b5fcf2cc9b20004d089a0d56dd1756624debaa8a712e9f822998a452ecfa5929b6fc5a17ea9f1c99d704dc6880ffb7024c4e37552af9c11aabb31b2832a155c47656947b4fed4499e2329d7a21596b6faaa8567d0939de0a88eda7a518ac74b8ea52eac7abd63e7e4e7cc5b761dd76af03276d94038b06f417db8f3c661178dd6d2c5e391ab23b9b6bc161ac532066e5fbbc64483ac563b94e26adc2c1f09f8d13f427439f20c87415e5ca04dd6ede315617c8efffaf51a202508471cbcc5686edc0fef4868b01514e610b59f9efce110d91032b88459faba9c2b8231c3a3b35563e7400fb259749246fc0b300a5f3ce0ba6c7bc144c9a1235fa1e16c76551bbdec65c25c204fdc7ef82076de356234a7894cdca4b83d1fd5dca1a38e79328ba2d0d7d131dc5520a8e3841bba2a03c2e4f73f9fde5becf0222631c96aea6adf4e77d7f579087f6138976104d7f96826f615b67026750f215184a9bddc</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-swup-reload-script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>四方星</category>
+        <category>许安</category>
+        <category>文章</category>
+      </categories>
+      <tags>
+        <tag>四方星</tag>
+        <tag>许安</tag>
+        <tag>文章</tag>
       </tags>
   </entry>
   <entry>
@@ -722,6 +887,7 @@
 下载完安装包后打开<br>
 安装到你想要的位置<br>
 注意安装过程中建议勾选 “将&quot;通过Code打开&quot;操作添加到Windows资源管理器文件&amp;&amp;目录上下文菜单”</p>
+<p><strong>如果没有勾选，可以看文尾有解决办法</strong></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -806,7 +972,45 @@
 <h3 id="%E5%88%A0%E9%99%A4%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%97%B6%E7%94%9F%E6%88%90%E7%9A%84.exe%E6%96%87%E4%BB%B6" tabindex="-1">删除执行程序时生成的.exe文件</h3>
 <p>当你的代码一多，满屏的.c和.exe可能会让你目不暇接，这里推荐一个方法，这个教程可以看看一个学长的博客，非常有用<br>
 <a class="link"   href="https://swkfk.top/2023/07/30/VSCode-%E4%B8%AD-C-%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88for-Windows%EF%BC%89/" >搬运工:) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="%E5%A6%82%E6%9E%9C%E6%9C%AC%E6%96%87%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8C%87%E6%AD%A3%5C-(-)-%2F" tabindex="-1">如果本文有什么问题，欢迎指正\ (<sup>-</sup>) /</h3>
+<h3 id="%E5%AE%89%E8%A3%85%E6%97%B6%E6%B2%A1%E6%9C%89%E5%8B%BE%E9%80%89%E4%B9%8B%E5%89%8D%E8%AF%B4%E8%BF%87%E7%9A%84%E9%A1%B9%E7%9A%84%E5%90%8E%E6%9C%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" tabindex="-1">安装时没有勾选之前说过的项的后期解决方案</h3>
+<p>打开cmd命令提示符，输入<strong>regedit</strong>打开<strong>注册表编辑器</strong></p>
+<p>找到<strong>HKEY_CLASSES_ROOT</strong></p>
+<h4 id="%E9%85%8D%E7%BD%AE%E2%80%9C%E7%94%A8vscode%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E2%80%9D" tabindex="-1">配置“用VSCode打开文件”</h4>
+<p>找到<strong>HKEY_CLASSES_ROOT</strong>-<strong>*</strong>-<strong>shell</strong>，右键<strong>shell</strong>点击<strong>新建</strong>-<strong>项</strong></p>
+<p>把项的名字设置为<strong>VScode</strong>（你认得出来其实就可以www）</p>
+<p>修改里面默认文件（字符串）的<strong>数值数据</strong>为<strong>用VSCode打开</strong>（名字可以自定，右键文件出现的菜单反正会有这个名字，你也可以个性化一点设置成奇怪的名字嘿嘿）</p>
+<p>右击建的项<strong>VSCode</strong>新建<strong>可扩充字符串值</strong>，名字设置为<strong>Icon</strong>双击它修改它的数值数据为你的VScode应用程序的路径，比如说我的电脑中是<strong>D:\Software\Microsoft VS Code\Code.exe</strong>（这一步是给菜单的这一项添加图标缩略图，更好看点而已www）</p>
+<p>右击建的项<strong>VSCode</strong>新建<strong>项</strong>，名字设置为<strong>command</strong>，然后修改其中的默认文件的数值数据为&quot;[你的VScode应用程序的路径]“”%1&quot;，我的电脑中是&quot;D:\Software\Microsoft VS Code\Code.exe&quot;“%1”</p>
+<div class="note warning"><p>注意 所有的字符如双引号都应该要是英文字符，输入法为中文时与输入法为英文时字符打出来有些是不一样的，一定要区分</p>
+</div>
+<h4 id="%E9%85%8D%E7%BD%AE%E5%9C%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E7%A9%BA%E7%99%BD%E5%A4%84%E5%8F%B3%E9%94%AE%E7%82%B9%E5%87%BB%E5%87%BA%E7%8E%B0%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F%E7%9A%84%E2%80%9C%E7%94%A8vscode%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9%E2%80%9D" tabindex="-1">配置在文件夹空白处右键点击出现的菜单栏的“用VSCode打开文件夹”</h4>
+<p>找到<strong>HKEY_CLASSES_ROOT</strong>-<strong>Directory</strong>-<strong>Background</strong>，右键<strong>Background</strong>点击<strong>新建</strong>-<strong>项</strong></p>
+<p>把项的名字设置为<strong>VScode</strong></p>
+<p>修改里面默认文件（字符串）的<strong>数值数据</strong>为<strong>用VSCode打开文件夹</strong>（名字可以自定）</p>
+<p>右击建的项<strong>VSCode</strong>新建<strong>可扩充字符串值</strong>，名字设置为<strong>Icon</strong>双击它修改它的数值数据为你的VScode应用程序的路径，比如说我的电脑中是<strong>D:\Software\Microsoft VS Code\Code.exe</strong>（这一步还是给菜单的这一项添加图标缩略图，更好看点而已www）</p>
+<p>右击建的项<strong>VSCode</strong>新建<strong>项</strong>，名字设置为<strong>command</strong>，然后修改其中的默认文件的数值数据为&quot;[你的VScode应用程序的路径]“”%<strong>V</strong>&quot;，我的电脑中是&quot;D:\Software\Microsoft VS Code\Code.exe&quot;“%<strong>V</strong>”</p>
+<h4 id="%E9%85%8D%E7%BD%AE%E2%80%9C%E7%94%A8vscode%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9%E2%80%9D" tabindex="-1">配置“用VSCode打开文件夹”</h4>
+<p>找到<strong>HKEY_CLASSES_ROOT</strong>-<strong>Directory</strong>-<strong>shell</strong>，右键<strong>shell</strong>点击<strong>新建</strong>-<strong>项</strong></p>
+<p>把项的名字设置为<strong>VScode</strong></p>
+<p>修改里面默认文件（字符串）的<strong>数值数据</strong>为<strong>用VSCode打开文件夹</strong>（名字可以自定）</p>
+<p>右击建的项<strong>VSCode</strong>新建<strong>可扩充字符串值</strong>，名字设置为<strong>Icon</strong>双击它修改它的数值数据为你的VScode应用程序的路径，比如说我的电脑中是<strong>D:\Software\Microsoft VS Code\Code.exe</strong>（这一步还是给菜单的这一项添加图标缩略图）</p>
+<p>右击建的项<strong>VSCode</strong>新建<strong>项</strong>，名字设置为<strong>command</strong>，然后修改其中的默认文件的数值数据为&quot;[你的VScode应用程序的路径]“”%<strong>V</strong>&quot;，我的电脑中是&quot;D:\Software\Microsoft VS Code\Code.exe&quot;“%<strong>V</strong>”</p>
+<h3 id="c%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E6%9D%BF%E5%AD%90~" tabindex="-1">C程序代码板子~</h3>
+<p>如果你不想在每次打C语言代码时反复输入</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;memory.h&gt;</span></span></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>那你可以考虑弄个自己的板子</p>
+<p>打开vscode在左上角那里找到文件-首选项-配置用户代码片段-c.json</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../images/%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5.png"
+                      alt="配置用户代码片段"
+                ></p>
+<p>在文件里输入你需要的板子</p>
+<p>比如这样</p>
+<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;#include&lt;stdio.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;math.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;string.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;stdlib.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;memory.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;int main()&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;	$0&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;	return 0;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;藤爬专用C语言模板~&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div>
+<p>$0表示最后打字光标停留的位置</p>
+<h3 id="%E5%A6%82%E6%9E%9C%E6%9C%AC%E6%96%87%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8C%87%E6%AD%A3%5C-(%5E---%5E)-%2F" tabindex="-1">如果本文有什么问题，欢迎指正\ (^ - ^) /</h3>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -822,57 +1026,6 @@
         <tag>C语言</tag>
         <tag>环境配置</tag>
         <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python语言基础</title>
-    <url>/2023/10/07/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
-<h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%AE%80%E4%BB%8B" tabindex="-1">语言基础简介</h1>
-<h2 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h2>
-<ul>
-<li><input type="checkbox" id="checkbox0"><label for="checkbox0">数据类型</label>
-<ul>
-<li>变量</li>
-<li>字符串</li>
-<li>数字</li>
-<li>注释</li>
-</ul>
-</li>
-<li><input type="checkbox" id="checkbox1"><label for="checkbox1">列表</label></li>
-<li><input type="checkbox" id="checkbox2"><label for="checkbox2">字典</label></li>
-<li><input type="checkbox" id="checkbox3"><label for="checkbox3">元组</label></li>
-<li><input type="checkbox" id="checkbox4"><label for="checkbox4">if语句</label></li>
-<li><input type="checkbox" id="checkbox5"><label for="checkbox5">循环语句</label></li>
-<li><input type="checkbox" id="checkbox6"><label for="checkbox6">用户输入</label></li>
-<li><input type="checkbox" id="checkbox7"><label for="checkbox7">函数</label></li>
-<li><input type="checkbox" id="checkbox8"><label for="checkbox8">类</label></li>
-<li><input type="checkbox" id="checkbox9"><label for="checkbox9">文件</label></li>
-<li><input type="checkbox" id="checkbox10"><label for="checkbox10">测试</label></li>
-<li><input type="checkbox" id="checkbox11"><label for="checkbox11">项目</label>
-<ul>
-<li>网站</li>
-<li>爬虫</li>
-<li>游戏</li>
-<li>数据可视化</li>
-<li>excel<br>
-<strong>待更新</strong></li>
-</ul>
-</li>
-</ul>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>脚本语言</category>
-        <category>python</category>
-        <category>语言基础</category>
-      </categories>
-      <tags>
-        <tag>语言基础</tag>
-        <tag>python</tag>
-        <tag>脚本语言</tag>
       </tags>
   </entry>
   <entry>
@@ -903,30 +1056,69 @@
       </tags>
   </entry>
   <entry>
-    <title>许安的文章</title>
-    <url>/2023/10/06/%E8%AE%B8%E5%AE%89%E7%9A%84%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[
-<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="a3684dab4b6d08643e4cd90ad4423a1701e0a651041e242fe8f30fbdc16d102a">c2f758448b966c920bba3b17b8fb2a50b0f7210799e061a8f7da74d199805fa93a668353939e6447d0b9a5f0f9ef319d7601bb252a4208e9adaa137faac54c1da324ac228c5499f8bd8174dd67b849e2b785ff74286abd1e982ae625c3bacf9c528c208b9d0391e03649e8928c13d98e441e140a6007ccab9f253b388a208c5ade476d55ef58629ca216c3157f068bd2561a0f491b6f8f423ebc208914e91a48d436aaa5c605b00e157e585e00e4fc9c9fdf96a4e5b301132d7e538ba5f4080727c4507adf05bd5b0fc47950dda34b54a5ce034be1c15b250d1c33ea5e3a0ae107c978f27fa415537ca4c2ea5815d633f7208a87d7b50799d08cf55965c2cdd1adb77aef02f8b2399a1f441c9640402a9d6c9d82abbd959cff2238ae6fb9fa234aba47e2e4c0dc21a2565fa66dc41ce3c61fecc32f8131d86a78ed9983d7a7eef07c4dbb7279f1d1cd834b4a90f390d43c966771bb72da3aef96113e562cb60b5804d3c7bb6b7d279ddd558c3a62e9a1122dd6f031e966bc6383bdb8524bc9fa6a4ce5a90ca38255450fd41f9c40bfca83706779e0de5c670b2cc7b566c99a8f6f188141076bb4921ec7ad77d02ace95907dcce6b4923a841a8e07c53aca77313557ca162a5896e63b3591c2af9e46d35fee783035186c285f29f21de460b38962707a16cf2bcf1f4f32722a94b3773e4184612f863aa81a6cf8d87c7148b929fafce45e7499932611280337e54d85608f3389d64029300f07e6bc761989be28b5bbc8542d9acf503a0fc351de3484c2745f47178045ccc6b4fcf5e8c85abfa8c344cda36e5402c87da368153064b3118152a4aa3acfd1c0c5a4bb6f839bfef78ae4366dbd0c97d249bb945ab1337ab7fef4273ac3c182c97a449cc99bacb489624b458d49a332e3841e1f1acf191bbeeafd1b8b7d6e8fa827eea08fa6659a2175d000505ec17b379e8b8295bc59b41fbf29caaf94c488a7b42d67418f8276cb516195fd58fc418bdb3342937109e925564d327feb965392923b486f66c621efc62f1505e6795b2b17496c3285f3203a106e2a8e1e9b7503289720c84966c9ef8baff07a5a48fe0eff529791c8eb333b370f41257f2b3a66c85abb96615b32c728344722d378e9c5a1e7886c00ba254cafb50d6e1186ad1d2ded6c8de54c509eddf09c00f59048dbe12b65a756446a1b561f073fc3688346c07dc89ce00caf3fa42b05f293b9983f1b07422e15a8b8ab413428ff0a6296c9647dc279e366a8400a69ef787428068c91c20149487cd8dae5705bb367e89b9c08977a354edfcfc80d096ac0232cbab40e1535742ba0e41772d8c403a15afe76082a5df2177a1bd6bd90c06fde059fc998b4f845cf226d98a8f806b9e88c2057d8e1f921ba6ce6a3aa81b13e1979f1938f0dfd9aecb2ea0911cff2f9660821c699de6493b32b277bf96fea484a8d6dec0f406a2fed978b0552363f453b3fd66f883e833eb1f6884369835bef5519cd6d0e37eac8093ea6a3e770c6f4a8e665224d54983699cf15b0ffda0f6c3285f20b6d8f6a3527dcec8ac54b18e392840897623e44a754f6e0dae8813dfcc26f01df1b1283edaf3c4682e8d2adc6777a778a2ca3c937ac9229e671857c9e5c6862e68f88cb7d944da89dd2635354677ff81a494d1182fa5a953161ed80c98fa2a6ebb0bf00859bfc77477ecced9747f3c6011f9df4bee5bbaa08fbe573dbf5de53d3ae2dc65e2434119d333c41d171dc8533b7df373da826e360eba0dc81731b5d06eb3edf25a3741e6b3d314028b24b14f1e6051d42a7f369b1fceff0cc59954f8c60706b330b82fb8f5146cb207bb0354cea9e5c270dbff5b0d4354a8de0d83af3019bce42a5a2f0a8e057b055b442a7f7c1c697fb5a3dc5caf9b65c3b5c35cbfbacf7448b7faf4cdc7624ad7c00f4417ba02542ebe5976751b35a8b759669cd51e5f6fdbdc182e22f77391a384c31aad300b69280877c4ac8722d9cc6431d2ebadbe7c2f8a80175181e8dc39647b7208baf16b48f62ed14c76fed0bae9b738983924215b472b975f2387464fa1d15fd3ac3f2b14561bb803a6a7e584361e32e9f2b2aca5b8183841ce3a16845f7e8b3720242c7644f28b6da3c1057ec2e3a6b6bf0ae31d9efbc924d2c0cb743d54291fe8616c7c25c023cb153940e54791835e3c7065f87523a0389b0ab4c6a68b2349520fcc6ead13e1e1411bde244b89345fdfaac665eabafbbfa4bd1e69fd6960bf36a31e90bbcc0efe57d0adf2e1ccaa2c94d92f17e7103b6ba11c9fbc1d95f36af2c1dc8cf1c3d6228a6eceb0cf3035165d89639253e91cc87737e834681ce2922c85b13589c147bde8aacca5a69fa5f039fbbd9100d28164230a3c35aea45cbd939c36ad6e6b14e87ea0c0fea2b919a382d5ec548228083883a872806e509d4ed8421d0b2ee3eb0c4dbab46b7d21b6a2c658a56f28bab41fdcc6563f3192b4c91aa51abccf54b53fc14d9caaa2f3f8df81d899eb846d12e606e11d48834bc11050b765af322e300ef19404b0da7c0cd5592abf23d606375edd50b012938a6d676e576657869a7b36262cd8ea3e56934cf5949498a02252275c1253b0e070d1d557b5373c9029c5c22abc016f01c819be4e8f921ec95c91996053ba50af79380fe97060037d29dd43800e0a22173e82231b5ced286c7cbefbc4169ba1b983acf494507702e6f7be14d0eca32d15af54c42f1e0789ea55a3f07e96d4c0e2d2108b0acd37c3c8b4f331b5860cc413d11585cf9597cffda5e296500b25394f5193d9f4ce50e381e6ebeb2d7b4c59a7d421895c703d96b52ede8f953c2851bf9d0593e3d52a1cabaf6228cc26f5e819ac19ba6dd2789a994b4ff62d5535224cde3d7e16fe7a68695f04e2727facac560abf5f306c8b6debab4b4076aa7a01799db4046dd427011991ec79b34cdbe624a9b19e8ea10d0e018f1b74271f8e0e35b0c8f73baa16a16bb94cd73edd35e43f4fcef193baa900cc441a7eaa331dbbd77120826bbc9c3360d89a8c6dc7cd0b6a13f2ff280260388411bd05246a1079d2a26078332038fd50042e77af218f3a9754bb3f2ece57507d1b1db507eb5a379816c42ec6e7952234dd589d652d4a39e0dd21a233de941da156a38b28f8d24ae582e7d3a73dcebb6a47258658c37fb6db7cee0f4d7121459f15031dcd13bbacf2891037c7e0638e9c745c558d696a8401447dce0448c770bad73f7a7ea1b2afd08b61226728949d1495c3401f5da2e68e8ded94599175ae6383668906e4be9051a59bd309992aad368a5fed251488ce2e0f527dd6507b59100667a5988fe3690100994a614657262f46bba371b65f65e34a03dac9e16be55d665a5df792c7375cb07c73498a36cb1ffacdd3132dfec076f00860fac126e6e52b03c6e8ec37b61f0e1c1045ef7c068cbc60c157dc85619937252be03bca9fef660a201891cd44e35523505a15b93f0dd2ec3a3dd390cff73ede77db645d899506593d2df7e7fe5cacb0e96c14c12360ed857572ef2eb51908e8ab98b9502a3838209dbbfa9db56fd8cf9ea8fd85e7be2ec01bced94e7794f17a6c52a2b953243ff06117bac2114a09740f72945721d1e2378f6a1c2cbb209c4d0c875fcf6f1c450ccdfb650708b7f8a0d2a9aeeb7aa100c2f11510185d39862480be6b52bc6adc29a04cd45c9070e665081ad1765de7da2214b2ba77c408b3a98d4ee34245ed2e5cd701365012269d83d5a187d8fd0383b78685d9cd647376b7b44d5033f6dc589566962bca72a2d9ca6d5f0dc867362235c28cd2960c6562cc02c07e56efe609cbafe13c51d1ccccff5bddd3b978986584da575861c248a3dc3deb74b116b479dae644699d3b8e67a77c75c5642023b548e56e63d9a439bea098b329270d634174e93fe8094ee60fbeb9a9fe5e436ebcc0c81c95498e420b90b64a4c6bae3cbc1a2abb7452d1e8990aff9cca771ff3ca8940e00d7643b5fcf2cc9b20004d089a0d56dd1756624debaa8a712e9f822998a452ecfa5929b6fc5a17ea9f1c99d704dc6880ffb7024c4e37552af9c11aabb31b2832a155c47656947b4fed4499e2329d7a21596b6faaa8567d0939de0a88eda7a518ac74b8ea52eac7abd63e7e4e7cc5b761dd76af03276d94038b06f417db8f3c661178dd6d2c5e391ab23b9b6bc161ac532066e5fbbc64483ac563b94e26adc2c1f09f8d13f427439f20c87415e5ca04dd6ede315617c8efffaf51a202508471cbcc5686edc0fef4868b01514e610b59f9efce110d91032b88459faba9c2b8231c3a3b35563e7400fb259749246fc0b300a5f3ce0ba6c7bc144c9a1235fa1e16c76551bbdec65c25c204fdc7ef82076de356234a7894cdca4b83d1fd5dca1a38e79328ba2d0d7d131dc5520a8e3841bba2a03c2e4f73f9fde5becf0222631c96aea6adf4e77d7f579087f6138976104d7f96826f615b67026750f215184a9bddc</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-swup-reload-script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    <title>空间解析几何简明教程</title>
+    <url>/2023/11/04/%E7%A9%BA%E9%97%B4%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h1>
+<ol>
+<li>向量代数</li>
+</ol>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">向量</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">内积</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">外积</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">混合积</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">双重外积</label></li>
+</ul>
+<ol start="2">
+<li>平面与空间直线</li>
+</ol>
+<ul>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">平面</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">空间直线</label></li>
+</ul>
+<ol start="3">
+<li>曲面曲线</li>
+</ol>
+<ul>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">曲面</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">曲线</label></li>
+</ul>
+<h1 id="%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0" tabindex="-1">第一章 向量代数</h1>
+<h2 id="%E5%90%91%E9%87%8F" tabindex="-1">向量</h2>
+<h3 id="%E5%90%91%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89" tabindex="-1">向量的定义</h3>
+<p>既有大小又有方向的量，又叫作矢量</p>
+<h3 id="%E6%A0%87%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89" tabindex="-1">标量的定义</h3>
+<p>只有大小没有方向的量，又叫作数量</p>
+<h3 id="%E5%90%91%E9%87%8F%E7%9A%84%E8%A1%A8%E7%A4%BA" tabindex="-1">向量的表示</h3>
+<p>在欧几里得空间中，向量可用有向线段表示</p>
+<h3 id="%E9%9B%B6%E5%90%91%E9%87%8F" tabindex="-1">零向量</h3>
+<p>模是0的向量</p>
+<h3 id="%E5%90%91%E9%87%8F%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%85%B3%E7%B3%BB" tabindex="-1">向量的位置关系</h3>
+<h4 id="%E5%85%B1%E7%BA%BF" tabindex="-1">共线</h4>
+<p>平行的两个向量也叫共线向量</p>
+<h4 id="%E5%85%B1%E9%9D%A2" tabindex="-1">共面</h4>
+<p>两个向量一定共面</p>
+<h3 id="%E5%90%91%E9%87%8F%E7%9A%84%E5%8A%A0%E6%B3%95" tabindex="-1">向量的加法</h3>
+<h4 id="%E4%B8%89%E8%A7%92%E5%BD%A2%E6%B3%95%E5%88%99" tabindex="-1">三角形法则</h4>
+<h4 id="%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E6%B3%95%E5%88%99" tabindex="-1">平行四边形法则</h4>
+<h4 id="%E5%BE%8B" tabindex="-1">律</h4>
+<h3 id="%E5%90%91%E9%87%8F%E7%9A%84%E6%95%B0%E4%B9%98" tabindex="-1">向量的数乘</h3>
+<h3 id="%E5%AE%9A%E7%90%86" tabindex="-1">定理</h3>
+<h4 id="%E5%AE%9A%E7%90%861%EF%BC%88%E5%85%B1%E7%BA%BF%E5%AE%9A%E7%90%86%EF%BC%89" tabindex="-1">定理1（共线定理）</h4>
+<p>设<strong>a</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo mathvariant="normal">≠</mo></mrow><annotation encoding="application/x-tex">\neq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span></span></span></span></eq><strong>0</strong>，则<strong>b</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∥</mo></mrow><annotation encoding="application/x-tex">\parallel</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mrel">∥</span></span></span></span></eq><strong>a</strong>（共线）<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇔</mo></mrow><annotation encoding="application/x-tex">\Leftrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇔</span></span></span></span></eq><strong>b</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">=k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></eq><strong>a</strong>，且数<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></eq>唯一存在.即设向量<strong>a</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo mathvariant="normal">≠</mo></mrow><annotation encoding="application/x-tex">\neq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span></span></span></span></eq><strong>0</strong>，则<strong>b</strong>与<strong>a</strong>共线的充要条件是<strong>b</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">=k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></eq><strong>a</strong>，且实数<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></eq>唯一存在.</p>
+<h4 id="%E6%8E%A8%E8%AE%BA1" tabindex="-1">推论1</h4>
+<p><strong>a</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∥</mo></mrow><annotation encoding="application/x-tex">\parallel</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mrel">∥</span></span></span></span></eq><strong>b</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇔</mo></mrow><annotation encoding="application/x-tex">\Leftrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇔</span></span></span></span></eq><strong>b</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">=k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></eq><strong>a</strong>或<strong>a</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo></mrow><annotation encoding="application/x-tex">=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span></span></span></span></eq><strong>b</strong>.</p>
+<h4 id="%E6%8E%A8%E8%AE%BA2" tabindex="-1">推论2</h4>
+<p><strong>a</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∥</mo></mrow><annotation encoding="application/x-tex">\parallel</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mrel">∥</span></span></span></span></eq><strong>b</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇔</mo></mrow><annotation encoding="application/x-tex">\Leftrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇔</span></span></span></span></eq></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
       <categories>
-        <category>四方星</category>
-        <category>许安</category>
-        <category>文章</category>
+        <category>高等代数</category>
+        <category>空间解析几何</category>
       </categories>
       <tags>
-        <tag>四方星</tag>
-        <tag>文章</tag>
-        <tag>许安</tag>
+        <tag>空间解析几何</tag>
       </tags>
   </entry>
 </search>
