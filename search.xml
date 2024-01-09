@@ -1,92 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C语言基础</title>
-    <url>/2023/10/07/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
-<h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%AE%80%E4%BB%8B" tabindex="-1">语言基础简介</h1>
-<h2 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h2>
-<ul>
-<li><input type="checkbox" id="checkbox0"><label for="checkbox0">C语言程序开发步骤</label></li>
-<li><input type="checkbox" id="checkbox1"><label for="checkbox1">数据表示</label></li>
-<li><input type="checkbox" id="checkbox2"><label for="checkbox2">数据处理与储存</label>
-<ul>
-<li>编码</li>
-<li>进制</li>
-<li>储存</li>
-<li>浮点数的表达与储存</li>
-</ul>
-</li>
-<li><input type="checkbox" id="checkbox3"><label for="checkbox3">运算</label>
-<ul>
-<li>关系运算</li>
-<li>算术运算</li>
-<li>逻辑运算</li>
-<li>位运算</li>
-<li>复合赋值运算</li>
-<li>自增自减运算</li>
-<li>运算优先级</li>
-</ul>
-</li>
-<li><input type="checkbox" id="checkbox4"><label for="checkbox4">控制结构</label>
-<ul>
-<li>选择结构</li>
-<li>循环结构</li>
-<li>goto语句</li>
-</ul>
-</li>
-<li><input type="checkbox" id="checkbox5"><label for="checkbox5">函数</label>
-<ul>
-<li>定义与调用</li>
-<li>参数传递原理</li>
-<li>递归函数</li>
-<li>标准库函数</li>
-</ul>
-</li>
-<li><input type="checkbox" id="checkbox6"><label for="checkbox6">复杂数据类型之数组</label>
-<ul>
-<li>一维数组</li>
-<li>二维数组</li>
-<li>变长数组</li>
-<li>多维数组</li>
-<li>字符型数组与字符串</li>
-<li>标准字符串strings处理函数</li>
-</ul>
-</li>
-<li><input type="checkbox" id="checkbox7"><label for="checkbox7">复杂数据类型之指针</label>
-<ul>
-<li>什么是指针</li>
-<li>指针变量</li>
-<li>指针运算</li>
-<li>空指针</li>
-<li>字符串指针</li>
-<li>数组指针</li>
-<li>多重指针</li>
-<li>指针数组</li>
-<li>函数指针</li>
-</ul>
-</li>
-<li><input type="checkbox" id="checkbox8"><label for="checkbox8">复杂数据类型之结构体</label></li>
-<li><input type="checkbox" id="checkbox9"><label for="checkbox9">复杂数据类型之联合体</label></li>
-<li><input type="checkbox" id="checkbox10"><label for="checkbox10">文件</label><br>
-<strong>待更新</strong></li>
-</ul>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>编译语言</category>
-        <category>C语言</category>
-        <category>语言基础</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-        <tag>语言基础</tag>
-        <tag>编译语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2023级E2练习赛</title>
     <url>/2023/09/24/2023%E7%BA%A7E2%E7%BB%83%E4%B9%A0%E8%B5%9B/</url>
     <content><![CDATA[<h1 id="2023%E7%BA%A7%E6%9C%AC%E7%A7%91%E6%96%B0%E7%94%9F%E7%AC%AC%E4%BA%8C%E6%AC%A1%E7%BB%83%E4%B9%A0%E8%B5%9B%E4%B9%A0%E9%A2%98%E8%AE%B2%E8%A7%A3" tabindex="-1">2023级本科新生第二次练习赛习题讲解</h1>
@@ -439,6 +353,92 @@
       </tags>
   </entry>
   <entry>
+    <title>C语言基础</title>
+    <url>/2023/10/07/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
+<h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%AE%80%E4%BB%8B" tabindex="-1">语言基础简介</h1>
+<h2 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h2>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">C语言程序开发步骤</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">数据表示</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">数据处理与储存</label>
+<ul>
+<li>编码</li>
+<li>进制</li>
+<li>储存</li>
+<li>浮点数的表达与储存</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">运算</label>
+<ul>
+<li>关系运算</li>
+<li>算术运算</li>
+<li>逻辑运算</li>
+<li>位运算</li>
+<li>复合赋值运算</li>
+<li>自增自减运算</li>
+<li>运算优先级</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">控制结构</label>
+<ul>
+<li>选择结构</li>
+<li>循环结构</li>
+<li>goto语句</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">函数</label>
+<ul>
+<li>定义与调用</li>
+<li>参数传递原理</li>
+<li>递归函数</li>
+<li>标准库函数</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">复杂数据类型之数组</label>
+<ul>
+<li>一维数组</li>
+<li>二维数组</li>
+<li>变长数组</li>
+<li>多维数组</li>
+<li>字符型数组与字符串</li>
+<li>标准字符串strings处理函数</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">复杂数据类型之指针</label>
+<ul>
+<li>什么是指针</li>
+<li>指针变量</li>
+<li>指针运算</li>
+<li>空指针</li>
+<li>字符串指针</li>
+<li>数组指针</li>
+<li>多重指针</li>
+<li>指针数组</li>
+<li>函数指针</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">复杂数据类型之结构体</label></li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">复杂数据类型之联合体</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">文件</label><br>
+<strong>待更新</strong></li>
+</ul>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编译语言</category>
+        <category>C语言</category>
+        <category>语言基础</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>语言基础</tag>
+        <tag>编译语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Geany</title>
     <url>/2023/10/07/Geany/</url>
     <content><![CDATA[<p><strong>待更新</strong></p>
@@ -696,8 +696,11 @@
 <h3 id="%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%A4%B9" tabindex="-1">代码文件夹</h3>
 <p>在配置完成前，你要确定你的代码（准确地说是VScode的代码）放在哪里</p>
 <p>在一个没有中文的路径位置上新建一个文件夹，文件夹的名字和位置你最好要记住，否则找起来挺麻烦</p>
-<div class="note warning"><p>注意 文件夹的名字也不能有中文！因为c语言是不支持中文的，有中文后期配置会出大问题。</p>
-</div>
+
+  <div class="note p-4 mb-4 rounded-small warning">
+    <p>注意 文件夹的名字也不能有中文！因为c语言是不支持中文的，有中文后期配置会出大问题。</p>
+
+  </div>
 <p>如果你之前已经有了一个合格的文件夹，那么你这步也可以跳过</p>
 <p>创建好文件夹后，在vscode中打开这个文件夹，此时如果你是第一次打开这个文件夹，页面上会弹出一段警告，选择“是，信任此作者”即可</p>
 <h3 id="%E5%BC%80%E5%A7%8B%E6%AD%A3%E5%BC%8F%E9%85%8D%E7%BD%AE" tabindex="-1">开始正式配置</h3>
@@ -769,8 +772,11 @@
 <p>修改里面默认文件（字符串）的<strong>数值数据</strong>为<strong>用VSCode打开</strong>（名字可以自定，右键文件出现的菜单反正会有这个名字，你也可以个性化一点设置成奇怪的名字嘿嘿）</p>
 <p>右击建的项<strong>VSCode</strong>新建<strong>可扩充字符串值</strong>，名字设置为<strong>Icon</strong>双击它修改它的数值数据为你的VScode应用程序的路径，比如说我的电脑中是<strong>D:\Software\Microsoft VS Code\Code.exe</strong>（这一步是给菜单的这一项添加图标缩略图，更好看点而已www）</p>
 <p>右击建的项<strong>VSCode</strong>新建<strong>项</strong>，名字设置为<strong>command</strong>，然后修改其中的默认文件的数值数据为&quot;[你的VScode应用程序的路径]“”%1&quot;，我的电脑中是&quot;D:\Software\Microsoft VS Code\Code.exe&quot;“%1”</p>
-<div class="note warning"><p>注意 所有的字符如双引号都应该要是英文字符，输入法为中文时与输入法为英文时字符打出来有些是不一样的，一定要区分</p>
-</div>
+
+  <div class="note p-4 mb-4 rounded-small warning">
+    <p>注意 所有的字符如双引号都应该要是英文字符，输入法为中文时与输入法为英文时字符打出来有些是不一样的，一定要区分</p>
+
+  </div>
 <h4 id="%E9%85%8D%E7%BD%AE%E5%9C%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E7%A9%BA%E7%99%BD%E5%A4%84%E5%8F%B3%E9%94%AE%E7%82%B9%E5%87%BB%E5%87%BA%E7%8E%B0%E7%9A%84%E8%8F%9C%E5%8D%95%E6%A0%8F%E7%9A%84%E2%80%9C%E7%94%A8vscode%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9%E2%80%9D" tabindex="-1">配置在文件夹空白处右键点击出现的菜单栏的“用VSCode打开文件夹”</h4>
 <p>找到<strong>HKEY_CLASSES_ROOT</strong>-<strong>Directory</strong>-<strong>Background</strong>，右键<strong>Background</strong>点击<strong>新建</strong>-<strong>项</strong></p>
 <p>把项的名字设置为<strong>VScode</strong></p>
@@ -937,11 +943,28 @@
 <p>很简单，原理我不是很懂，但是确实可以这样做</p>
 <p>打开任务管理器，如果你不会打开的话，右键<strong>开始</strong>的图标选择<strong>任务管理器</strong>即可，然后找到进程中的<strong>explorer.exe</strong>(找的话不方便直接搜索)或者中文名<strong>Windows资源管理器</strong>，右键这东西大胆点击重新启动，等待它重启完成后问题基本就解决了，如果还没解决，可能你得另找办法叻</p>
 <h1 id="%E6%93%8D%E4%BD%9C%E7%B1%BB" tabindex="-1">操作类</h1>
-<h2 id="cmd" tabindex="-1">cmd</h2>
+<h2 id="%E6%90%9C%E7%B4%A2%E9%A1%B9" tabindex="-1">搜索项</h2>
 <h3 id="%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8" tabindex="-1">打开注册表编辑器</h3>
-<p>打开cmd输入regidit</p>
+<p>开始菜单搜索输入regidit</p>
 <h3 id="%E6%89%93%E5%BC%80%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E7%9A%84%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2" tabindex="-1">打开用户账户的管理界面</h3>
-<p>打开cmd输入netplwiz</p>
+<p>开始菜单搜索输入netplwiz</p>
+<h2 id="cmd" tabindex="-1">cmd</h2>
+<h3 id="%E5%BF%AB%E6%8D%B7%E5%A4%8D%E5%88%B6%E5%8E%86%E5%8F%B2%E8%BE%93%E5%85%A5%E7%9A%84%E6%8C%87%E4%BB%A4" tabindex="-1">快捷复制历史输入的指令</h3>
+<p>按<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>↑</mo></mrow><annotation encoding="application/x-tex">\uparrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mrel">↑</span></span></span></span></eq>键</p>
+<h3 id="%E6%8C%87%E4%BB%A4%E8%A1%A5%E5%85%A8" tabindex="-1">指令补全</h3>
+<p>按Tap键</p>
+<h3 id="%E7%94%B5%E8%84%91%E6%89%A7%E8%A1%8C%E7%AD%96%E7%95%A5" tabindex="-1">电脑执行策略</h3>
+<p><strong>查看当前电脑执行策略</strong></p>
+<ul>
+<li>所有项：Get-ExecutionPolicy -List或Get-ExecutionPolicy -l</li>
+<li>当前默认项：Get-ExecutionPolicy</li>
+</ul>
+<p><strong>设置当前电脑执行策略</strong><br>
+Set-ExecutionPolicy -ExecutionPolicy [ExecutionPolicy] -Scope [Scope]</p>
+<ul>
+<li>-ExecutionPolicy：执行策略类型的参数</li>
+<li>-Scope：设置的范围的参数</li>
+</ul>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -1035,6 +1058,32 @@
         <tag>四方星</tag>
         <tag>文章</tag>
         <tag>璐</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>淑芬</title>
+    <url>/2023/11/29/%E6%B7%91%E8%8A%AC/</url>
+    <content><![CDATA[<h2 id="%E6%B7%91%E8%8A%AC%E7%AC%94%E8%AE%B0" tabindex="-1">淑芬笔记</h2>
+<h3 id="%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86" tabindex="-1">不定积分</h3>
+<h4 id="6.1-%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%A6%82%E5%BF%B5" tabindex="-1">6.1 不定积分的概念</h4>
+<p><strong>定义6.1.1</strong>若区间I上的函数<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">F(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>满足，<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>F</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">F&#x27;(x) = f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0019em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>则称<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">F(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>在区间I上的一个<mark>原函数</mark></p>
+<p><strong>定义6.1.2</strong>函数<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>在区间I上的全体原函数成为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>在区间I上的不定积分,记为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∫</mo></mrow><annotation encoding="application/x-tex">\int</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.3061em;"></span><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0006em;">∫</span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)dx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span></span></span></span></eq><br>
+如果<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">F(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>的一个原函数,则有<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∫</mo></mrow><annotation encoding="application/x-tex">\int</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.3061em;"></span><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0006em;">∫</span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">f(x)dx=F(x)+C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></eq></p>
+<p><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∫</mo></mrow><annotation encoding="application/x-tex">\int</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.3061em;"></span><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0006em;">∫</span></span></span></span></eq>称为不定积分号,<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)dx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span></span></span></span></eq>称为被积表达式,<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></eq>称为被积函数,<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></eq>称为积分变量</p>
+<h5 id="6.1.1%E5%9F%BA%E6%9C%AC%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F" tabindex="-1">6.1.1基本积分公式</h5>
+<ol>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∫</mo></mrow><annotation encoding="application/x-tex">\int</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.3061em;"></span><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0006em;">∫</span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>d</mi><mi>x</mi><mo>=</mo><mi>k</mi><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">kdx=kx+C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></eq></li>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∫</mo></mrow><annotation encoding="application/x-tex">\int</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.3061em;"></span><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0006em;">∫</span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mi>u</mi></msup><mi>d</mi><mi>x</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">x^udx=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">u</span></span></span></span></span></span></span></span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mi>u</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{u+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2484em;vertical-align:-0.4033em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">u</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4033em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mi>u</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">x^{u+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">u</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>C</mi><mo separator="true">,</mo><mo stretchy="false">(</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">+C,(u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal">u</span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo mathvariant="normal">≠</mo></mrow><annotation encoding="application/x-tex">\neq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span></span></span></span></eq><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">−</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></eq></li>
+<li></li>
+</ol>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数分</tag>
       </tags>
   </entry>
   <entry>
