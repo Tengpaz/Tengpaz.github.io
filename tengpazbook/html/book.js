@@ -1,1 +1,697 @@
-"use strict";function playground_text(e,t=!0){e=e.querySelector("code");return window.ace&&e.classList.contains("editable")?window.ace.edit(e).getValue():t?e.textContent:e.innerText}window.onunload=function(){},function(){function r(e,t,n=6e3){return Promise.race([fetch(e,t),new Promise((e,t)=>setTimeout(()=>t(new Error("timeout")),n))])}var t=Array.from(document.querySelectorAll(".playground"));function i(e,t){var n=e.querySelector(".play-button");if(e.querySelector("code").classList.contains("no_run"))n.classList.add("hidden");else{for(var o,r=playground_text(e),i=/extern\s+crate\s+([a-zA-Z_0-9]+)\s*;/g,a=[];o=i.exec(r);)a.push(o[1]);a.every(function(e){return-1<t.indexOf(e)})?n.classList.remove("hidden"):n.classList.add("hidden")}}function a(e){var t=e.querySelector(".result"),n=(t||((t=document.createElement("code")).className="result hljs language-bash",e.append(t)),playground_text(e)),e=e.querySelector("code").classList;let o="2015";e.contains("edition2018")?o="2018":e.contains("edition2021")&&(o="2021");e={version:"stable",optimize:"0",code:n,edition:o};-1!==n.indexOf("#![feature")&&(e.version="nightly"),t.innerText="Running...",r("https://play.rust-lang.org/evaluate.json",{headers:{"Content-Type":"application/json"},method:"POST",mode:"cors",body:JSON.stringify(e)}).then(e=>e.json()).then(e=>{""===e.result.trim()?(t.innerText="No output",t.classList.add("result-no-output")):(t.innerText=e.result,t.classList.remove("result-no-output"))}).catch(e=>t.innerText="Playground Communication: "+e.message)}0<t.length&&r("https://play.rust-lang.org/meta/crates",{headers:{"Content-Type":"application/json"},method:"POST",mode:"cors"}).then(e=>e.json()).then(e=>{let o=e.crates.map(e=>e.id);t.forEach(e=>{var t=e,n=o;i(t,n),window.ace&&(e=t.querySelector("code")).classList.contains("editable")&&((e=window.ace.edit(e)).addEventListener("change",function(e){i(t,n)}),e.commands.addCommand({name:"run",bindKey:{win:"Ctrl-Enter",mac:"Ctrl-Enter"},exec:e=>a(t)}))})}),hljs.configure({tabReplace:"    ",languages:[]});var e=Array.from(document.querySelectorAll("code")).filter(function(e){return!e.parentElement.classList.contains("header")});window.ace?(e.filter(function(e){return e.classList.contains("editable")}).forEach(function(e){e.classList.remove("language-rust")}),e.filter(function(e){return!e.classList.contains("editable")}).forEach(function(e){hljs.highlightBlock(e)})):e.forEach(function(e){hljs.highlightBlock(e)}),e.forEach(function(e){e.classList.add("hljs")}),Array.from(document.querySelectorAll("code.hljs")).forEach(function(t){var e,n;Array.from(t.querySelectorAll(".boring")).length&&(t.classList.add("hide-boring"),(e=document.createElement("div")).className="buttons",e.innerHTML='<button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button>',(n=t.parentNode).insertBefore(e,n.firstChild),n.querySelector(".buttons").addEventListener("click",function(e){e.target.classList.contains("fa-eye")?(e.target.classList.remove("fa-eye"),e.target.classList.add("fa-eye-slash"),e.target.title="Hide lines",e.target.setAttribute("aria-label",e.target.title),t.classList.remove("hide-boring")):e.target.classList.contains("fa-eye-slash")&&(e.target.classList.remove("fa-eye-slash"),e.target.classList.add("fa-eye"),e.target.title="Show hidden lines",e.target.setAttribute("aria-label",e.target.title),t.classList.add("hide-boring"))}))}),window.playground_copyable&&Array.from(document.querySelectorAll("pre code")).forEach(function(e){var t,e=e.parentNode;e.classList.contains("playground")||((t=e.querySelector(".buttons"))||((t=document.createElement("div")).className="buttons",e.insertBefore(t,e.firstChild)),(e=document.createElement("button")).className="fa fa-copy clip-button",e.title="Copy to clipboard",e.setAttribute("aria-label",e.title),e.innerHTML='<i class="tooltiptext"></i>',t.insertBefore(e,t.firstChild))}),Array.from(document.querySelectorAll(".playground")).forEach(function(t){var e=t.querySelector(".buttons"),n=(e||((e=document.createElement("div")).className="buttons",t.insertBefore(e,t.firstChild)),document.createElement("button"));n.className="fa fa-play play-button",n.hidden=!0,n.title="Run this code",n.setAttribute("aria-label",n.title),e.insertBefore(n,e.firstChild),n.addEventListener("click",function(e){a(t)}),window.playground_copyable&&((n=document.createElement("button")).className="fa fa-copy clip-button",n.innerHTML='<i class="tooltiptext"></i>',n.title="Copy to clipboard",n.setAttribute("aria-label",n.title),e.insertBefore(n,e.firstChild));let o=t.querySelector("code");window.ace&&o.classList.contains("editable")&&((n=document.createElement("button")).className="fa fa-history reset-button",n.title="Undo changes",n.setAttribute("aria-label",n.title),e.insertBefore(n,e.firstChild),n.addEventListener("click",function(){var e=window.ace.edit(o);e.setValue(e.originalCode),e.clearSelection()}))})}(),function(){var r=document.querySelector("html"),t=document.getElementById("theme-toggle"),i=document.getElementById("theme-list"),a=document.querySelector('meta[name="theme-color"]'),s={ayuHighlight:document.querySelector("[href$='ayu-highlight.css']"),tomorrowNight:document.querySelector("[href$='tomorrow-night.css']"),highlight:document.querySelector("[href$='highlight.css']")};function n(){i.style.display="none",t.setAttribute("aria-expanded",!1),t.focus()}function c(){var e;try{e=localStorage.getItem("mdbook-theme")}catch(e){}return null==e?default_theme:e}function o(e,t=!0){let n;n="coal"==e||"navy"==e?(s.ayuHighlight.disabled=!0,s.tomorrowNight.disabled=!1,s.highlight.disabled=!0,"ace/theme/tomorrow_night"):"ayu"==e?(s.ayuHighlight.disabled=!1,s.tomorrowNight.disabled=!0,s.highlight.disabled=!0,"ace/theme/tomorrow_night"):(s.ayuHighlight.disabled=!0,s.tomorrowNight.disabled=!0,s.highlight.disabled=!1,"ace/theme/dawn"),setTimeout(function(){a.content=getComputedStyle(document.documentElement).backgroundColor},1),window.ace&&window.editors&&window.editors.forEach(function(e){e.setTheme(n)});var o=c();if(t)try{localStorage.setItem("mdbook-theme",e)}catch(e){}r.classList.remove(o),r.classList.add(e),i.querySelectorAll(".theme-selected").forEach(function(e){e.classList.remove("theme-selected")}),i.querySelector("button#"+c()).classList.add("theme-selected")}o(c(),!1),t.addEventListener("click",function(){"block"===i.style.display?n():(i.style.display="block",t.setAttribute("aria-expanded",!0),i.querySelector("button#"+c()).focus())}),i.addEventListener("click",function(e){var t;if("theme"===e.target.className)t=e.target.id;else{if("theme"!==e.target.parentElement.className)return;t=e.target.parentElement.id}o(t)}),i.addEventListener("focusout",function(e){!e.relatedTarget||t.contains(e.relatedTarget)||i.contains(e.relatedTarget)||n()}),document.addEventListener("click",function(e){"block"!==i.style.display||t.contains(e.target)||i.contains(e.target)||n()}),document.addEventListener("keydown",function(e){if(!(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)&&i.contains(e.target))switch(e.key){case"Escape":e.preventDefault(),n();break;case"ArrowUp":e.preventDefault(),(t=document.activeElement.parentElement)&&t.previousElementSibling&&t.previousElementSibling.querySelector("button").focus();break;case"ArrowDown":var t;e.preventDefault(),(t=document.activeElement.parentElement)&&t.nextElementSibling&&t.nextElementSibling.querySelector("button").focus();break;case"Home":e.preventDefault(),i.querySelector("li:first-child button").focus();break;case"End":e.preventDefault(),i.querySelector("li:last-child button").focus()}})}(),function(){var t=document.querySelector("body"),n=document.getElementById("sidebar"),e=document.querySelectorAll("#sidebar a"),o=document.getElementById("sidebar-toggle"),r=document.getElementById("sidebar-resize-handle"),i=null;function a(){t.classList.remove("sidebar-hidden"),t.classList.add("sidebar-visible"),Array.from(e).forEach(function(e){e.setAttribute("tabIndex",0)}),o.setAttribute("aria-expanded",!0),n.setAttribute("aria-hidden",!1);try{localStorage.setItem("mdbook-sidebar","visible")}catch(e){}}var s=document.querySelectorAll("#sidebar a.toggle");function c(e){e.currentTarget.parentElement.classList.toggle("expanded")}function l(){t.classList.remove("sidebar-visible"),t.classList.add("sidebar-hidden"),Array.from(e).forEach(function(e){e.setAttribute("tabIndex",-1)}),o.setAttribute("aria-expanded",!1),n.setAttribute("aria-hidden",!0);try{localStorage.setItem("mdbook-sidebar","hidden")}catch(e){}}function d(e){e=e.clientX-n.offsetLeft;e<20?l():(t.classList.contains("sidebar-hidden")&&a(),e=Math.min(e,window.innerWidth-100),document.documentElement.style.setProperty("--sidebar-width",e+"px"))}function u(e){t.classList.remove("sidebar-resizing"),window.removeEventListener("mousemove",d,!1),window.removeEventListener("mouseup",u,!1)}Array.from(s).forEach(function(e){e.addEventListener("click",c)}),o.addEventListener("click",function(){(t.classList.contains("sidebar-hidden")?(parseInt(document.documentElement.style.getPropertyValue("--sidebar-width"),10)<150&&document.documentElement.style.setProperty("--sidebar-width","150px"),a):t.classList.contains("sidebar-visible")||"none"===getComputedStyle(n).transform?l:a)()}),r.addEventListener("mousedown",function(e){window.addEventListener("mousemove",d,!1),window.addEventListener("mouseup",u,!1),t.classList.add("sidebar-resizing")},!1),document.addEventListener("touchstart",function(e){i={x:e.touches[0].clientX,time:Date.now()}},{passive:!0}),document.addEventListener("touchmove",function(e){var t;i&&(t=(e=e.touches[0].clientX)-i.x,Date.now()-i.time<250)&&150<=Math.abs(t)&&(0<=t&&i.x<Math.min(.25*document.body.clientWidth,300)?a():t<0&&e<300&&l(),i=null)},{passive:!0})}(),document.addEventListener("keydown",function(e){if(!(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||window.search&&window.search.hasFocus())){var t=document.querySelector("html");switch(e.key){case"ArrowRight":e.preventDefault(),("rtl"==t.dir?o:n)();break;case"ArrowLeft":e.preventDefault(),("rtl"==t.dir?n:o)()}}function n(){var e=document.querySelector(".nav-chapters.next");e&&(window.location.href=e.href)}function o(){var e=document.querySelector(".nav-chapters.previous");e&&(window.location.href=e.href)}}),function(){var e=document.querySelectorAll(".clip-button");function t(e){e.firstChild.innerText="",e.className="fa fa-copy clip-button"}function n(e,t){e.firstChild.innerText=t,e.className="fa fa-copy tooltipped"}var o=new ClipboardJS(".clip-button",{text:function(e){return t(e),playground_text(e.closest("pre"),!1)}});Array.from(e).forEach(function(e){e.addEventListener("mouseout",function(e){t(e.currentTarget)})}),o.on("success",function(e){e.clearSelection(),n(e.trigger,"Copied!")}),o.on("error",function(e){n(e.trigger,"Clipboard error!")})}(),document.querySelector(".menu-title").addEventListener("click",function(){document.scrollingElement.scrollTo({top:0,behavior:"smooth"})}),function(){var o,r,i,a,s,c=document.getElementById("menu-bar");function e(){0===c.offsetTop?c.classList.remove("bordered"):c.classList.add("bordered")}o=document.scrollingElement.scrollTop,r=o,i=-c.clientHeight-50,c.style.top=o+"px",a=c.style.top.slice(0,-2),c.classList.remove("sticky"),s=!1,document.addEventListener("scroll",function(){o=Math.max(document.scrollingElement.scrollTop,0);var e=null,t=null,n=a-o;r<o?(e=!1,0<n&&(t=r)):0<n?e=!0:n<i&&(t=r+i),!0===e&&!1===s?(c.classList.add("sticky"),s=!0):!1===e&&!0===s&&(c.classList.remove("sticky"),s=!1),null!==t&&(c.style.top=t+"px",a=t),r=o},{passive:!0}),e(),document.addEventListener("scroll",e,{passive:!0})}();
+"use strict";
+
+// Fix back button cache problem
+window.onunload = function () { };
+
+// Global variable, shared between modules
+function playground_text(playground, hidden = true) {
+    let code_block = playground.querySelector("code");
+
+    if (window.ace && code_block.classList.contains("editable")) {
+        let editor = window.ace.edit(code_block);
+        return editor.getValue();
+    } else if (hidden) {
+        return code_block.textContent;
+    } else {
+        return code_block.innerText;
+    }
+}
+
+(function codeSnippets() {
+    function fetch_with_timeout(url, options, timeout = 6000) {
+        return Promise.race([
+            fetch(url, options),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
+        ]);
+    }
+
+    var playgrounds = Array.from(document.querySelectorAll(".playground"));
+    if (playgrounds.length > 0) {
+        fetch_with_timeout("https://play.rust-lang.org/meta/crates", {
+            headers: {
+                'Content-Type': "application/json",
+            },
+            method: 'POST',
+            mode: 'cors',
+        })
+        .then(response => response.json())
+        .then(response => {
+            // get list of crates available in the rust playground
+            let playground_crates = response.crates.map(item => item["id"]);
+            playgrounds.forEach(block => handle_crate_list_update(block, playground_crates));
+        });
+    }
+
+    function handle_crate_list_update(playground_block, playground_crates) {
+        // update the play buttons after receiving the response
+        update_play_button(playground_block, playground_crates);
+
+        // and install on change listener to dynamically update ACE editors
+        if (window.ace) {
+            let code_block = playground_block.querySelector("code");
+            if (code_block.classList.contains("editable")) {
+                let editor = window.ace.edit(code_block);
+                editor.addEventListener("change", function (e) {
+                    update_play_button(playground_block, playground_crates);
+                });
+                // add Ctrl-Enter command to execute rust code
+                editor.commands.addCommand({
+                    name: "run",
+                    bindKey: {
+                        win: "Ctrl-Enter",
+                        mac: "Ctrl-Enter"
+                    },
+                    exec: _editor => run_rust_code(playground_block)
+                });
+            }
+        }
+    }
+
+    // updates the visibility of play button based on `no_run` class and
+    // used crates vs ones available on https://play.rust-lang.org
+    function update_play_button(pre_block, playground_crates) {
+        var play_button = pre_block.querySelector(".play-button");
+
+        // skip if code is `no_run`
+        if (pre_block.querySelector('code').classList.contains("no_run")) {
+            play_button.classList.add("hidden");
+            return;
+        }
+
+        // get list of `extern crate`'s from snippet
+        var txt = playground_text(pre_block);
+        var re = /extern\s+crate\s+([a-zA-Z_0-9]+)\s*;/g;
+        var snippet_crates = [];
+        var item;
+        while (item = re.exec(txt)) {
+            snippet_crates.push(item[1]);
+        }
+
+        // check if all used crates are available on play.rust-lang.org
+        var all_available = snippet_crates.every(function (elem) {
+            return playground_crates.indexOf(elem) > -1;
+        });
+
+        if (all_available) {
+            play_button.classList.remove("hidden");
+        } else {
+            play_button.classList.add("hidden");
+        }
+    }
+
+    function run_rust_code(code_block) {
+        var result_block = code_block.querySelector(".result");
+        if (!result_block) {
+            result_block = document.createElement('code');
+            result_block.className = 'result hljs language-bash';
+
+            code_block.append(result_block);
+        }
+
+        let text = playground_text(code_block);
+        let classes = code_block.querySelector('code').classList;
+        let edition = "2015";
+        if(classes.contains("edition2018")) {
+            edition = "2018";
+        } else if(classes.contains("edition2021")) {
+            edition = "2021";
+        }
+        var params = {
+            version: "stable",
+            optimize: "0",
+            code: text,
+            edition: edition
+        };
+
+        if (text.indexOf("#![feature") !== -1) {
+            params.version = "nightly";
+        }
+
+        result_block.innerText = "Running...";
+
+        fetch_with_timeout("https://play.rust-lang.org/evaluate.json", {
+            headers: {
+                'Content-Type': "application/json",
+            },
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify(params)
+        })
+        .then(response => response.json())
+        .then(response => {
+            if (response.result.trim() === '') {
+                result_block.innerText = "No output";
+                result_block.classList.add("result-no-output");
+            } else {
+                result_block.innerText = response.result;
+                result_block.classList.remove("result-no-output");
+            }
+        })
+        .catch(error => result_block.innerText = "Playground Communication: " + error.message);
+    }
+
+    // Syntax highlighting Configuration
+    hljs.configure({
+        tabReplace: '    ', // 4 spaces
+        languages: [],      // Languages used for auto-detection
+    });
+
+    let code_nodes = Array
+        .from(document.querySelectorAll('code'))
+        // Don't highlight `inline code` blocks in headers.
+        .filter(function (node) {return !node.parentElement.classList.contains("header"); });
+
+    if (window.ace) {
+        // language-rust class needs to be removed for editable
+        // blocks or highlightjs will capture events
+        code_nodes
+            .filter(function (node) {return node.classList.contains("editable"); })
+            .forEach(function (block) { block.classList.remove('language-rust'); });
+
+        code_nodes
+            .filter(function (node) {return !node.classList.contains("editable"); })
+            .forEach(function (block) { hljs.highlightBlock(block); });
+    } else {
+        code_nodes.forEach(function (block) { hljs.highlightBlock(block); });
+    }
+
+    // Adding the hljs class gives code blocks the color css
+    // even if highlighting doesn't apply
+    code_nodes.forEach(function (block) { block.classList.add('hljs'); });
+
+    Array.from(document.querySelectorAll("code.hljs")).forEach(function (block) {
+
+        var lines = Array.from(block.querySelectorAll('.boring'));
+        // If no lines were hidden, return
+        if (!lines.length) { return; }
+        block.classList.add("hide-boring");
+
+        var buttons = document.createElement('div');
+        buttons.className = 'buttons';
+        buttons.innerHTML = "<button class=\"fa fa-eye\" title=\"Show hidden lines\" aria-label=\"Show hidden lines\"></button>";
+
+        // add expand button
+        var pre_block = block.parentNode;
+        pre_block.insertBefore(buttons, pre_block.firstChild);
+
+        pre_block.querySelector('.buttons').addEventListener('click', function (e) {
+            if (e.target.classList.contains('fa-eye')) {
+                e.target.classList.remove('fa-eye');
+                e.target.classList.add('fa-eye-slash');
+                e.target.title = 'Hide lines';
+                e.target.setAttribute('aria-label', e.target.title);
+
+                block.classList.remove('hide-boring');
+            } else if (e.target.classList.contains('fa-eye-slash')) {
+                e.target.classList.remove('fa-eye-slash');
+                e.target.classList.add('fa-eye');
+                e.target.title = 'Show hidden lines';
+                e.target.setAttribute('aria-label', e.target.title);
+
+                block.classList.add('hide-boring');
+            }
+        });
+    });
+
+    if (window.playground_copyable) {
+        Array.from(document.querySelectorAll('pre code')).forEach(function (block) {
+            var pre_block = block.parentNode;
+            if (!pre_block.classList.contains('playground')) {
+                var buttons = pre_block.querySelector(".buttons");
+                if (!buttons) {
+                    buttons = document.createElement('div');
+                    buttons.className = 'buttons';
+                    pre_block.insertBefore(buttons, pre_block.firstChild);
+                }
+
+                var clipButton = document.createElement('button');
+                clipButton.className = 'fa fa-copy clip-button';
+                clipButton.title = 'Copy to clipboard';
+                clipButton.setAttribute('aria-label', clipButton.title);
+                clipButton.innerHTML = '<i class=\"tooltiptext\"></i>';
+
+                buttons.insertBefore(clipButton, buttons.firstChild);
+            }
+        });
+    }
+
+    // Process playground code blocks
+    Array.from(document.querySelectorAll(".playground")).forEach(function (pre_block) {
+        // Add play button
+        var buttons = pre_block.querySelector(".buttons");
+        if (!buttons) {
+            buttons = document.createElement('div');
+            buttons.className = 'buttons';
+            pre_block.insertBefore(buttons, pre_block.firstChild);
+        }
+
+        var runCodeButton = document.createElement('button');
+        runCodeButton.className = 'fa fa-play play-button';
+        runCodeButton.hidden = true;
+        runCodeButton.title = 'Run this code';
+        runCodeButton.setAttribute('aria-label', runCodeButton.title);
+
+        buttons.insertBefore(runCodeButton, buttons.firstChild);
+        runCodeButton.addEventListener('click', function (e) {
+            run_rust_code(pre_block);
+        });
+
+        if (window.playground_copyable) {
+            var copyCodeClipboardButton = document.createElement('button');
+            copyCodeClipboardButton.className = 'fa fa-copy clip-button';
+            copyCodeClipboardButton.innerHTML = '<i class="tooltiptext"></i>';
+            copyCodeClipboardButton.title = 'Copy to clipboard';
+            copyCodeClipboardButton.setAttribute('aria-label', copyCodeClipboardButton.title);
+
+            buttons.insertBefore(copyCodeClipboardButton, buttons.firstChild);
+        }
+
+        let code_block = pre_block.querySelector("code");
+        if (window.ace && code_block.classList.contains("editable")) {
+            var undoChangesButton = document.createElement('button');
+            undoChangesButton.className = 'fa fa-history reset-button';
+            undoChangesButton.title = 'Undo changes';
+            undoChangesButton.setAttribute('aria-label', undoChangesButton.title);
+
+            buttons.insertBefore(undoChangesButton, buttons.firstChild);
+
+            undoChangesButton.addEventListener('click', function () {
+                let editor = window.ace.edit(code_block);
+                editor.setValue(editor.originalCode);
+                editor.clearSelection();
+            });
+        }
+    });
+})();
+
+(function themes() {
+    var html = document.querySelector('html');
+    var themeToggleButton = document.getElementById('theme-toggle');
+    var themePopup = document.getElementById('theme-list');
+    var themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
+    var stylesheets = {
+        ayuHighlight: document.querySelector("[href$='ayu-highlight.css']"),
+        tomorrowNight: document.querySelector("[href$='tomorrow-night.css']"),
+        highlight: document.querySelector("[href$='highlight.css']"),
+    };
+
+    function showThemes() {
+        themePopup.style.display = 'block';
+        themeToggleButton.setAttribute('aria-expanded', true);
+        themePopup.querySelector("button#" + get_theme()).focus();
+    }
+
+    function updateThemeSelected() {
+        themePopup.querySelectorAll('.theme-selected').forEach(function (el) {
+            el.classList.remove('theme-selected');
+        });
+        themePopup.querySelector("button#" + get_theme()).classList.add('theme-selected');
+    }
+
+    function hideThemes() {
+        themePopup.style.display = 'none';
+        themeToggleButton.setAttribute('aria-expanded', false);
+        themeToggleButton.focus();
+    }
+
+    function get_theme() {
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) {
+            return default_theme;
+        } else {
+            return theme;
+        }
+    }
+
+    function set_theme(theme, store = true) {
+        let ace_theme;
+
+        if (theme == 'coal' || theme == 'navy') {
+            stylesheets.ayuHighlight.disabled = true;
+            stylesheets.tomorrowNight.disabled = false;
+            stylesheets.highlight.disabled = true;
+
+            ace_theme = "ace/theme/tomorrow_night";
+        } else if (theme == 'ayu') {
+            stylesheets.ayuHighlight.disabled = false;
+            stylesheets.tomorrowNight.disabled = true;
+            stylesheets.highlight.disabled = true;
+            ace_theme = "ace/theme/tomorrow_night";
+        } else {
+            stylesheets.ayuHighlight.disabled = true;
+            stylesheets.tomorrowNight.disabled = true;
+            stylesheets.highlight.disabled = false;
+            ace_theme = "ace/theme/dawn";
+        }
+
+        setTimeout(function () {
+            themeColorMetaTag.content = getComputedStyle(document.documentElement).backgroundColor;
+        }, 1);
+
+        if (window.ace && window.editors) {
+            window.editors.forEach(function (editor) {
+                editor.setTheme(ace_theme);
+            });
+        }
+
+        var previousTheme = get_theme();
+
+        if (store) {
+            try { localStorage.setItem('mdbook-theme', theme); } catch (e) { }
+        }
+
+        html.classList.remove(previousTheme);
+        html.classList.add(theme);
+        updateThemeSelected();
+    }
+
+    // Set theme
+    var theme = get_theme();
+
+    set_theme(theme, false);
+
+    themeToggleButton.addEventListener('click', function () {
+        if (themePopup.style.display === 'block') {
+            hideThemes();
+        } else {
+            showThemes();
+        }
+    });
+
+    themePopup.addEventListener('click', function (e) {
+        var theme;
+        if (e.target.className === "theme") {
+            theme = e.target.id;
+        } else if (e.target.parentElement.className === "theme") {
+            theme = e.target.parentElement.id;
+        } else {
+            return;
+        }
+        set_theme(theme);
+    });
+
+    themePopup.addEventListener('focusout', function(e) {
+        // e.relatedTarget is null in Safari and Firefox on macOS (see workaround below)
+        if (!!e.relatedTarget && !themeToggleButton.contains(e.relatedTarget) && !themePopup.contains(e.relatedTarget)) {
+            hideThemes();
+        }
+    });
+
+    // Should not be needed, but it works around an issue on macOS & iOS: https://github.com/rust-lang/mdBook/issues/628
+    document.addEventListener('click', function(e) {
+        if (themePopup.style.display === 'block' && !themeToggleButton.contains(e.target) && !themePopup.contains(e.target)) {
+            hideThemes();
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return; }
+        if (!themePopup.contains(e.target)) { return; }
+
+        switch (e.key) {
+            case 'Escape':
+                e.preventDefault();
+                hideThemes();
+                break;
+            case 'ArrowUp':
+                e.preventDefault();
+                var li = document.activeElement.parentElement;
+                if (li && li.previousElementSibling) {
+                    li.previousElementSibling.querySelector('button').focus();
+                }
+                break;
+            case 'ArrowDown':
+                e.preventDefault();
+                var li = document.activeElement.parentElement;
+                if (li && li.nextElementSibling) {
+                    li.nextElementSibling.querySelector('button').focus();
+                }
+                break;
+            case 'Home':
+                e.preventDefault();
+                themePopup.querySelector('li:first-child button').focus();
+                break;
+            case 'End':
+                e.preventDefault();
+                themePopup.querySelector('li:last-child button').focus();
+                break;
+        }
+    });
+})();
+
+(function sidebar() {
+    var body = document.querySelector("body");
+    var sidebar = document.getElementById("sidebar");
+    var sidebarLinks = document.querySelectorAll('#sidebar a');
+    var sidebarToggleButton = document.getElementById("sidebar-toggle");
+    var sidebarResizeHandle = document.getElementById("sidebar-resize-handle");
+    var firstContact = null;
+
+    function showSidebar() {
+        body.classList.remove('sidebar-hidden')
+        body.classList.add('sidebar-visible');
+        Array.from(sidebarLinks).forEach(function (link) {
+            link.setAttribute('tabIndex', 0);
+        });
+        sidebarToggleButton.setAttribute('aria-expanded', true);
+        sidebar.setAttribute('aria-hidden', false);
+        try { localStorage.setItem('mdbook-sidebar', 'visible'); } catch (e) { }
+    }
+
+
+    var sidebarAnchorToggles = document.querySelectorAll('#sidebar a.toggle');
+
+    function toggleSection(ev) {
+        ev.currentTarget.parentElement.classList.toggle('expanded');
+    }
+
+    Array.from(sidebarAnchorToggles).forEach(function (el) {
+        el.addEventListener('click', toggleSection);
+    });
+
+    function hideSidebar() {
+        body.classList.remove('sidebar-visible')
+        body.classList.add('sidebar-hidden');
+        Array.from(sidebarLinks).forEach(function (link) {
+            link.setAttribute('tabIndex', -1);
+        });
+        sidebarToggleButton.setAttribute('aria-expanded', false);
+        sidebar.setAttribute('aria-hidden', true);
+        try { localStorage.setItem('mdbook-sidebar', 'hidden'); } catch (e) { }
+    }
+
+    // Toggle sidebar
+    sidebarToggleButton.addEventListener('click', function sidebarToggle() {
+        if (body.classList.contains("sidebar-hidden")) {
+            var current_width = parseInt(
+                document.documentElement.style.getPropertyValue('--sidebar-width'), 10);
+            if (current_width < 150) {
+                document.documentElement.style.setProperty('--sidebar-width', '150px');
+            }
+            showSidebar();
+        } else if (body.classList.contains("sidebar-visible")) {
+            hideSidebar();
+        } else {
+            if (getComputedStyle(sidebar)['transform'] === 'none') {
+                hideSidebar();
+            } else {
+                showSidebar();
+            }
+        }
+    });
+
+    sidebarResizeHandle.addEventListener('mousedown', initResize, false);
+
+    function initResize(e) {
+        window.addEventListener('mousemove', resize, false);
+        window.addEventListener('mouseup', stopResize, false);
+        body.classList.add('sidebar-resizing');
+    }
+    function resize(e) {
+        var pos = (e.clientX - sidebar.offsetLeft);
+        if (pos < 20) {
+            hideSidebar();
+        } else {
+            if (body.classList.contains("sidebar-hidden")) {
+                showSidebar();
+            }
+            pos = Math.min(pos, window.innerWidth - 100);
+            document.documentElement.style.setProperty('--sidebar-width', pos + 'px');
+        }
+    }
+    //on mouseup remove windows functions mousemove & mouseup
+    function stopResize(e) {
+        body.classList.remove('sidebar-resizing');
+        window.removeEventListener('mousemove', resize, false);
+        window.removeEventListener('mouseup', stopResize, false);
+    }
+
+    document.addEventListener('touchstart', function (e) {
+        firstContact = {
+            x: e.touches[0].clientX,
+            time: Date.now()
+        };
+    }, { passive: true });
+
+    document.addEventListener('touchmove', function (e) {
+        if (!firstContact)
+            return;
+
+        var curX = e.touches[0].clientX;
+        var xDiff = curX - firstContact.x,
+            tDiff = Date.now() - firstContact.time;
+
+        if (tDiff < 250 && Math.abs(xDiff) >= 150) {
+            if (xDiff >= 0 && firstContact.x < Math.min(document.body.clientWidth * 0.25, 300))
+                showSidebar();
+            else if (xDiff < 0 && curX < 300)
+                hideSidebar();
+
+            firstContact = null;
+        }
+    }, { passive: true });
+})();
+
+(function chapterNavigation() {
+    document.addEventListener('keydown', function (e) {
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return; }
+        if (window.search && window.search.hasFocus()) { return; }
+        var html = document.querySelector('html');
+
+        function next() {
+            var nextButton = document.querySelector('.nav-chapters.next');
+            if (nextButton) {
+                window.location.href = nextButton.href;
+            }
+        }
+        function prev() {
+            var previousButton = document.querySelector('.nav-chapters.previous');
+            if (previousButton) {
+                window.location.href = previousButton.href;
+            }
+        }
+        switch (e.key) {
+            case 'ArrowRight':
+                e.preventDefault();
+                if (html.dir == 'rtl') {
+                    prev();
+                } else {
+                    next();
+                }
+                break;
+            case 'ArrowLeft':
+                e.preventDefault();
+                if (html.dir == 'rtl') {
+                    next();
+                } else {
+                    prev();
+                }
+                break;
+        }
+    });
+})();
+
+(function clipboard() {
+    var clipButtons = document.querySelectorAll('.clip-button');
+
+    function hideTooltip(elem) {
+        elem.firstChild.innerText = "";
+        elem.className = 'fa fa-copy clip-button';
+    }
+
+    function showTooltip(elem, msg) {
+        elem.firstChild.innerText = msg;
+        elem.className = 'fa fa-copy tooltipped';
+    }
+
+    var clipboardSnippets = new ClipboardJS('.clip-button', {
+        text: function (trigger) {
+            hideTooltip(trigger);
+            let playground = trigger.closest("pre");
+            return playground_text(playground, false);
+        }
+    });
+
+    Array.from(clipButtons).forEach(function (clipButton) {
+        clipButton.addEventListener('mouseout', function (e) {
+            hideTooltip(e.currentTarget);
+        });
+    });
+
+    clipboardSnippets.on('success', function (e) {
+        e.clearSelection();
+        showTooltip(e.trigger, "Copied!");
+    });
+
+    clipboardSnippets.on('error', function (e) {
+        showTooltip(e.trigger, "Clipboard error!");
+    });
+})();
+
+(function scrollToTop () {
+    var menuTitle = document.querySelector('.menu-title');
+
+    menuTitle.addEventListener('click', function () {
+        document.scrollingElement.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+
+(function controllMenu() {
+    var menu = document.getElementById('menu-bar');
+
+    (function controllPosition() {
+        var scrollTop = document.scrollingElement.scrollTop;
+        var prevScrollTop = scrollTop;
+        var minMenuY = -menu.clientHeight - 50;
+        // When the script loads, the page can be at any scroll (e.g. if you reforesh it).
+        menu.style.top = scrollTop + 'px';
+        // Same as parseInt(menu.style.top.slice(0, -2), but faster
+        var topCache = menu.style.top.slice(0, -2);
+        menu.classList.remove('sticky');
+        var stickyCache = false; // Same as menu.classList.contains('sticky'), but faster
+        document.addEventListener('scroll', function () {
+            scrollTop = Math.max(document.scrollingElement.scrollTop, 0);
+            // `null` means that it doesn't need to be updated
+            var nextSticky = null;
+            var nextTop = null;
+            var scrollDown = scrollTop > prevScrollTop;
+            var menuPosAbsoluteY = topCache - scrollTop;
+            if (scrollDown) {
+                nextSticky = false;
+                if (menuPosAbsoluteY > 0) {
+                    nextTop = prevScrollTop;
+                }
+            } else {
+                if (menuPosAbsoluteY > 0) {
+                    nextSticky = true;
+                } else if (menuPosAbsoluteY < minMenuY) {
+                    nextTop = prevScrollTop + minMenuY;
+                }
+            }
+            if (nextSticky === true && stickyCache === false) {
+                menu.classList.add('sticky');
+                stickyCache = true;
+            } else if (nextSticky === false && stickyCache === true) {
+                menu.classList.remove('sticky');
+                stickyCache = false;
+            }
+            if (nextTop !== null) {
+                menu.style.top = nextTop + 'px';
+                topCache = nextTop;
+            }
+            prevScrollTop = scrollTop;
+        }, { passive: true });
+    })();
+    (function controllBorder() {
+        function updateBorder() {
+            if (menu.offsetTop === 0) {
+                menu.classList.remove('bordered');
+            } else {
+                menu.classList.add('bordered');
+            }
+        }
+        updateBorder();
+        document.addEventListener('scroll', updateBorder, { passive: true });
+    })();
+})();

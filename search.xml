@@ -439,6 +439,82 @@
       </tags>
   </entry>
   <entry>
+    <title>Geany</title>
+    <url>/2023/10/07/Geany/</url>
+    <content><![CDATA[<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编程工具</category>
+      </categories>
+      <tags>
+        <tag>编程工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VisualStudioCode</title>
+    <url>/2023/10/07/VisualStudioCode/</url>
+    <content><![CDATA[<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编程工具</category>
+      </categories>
+      <tags>
+        <tag>编程工具</tag>
+        <tag>编辑器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python实现网站邮箱爬取</title>
+    <url>/2023/10/08/Python%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E9%82%AE%E7%AE%B1%E7%88%AC%E5%8F%96/</url>
+    <content><![CDATA[<h1 id="%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E4%B9%8B%E9%82%AE%E7%AE%B1%E7%88%AC%E5%8F%96" tabindex="-1">网络爬虫之邮箱爬取</h1>
+<h2 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87" tabindex="-1">第一步 编程环境准备</h2>
+<h3 id="windows" tabindex="-1">Windows</h3>
+<h4 id="python%E7%9A%84%E5%AE%89%E8%A3%85" tabindex="-1">Python的安装</h4>
+<h5 id="%E6%A3%80%E6%9F%A5%E4%BD%A0%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E4%BA%86python" tabindex="-1">检查你的系统是否安装了Python</h5>
+<p>在开始菜单中搜索cmd打开命令提示符，或者按住Shift并右击桌面选择<strong>在终端中打开</strong></p>
+<p>在终端窗口中输入<code>python</code>并按下回车键Enter</p>
+<ul>
+<li>如果出现了Python提示符<code>&gt;&gt;&gt;</code>，就说明你的系统安装了Python</li>
+<li>如果看到一条错误信息说<strong>python是无法识别的指令</strong>那么就说明你的系统里还没有安装Python</li>
+</ul>
+<h5 id="%E5%AE%89%E8%A3%85python" tabindex="-1">安装Python</h5>
+<p>有些Windows系统中不会默认安装Python，比如我的。。。所以你需要安装Python</p>
+<p>这是python官网的连接：<a class="link"   href="https://www.python.org/" >https://www.python.org/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>因为我使用的是windows11，所以对于win7以及更早的版本没有什么很好的建议，如果你是这一类的用户，可以参见官网的指导</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/python.png"
+                      alt="python官网"
+                ></p>
+<p>直接点击<strong>python 3.12.0</strong>下载最新版即可，如果由于文章未更新而最新版本信息未匹配，请下载官网提供的最新版即可</p>
+<p>运行安装程序时，请勾选<strong>Add Python to PATH</strong>，否则你的配置会麻烦许多</p>
+<h3 id="linux" tabindex="-1">Linux</h3>
+<h4 id="python%E7%9A%84%E5%AE%89%E8%A3%85-1" tabindex="-1">Python的安装</h4>
+<p>Linux系统是专门为编程而设计的，在绝大多数Linux系统中都默认安装了Python，所以你基本不需要安装什么软件或修改什么设置</p>
+<h3 id="%E4%BB%A3%E7%A0%81" tabindex="-1">代码</h3>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> getopt</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment">#主函数，传入用户输入的参数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start</span>(<span class="params">argv</span>):</span><br><span class="line">    url = <span class="string">&quot;&quot;</span></span><br><span class="line">    pages = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;-h 帮助信息;\n&quot;</span>)</span><br><span class="line">        sys.exit()</span><br><span class="line">    <span class="comment">#定义异常处理</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        banner()</span><br><span class="line">        opts,args = getopt.getopt(argv,<span class="string">&quot;-u:-p:-h&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> getopt.GetoptError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Error an argument!&#x27;</span>)</span><br><span class="line">        sys.exit()</span><br><span class="line">    <span class="keyword">for</span> opt,arg <span class="keyword">in</span> opts:</span><br><span class="line">        <span class="keyword">if</span> opt == <span class="string">&quot;-u&quot;</span>:</span><br><span class="line">            url = arg</span><br><span class="line">        <span class="keyword">elif</span> opt == <span class="string">&quot;-p&quot;</span>:</span><br><span class="line">            pages = arg</span><br><span class="line">        <span class="keyword">elif</span> opt == <span class="string">&quot;-h&quot;</span>:</span><br><span class="line">            <span class="built_in">print</span>(usage())</span><br><span class="line"></span><br><span class="line">    launcher(url,pages)</span><br><span class="line"></span><br><span class="line"><span class="comment">#banner信息</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">banner</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;\033[0;31;42m 爬虫不控频,亲人两行泪 \033[0m&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用规则</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">usage</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-h: --help 帮助;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-u: --url 域名;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-p: --pages 页数;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;eg: python -u &quot;www.baidu.com&quot; -p 100&#x27;</span> + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br><span class="line"><span class="comment">#漏洞回调函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">launcher</span>(<span class="params">url,pages</span>):   <span class="comment">#调用bing_search()和baidu_search()函数并且将bing爬到的和baidu爬到的合并去重</span></span><br><span class="line">    email_num = []</span><br><span class="line">    key_words = [<span class="string">&#x27;email&#x27;</span>,<span class="string">&#x27;mail&#x27;</span>,<span class="string">&#x27;mailbox&#x27;</span>,<span class="string">&#x27;邮件&#x27;</span>,<span class="string">&#x27;邮箱&#x27;</span>,<span class="string">&#x27;postbox&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">int</span>(pages)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> key_word <span class="keyword">in</span> key_words:</span><br><span class="line">            bing_emails = bing_search(url,page,key_word)</span><br><span class="line">            baidu_emails = baidu_search(url,page,key_word)</span><br><span class="line">            sum_emails = bing_emails + baidu_emails</span><br><span class="line">            <span class="keyword">for</span> email <span class="keyword">in</span> sum_emails:</span><br><span class="line">                <span class="keyword">if</span> email <span class="keyword">in</span> email_num:</span><br><span class="line">                    <span class="keyword">pass</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="built_in">print</span>(email)</span><br><span class="line">                    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>,<span class="string">&#x27;a+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                        f.write(email + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">                    email_num.append(email)</span><br><span class="line"></span><br><span class="line"><span class="comment">#bingSearch</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bing_search</span>(<span class="params">url,page,key_word</span>): <span class="comment">#绕过Bing搜索引擎反爬(校验referer和cookie)</span></span><br><span class="line">    referer = <span class="string">&quot;http://cn.bing.com/search?q=email+site%3abaidu.com&amp;qs=n&amp;sp=-1&amp;pq=emailsite%3abaidu.com&amp;first=1&amp;FORM=PERE1&quot;</span></span><br><span class="line">    conn = requests.session()</span><br><span class="line">    bing_url = <span class="string">&quot;https://cn.bing.com/search?q=&quot;</span>+key_word+<span class="string">&quot;site%3a&quot;</span>+url+<span class="string">&quot;&amp;qs=n&amp;sp=-1&amp;pq=&quot;</span>+key_word+<span class="string">&quot;site%3a&quot;</span>+url+<span class="string">&quot;&amp;first=&quot;</span>+<span class="built_in">str</span>((page-<span class="number">1</span>)*<span class="number">10</span>)+<span class="string">&quot;&amp;FORM=PERE1&quot;</span></span><br><span class="line">    conn.get(<span class="string">&#x27;http://cn.bing.com&#x27;</span>,headers=headers(referer))</span><br><span class="line">    r = conn.get(bing_url,stream=<span class="literal">True</span>,headers=headers(referer),timeout=<span class="number">8</span>)</span><br><span class="line">    emails = search_email(r.text)</span><br><span class="line">    <span class="keyword">return</span> emails</span><br><span class="line"></span><br><span class="line"><span class="comment">#baiduSearch</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">baidu_search</span>(<span class="params">url,page,key_word</span>):   <span class="comment">#绕过百度搜索引擎的反爬(JS请求链)</span></span><br><span class="line">    email_list = []</span><br><span class="line">    emails = []</span><br><span class="line">    referer = <span class="string">&quot;https://www.baidu.com/s?wd=email+site%3Abaidu.com&amp;pn=1&quot;</span></span><br><span class="line">    baidu_url = <span class="string">&quot;https://www.baidu.com/s?wd=&quot;</span>+key_word+<span class="string">&quot;+site%3A&quot;</span>+url+<span class="string">&quot;&amp;pn=&quot;</span>+<span class="built_in">str</span>((page-<span class="number">1</span>)*<span class="number">10</span>)</span><br><span class="line">    conn = requests.session()</span><br><span class="line">    conn.get(referer,headers=headers(referer))</span><br><span class="line">    r = conn.get(baidu_url, headers=headers(referer))</span><br><span class="line">    soup = BeautifulSoup(r.text, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">    tagh3 = soup.find_all(<span class="string">&#x27;h3&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> h3 <span class="keyword">in</span> tagh3:</span><br><span class="line">        href = h3.find(<span class="string">&#x27;a&#x27;</span>).get(<span class="string">&#x27;href&#x27;</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            r = requests.get(href, headers=headers(referer),timeout=<span class="number">8</span>)</span><br><span class="line">            emails = search_email(r.text)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">for</span> email <span class="keyword">in</span> emails:</span><br><span class="line">            email_list.append(email)</span><br><span class="line">    <span class="keyword">return</span> email_list</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search_email</span>(<span class="params">html</span>):</span><br><span class="line">    emails = re.findall(<span class="string">r&quot;[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+&quot;</span>,html,re.I)  <span class="comment">#正则表达式获取邮箱号码</span></span><br><span class="line">    <span class="keyword">return</span> emails</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">headers</span>(<span class="params">referer</span>):</span><br><span class="line">    headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;*/*&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Accept-Language&#x27;</span>:<span class="string">&#x27;en-US,en;q=0.5&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Accept-Encoding&#x27;</span>:<span class="string">&#x27;gzip,deflate&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Referer&#x27;</span>:referer&#125;</span><br><span class="line">    <span class="keyword">return</span> headers</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment">#定义异常</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        start(sys.argv[<span class="number">1</span>:])</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;interrupted by user,killing all threads...&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p><strong>待更新</strong></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>脚本语言</category>
+        <category>python</category>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VisualStudio2022-C/C++语言环境配置</title>
     <url>/2023/10/08/VisualStudio2022-C-C-%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>这个软件的C语言环境配置还是很容易的，难就难在，不同电脑的状况不太一样，总有一些电脑的环境等等会出一些问题，所以这里想对我已经发现的一些问题提出我的解决方案，方法不唯一，能用就行。</p>
@@ -545,82 +621,6 @@
         <tag>C语言</tag>
         <tag>环境配置</tag>
         <tag>VisualStdio2022</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Geany</title>
-    <url>/2023/10/07/Geany/</url>
-    <content><![CDATA[<p><strong>待更新</strong></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>编程工具</category>
-      </categories>
-      <tags>
-        <tag>编程工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python实现网站邮箱爬取</title>
-    <url>/2023/10/08/Python%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E9%82%AE%E7%AE%B1%E7%88%AC%E5%8F%96/</url>
-    <content><![CDATA[<h1 id="%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E4%B9%8B%E9%82%AE%E7%AE%B1%E7%88%AC%E5%8F%96" tabindex="-1">网络爬虫之邮箱爬取</h1>
-<h2 id="%E7%AC%AC%E4%B8%80%E6%AD%A5-%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87" tabindex="-1">第一步 编程环境准备</h2>
-<h3 id="windows" tabindex="-1">Windows</h3>
-<h4 id="python%E7%9A%84%E5%AE%89%E8%A3%85" tabindex="-1">Python的安装</h4>
-<h5 id="%E6%A3%80%E6%9F%A5%E4%BD%A0%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E4%BA%86python" tabindex="-1">检查你的系统是否安装了Python</h5>
-<p>在开始菜单中搜索cmd打开命令提示符，或者按住Shift并右击桌面选择<strong>在终端中打开</strong></p>
-<p>在终端窗口中输入<code>python</code>并按下回车键Enter</p>
-<ul>
-<li>如果出现了Python提示符<code>&gt;&gt;&gt;</code>，就说明你的系统安装了Python</li>
-<li>如果看到一条错误信息说<strong>python是无法识别的指令</strong>那么就说明你的系统里还没有安装Python</li>
-</ul>
-<h5 id="%E5%AE%89%E8%A3%85python" tabindex="-1">安装Python</h5>
-<p>有些Windows系统中不会默认安装Python，比如我的。。。所以你需要安装Python</p>
-<p>这是python官网的连接：<a class="link"   href="https://www.python.org/" >https://www.python.org/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>因为我使用的是windows11，所以对于win7以及更早的版本没有什么很好的建议，如果你是这一类的用户，可以参见官网的指导</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/python.png"
-                      alt="python官网"
-                ></p>
-<p>直接点击<strong>python 3.12.0</strong>下载最新版即可，如果由于文章未更新而最新版本信息未匹配，请下载官网提供的最新版即可</p>
-<p>运行安装程序时，请勾选<strong>Add Python to PATH</strong>，否则你的配置会麻烦许多</p>
-<h3 id="linux" tabindex="-1">Linux</h3>
-<h4 id="python%E7%9A%84%E5%AE%89%E8%A3%85-1" tabindex="-1">Python的安装</h4>
-<p>Linux系统是专门为编程而设计的，在绝大多数Linux系统中都默认安装了Python，所以你基本不需要安装什么软件或修改什么设置</p>
-<h3 id="%E4%BB%A3%E7%A0%81" tabindex="-1">代码</h3>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> getopt</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment">#主函数，传入用户输入的参数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start</span>(<span class="params">argv</span>):</span><br><span class="line">    url = <span class="string">&quot;&quot;</span></span><br><span class="line">    pages = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;-h 帮助信息;\n&quot;</span>)</span><br><span class="line">        sys.exit()</span><br><span class="line">    <span class="comment">#定义异常处理</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        banner()</span><br><span class="line">        opts,args = getopt.getopt(argv,<span class="string">&quot;-u:-p:-h&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> getopt.GetoptError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Error an argument!&#x27;</span>)</span><br><span class="line">        sys.exit()</span><br><span class="line">    <span class="keyword">for</span> opt,arg <span class="keyword">in</span> opts:</span><br><span class="line">        <span class="keyword">if</span> opt == <span class="string">&quot;-u&quot;</span>:</span><br><span class="line">            url = arg</span><br><span class="line">        <span class="keyword">elif</span> opt == <span class="string">&quot;-p&quot;</span>:</span><br><span class="line">            pages = arg</span><br><span class="line">        <span class="keyword">elif</span> opt == <span class="string">&quot;-h&quot;</span>:</span><br><span class="line">            <span class="built_in">print</span>(usage())</span><br><span class="line"></span><br><span class="line">    launcher(url,pages)</span><br><span class="line"></span><br><span class="line"><span class="comment">#banner信息</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">banner</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;\033[0;31;42m 爬虫不控频,亲人两行泪 \033[0m&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用规则</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">usage</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-h: --help 帮助;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-u: --url 域名;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-p: --pages 页数;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;eg: python -u &quot;www.baidu.com&quot; -p 100&#x27;</span> + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br><span class="line"><span class="comment">#漏洞回调函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">launcher</span>(<span class="params">url,pages</span>):   <span class="comment">#调用bing_search()和baidu_search()函数并且将bing爬到的和baidu爬到的合并去重</span></span><br><span class="line">    email_num = []</span><br><span class="line">    key_words = [<span class="string">&#x27;email&#x27;</span>,<span class="string">&#x27;mail&#x27;</span>,<span class="string">&#x27;mailbox&#x27;</span>,<span class="string">&#x27;邮件&#x27;</span>,<span class="string">&#x27;邮箱&#x27;</span>,<span class="string">&#x27;postbox&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">int</span>(pages)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> key_word <span class="keyword">in</span> key_words:</span><br><span class="line">            bing_emails = bing_search(url,page,key_word)</span><br><span class="line">            baidu_emails = baidu_search(url,page,key_word)</span><br><span class="line">            sum_emails = bing_emails + baidu_emails</span><br><span class="line">            <span class="keyword">for</span> email <span class="keyword">in</span> sum_emails:</span><br><span class="line">                <span class="keyword">if</span> email <span class="keyword">in</span> email_num:</span><br><span class="line">                    <span class="keyword">pass</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="built_in">print</span>(email)</span><br><span class="line">                    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>,<span class="string">&#x27;a+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                        f.write(email + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">                    email_num.append(email)</span><br><span class="line"></span><br><span class="line"><span class="comment">#bingSearch</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bing_search</span>(<span class="params">url,page,key_word</span>): <span class="comment">#绕过Bing搜索引擎反爬(校验referer和cookie)</span></span><br><span class="line">    referer = <span class="string">&quot;http://cn.bing.com/search?q=email+site%3abaidu.com&amp;qs=n&amp;sp=-1&amp;pq=emailsite%3abaidu.com&amp;first=1&amp;FORM=PERE1&quot;</span></span><br><span class="line">    conn = requests.session()</span><br><span class="line">    bing_url = <span class="string">&quot;https://cn.bing.com/search?q=&quot;</span>+key_word+<span class="string">&quot;site%3a&quot;</span>+url+<span class="string">&quot;&amp;qs=n&amp;sp=-1&amp;pq=&quot;</span>+key_word+<span class="string">&quot;site%3a&quot;</span>+url+<span class="string">&quot;&amp;first=&quot;</span>+<span class="built_in">str</span>((page-<span class="number">1</span>)*<span class="number">10</span>)+<span class="string">&quot;&amp;FORM=PERE1&quot;</span></span><br><span class="line">    conn.get(<span class="string">&#x27;http://cn.bing.com&#x27;</span>,headers=headers(referer))</span><br><span class="line">    r = conn.get(bing_url,stream=<span class="literal">True</span>,headers=headers(referer),timeout=<span class="number">8</span>)</span><br><span class="line">    emails = search_email(r.text)</span><br><span class="line">    <span class="keyword">return</span> emails</span><br><span class="line"></span><br><span class="line"><span class="comment">#baiduSearch</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">baidu_search</span>(<span class="params">url,page,key_word</span>):   <span class="comment">#绕过百度搜索引擎的反爬(JS请求链)</span></span><br><span class="line">    email_list = []</span><br><span class="line">    emails = []</span><br><span class="line">    referer = <span class="string">&quot;https://www.baidu.com/s?wd=email+site%3Abaidu.com&amp;pn=1&quot;</span></span><br><span class="line">    baidu_url = <span class="string">&quot;https://www.baidu.com/s?wd=&quot;</span>+key_word+<span class="string">&quot;+site%3A&quot;</span>+url+<span class="string">&quot;&amp;pn=&quot;</span>+<span class="built_in">str</span>((page-<span class="number">1</span>)*<span class="number">10</span>)</span><br><span class="line">    conn = requests.session()</span><br><span class="line">    conn.get(referer,headers=headers(referer))</span><br><span class="line">    r = conn.get(baidu_url, headers=headers(referer))</span><br><span class="line">    soup = BeautifulSoup(r.text, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">    tagh3 = soup.find_all(<span class="string">&#x27;h3&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> h3 <span class="keyword">in</span> tagh3:</span><br><span class="line">        href = h3.find(<span class="string">&#x27;a&#x27;</span>).get(<span class="string">&#x27;href&#x27;</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            r = requests.get(href, headers=headers(referer),timeout=<span class="number">8</span>)</span><br><span class="line">            emails = search_email(r.text)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">for</span> email <span class="keyword">in</span> emails:</span><br><span class="line">            email_list.append(email)</span><br><span class="line">    <span class="keyword">return</span> email_list</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search_email</span>(<span class="params">html</span>):</span><br><span class="line">    emails = re.findall(<span class="string">r&quot;[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+&quot;</span>,html,re.I)  <span class="comment">#正则表达式获取邮箱号码</span></span><br><span class="line">    <span class="keyword">return</span> emails</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">headers</span>(<span class="params">referer</span>):</span><br><span class="line">    headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;*/*&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Accept-Language&#x27;</span>:<span class="string">&#x27;en-US,en;q=0.5&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Accept-Encoding&#x27;</span>:<span class="string">&#x27;gzip,deflate&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;Referer&#x27;</span>:referer&#125;</span><br><span class="line">    <span class="keyword">return</span> headers</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment">#定义异常</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        start(sys.argv[<span class="number">1</span>:])</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;interrupted by user,killing all threads...&quot;</span>)</span><br></pre></td></tr></table></figure></div>
-<p><strong>待更新</strong></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>脚本语言</category>
-        <category>python</category>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VisualStudioCode</title>
-    <url>/2023/10/07/VisualStudioCode/</url>
-    <content><![CDATA[<p><strong>待更新</strong></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>编程工具</category>
-      </categories>
-      <tags>
-        <tag>编程工具</tag>
-        <tag>编辑器</tag>
       </tags>
   </entry>
   <entry>
@@ -832,6 +832,57 @@
       </tags>
   </entry>
   <entry>
+    <title>python语言基础</title>
+    <url>/2023/10/07/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
+<h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%AE%80%E4%BB%8B" tabindex="-1">语言基础简介</h1>
+<h2 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h2>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">数据类型</label>
+<ul>
+<li>变量</li>
+<li>字符串</li>
+<li>数字</li>
+<li>注释</li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">列表</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">字典</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">元组</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">if语句</label></li>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">循环语句</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">用户输入</label></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">函数</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">类</label></li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">文件</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">测试</label></li>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11">项目</label>
+<ul>
+<li>网站</li>
+<li>爬虫</li>
+<li>游戏</li>
+<li>数据可视化</li>
+<li>excel<br>
+<strong>待更新</strong></li>
+</ul>
+</li>
+</ul>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>脚本语言</category>
+        <category>python</category>
+        <category>语言基础</category>
+      </categories>
+      <tags>
+        <tag>语言基础</tag>
+        <tag>python</tag>
+        <tag>脚本语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo&amp;github pages建站指南</title>
     <url>/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
@@ -985,57 +1036,6 @@ Set-ExecutionPolicy -ExecutionPolicy [ExecutionPolicy] -Scope [Scope]</p>
       </categories>
       <tags>
         <tag>win11</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python语言基础</title>
-    <url>/2023/10/07/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
-<h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%AE%80%E4%BB%8B" tabindex="-1">语言基础简介</h1>
-<h2 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h2>
-<ul>
-<li><input type="checkbox" id="checkbox0"><label for="checkbox0">数据类型</label>
-<ul>
-<li>变量</li>
-<li>字符串</li>
-<li>数字</li>
-<li>注释</li>
-</ul>
-</li>
-<li><input type="checkbox" id="checkbox1"><label for="checkbox1">列表</label></li>
-<li><input type="checkbox" id="checkbox2"><label for="checkbox2">字典</label></li>
-<li><input type="checkbox" id="checkbox3"><label for="checkbox3">元组</label></li>
-<li><input type="checkbox" id="checkbox4"><label for="checkbox4">if语句</label></li>
-<li><input type="checkbox" id="checkbox5"><label for="checkbox5">循环语句</label></li>
-<li><input type="checkbox" id="checkbox6"><label for="checkbox6">用户输入</label></li>
-<li><input type="checkbox" id="checkbox7"><label for="checkbox7">函数</label></li>
-<li><input type="checkbox" id="checkbox8"><label for="checkbox8">类</label></li>
-<li><input type="checkbox" id="checkbox9"><label for="checkbox9">文件</label></li>
-<li><input type="checkbox" id="checkbox10"><label for="checkbox10">测试</label></li>
-<li><input type="checkbox" id="checkbox11"><label for="checkbox11">项目</label>
-<ul>
-<li>网站</li>
-<li>爬虫</li>
-<li>游戏</li>
-<li>数据可视化</li>
-<li>excel<br>
-<strong>待更新</strong></li>
-</ul>
-</li>
-</ul>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>脚本语言</category>
-        <category>python</category>
-        <category>语言基础</category>
-      </categories>
-      <tags>
-        <tag>语言基础</tag>
-        <tag>python</tag>
-        <tag>脚本语言</tag>
       </tags>
   </entry>
   <entry>
