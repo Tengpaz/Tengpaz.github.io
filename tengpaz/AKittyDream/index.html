@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Kitty Dream</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .header {
+        background-color: #333;
+        color: white;
+        padding: 0;
+        text-align: left;
+        font-size: 32px;
+        font-weight: bold;
+      }
+      .header .item {
+        color: #dedede;
+        padding: 5px;
+        padding-top: 15px;
+        font-size: 20px;
+        font-weight:lighter;
+        text-align: center;
+      }
+      .header a {
+        color: #dedede;
+        padding: 5px;
+        padding-top: 15px;
+        font-size: 20px;
+        font-weight:lighter;
+        text-align: center;
+        text-decoration: none;
+      }
+      .header .item:hover {
+        color: white;
+        padding: 5px;
+        padding-top: 15px;
+        text-align: center;
+      }
+      .header a:hover {
+        color: white;
+        padding: 5px;
+        padding-top: 15px;
+        text-align: center;
+      }
+      .header img[src] {
+        margin: 4px;
+        border-radius: 4px;
+        width: 50px;
+        height: 48px;
+      }
+      .nav {
+        background-color: #ddd;
+        padding: 10px;
+        text-align: center;
+      }
+      .nav-button {
+        background-color: #ddd;
+        border: none;
+        color: #333;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px; /* 圆角边框 */
+      }
+      .nav-button:hover {
+        background-color: #ccc;
+      }
+      .nav a {
+        color: #333;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+      }
+      .sidebar,
+      .main {
+        padding: 20px;
+        height: 630px;
+        overflow: hidden;
+      }
+      .sidebar {
+        background-color: #f0f0f0;
+        flex: 0 0 380px; /* Fixed width for sidebar */
+      }
+      .main {
+        background-color: #e0e0e0;
+        flex: 0 0 660px; /* Fixed width for main content */
+      }
+      .sidebar-left {
+        margin-right: 20px; /* Adjust the margin for the left sidebar */
+      }
+      .sidebar-right {
+        margin-left: 20px; /* Adjust the margin for the right sidebar */
+      }
+      .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="header">
+      <div class="container">
+        <img src="img/favicon.png" alt="A Kitty Dream" href="#">
+        <div class="item" href="design.html">
+          <a href="design.html">游戏设计</a>
+        </div>
+        <div class="item">
+          游戏规模
+        </div>
+        <div class="item">
+          游戏攻略
+        </div>
+        <div class="item">
+          关于作者
+        </div>
+        <div class="item">
+          支持
+        </div>
+        <div class="container">
+        A Kiity Dream
+        </div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button id="enlargeButton" class="nav-button">放大</button>
+      <button id="shrinkButton" class="nav-button">缩小</button>
+      <button id="infoButton" class="nav-button">设置信息</button>
+    </div>
+
+    <div class="container">
+      <div class="sidebar sidebar-left">
+        <h2>游戏介绍</h2>
+        <p>
+          Kitty的梦想是冒险，但是它无法真正实现，因为它是一只家猫。
+          它一天晚上再次做梦梦到了冒险，它想在梦里完成冒险，实现它未能实现的梦想。
+        </p>
+      </div>
+      <div class="main">
+        <iframe
+          id="webgl"
+          style="
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: medium none;
+          "
+          src="Game/index.html"
+        ></iframe>
+      </div>
+      <div class="sidebar sidebar-right">
+        <h2>操作提示</h2>
+        <p>
+          左右移动：left + right 方向键
+        </p>
+        <p>
+          跳跃：S / up方向键
+        </p>
+        <p>
+          冲刺：D
+        </p>
+        <p>
+          对话：Z
+        </p>
+        <p>
+          交互：down方向键
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Tengpaz - Copyright &copy; 2024</p>
+    </div>
+  </body>
+
+  <script>
+    // JS 代码
+  </script>
+</html>

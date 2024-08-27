@@ -1,78 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C语言基础</title>
-    <url>/tengpaz/2023/10/07/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
-<h1 id="语言基础简介"><a href="#语言基础简介" class="headerlink" title="语言基础简介"></a>语言基础简介</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><input disabled="" type="checkbox"> C语言程序开发步骤</li>
-<li><input disabled="" type="checkbox"> 数据表示</li>
-<li><input disabled="" type="checkbox"> 数据处理与储存<ul>
-<li>编码</li>
-<li>进制</li>
-<li>储存</li>
-<li>浮点数的表达与储存</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"> 运算<ul>
-<li>关系运算</li>
-<li>算术运算</li>
-<li>逻辑运算</li>
-<li>位运算</li>
-<li>复合赋值运算</li>
-<li>自增自减运算</li>
-<li>运算优先级</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"> 控制结构<ul>
-<li>选择结构</li>
-<li>循环结构</li>
-<li>goto语句</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"> 函数<ul>
-<li>定义与调用</li>
-<li>参数传递原理</li>
-<li>递归函数</li>
-<li>标准库函数</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"> 复杂数据类型之数组<ul>
-<li>一维数组</li>
-<li>二维数组</li>
-<li>变长数组</li>
-<li>多维数组</li>
-<li>字符型数组与字符串</li>
-<li>标准字符串strings处理函数</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"> 复杂数据类型之指针<ul>
-<li>什么是指针</li>
-<li>指针变量</li>
-<li>指针运算</li>
-<li>空指针</li>
-<li>字符串指针</li>
-<li>数组指针</li>
-<li>多重指针</li>
-<li>指针数组</li>
-<li>函数指针</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"> 复杂数据类型之结构体</li>
-<li><input disabled="" type="checkbox"> 复杂数据类型之联合体</li>
-<li><input disabled="" type="checkbox"> 文件<br><strong>待更新</strong></li>
-</ul>
+    <title>Geany</title>
+    <url>/tengpaz/2023/10/07/Geany/</url>
+    <content><![CDATA[<p><strong>待更新</strong></p>
 ]]></content>
       <categories>
         <category>编程</category>
-        <category>编译语言</category>
-        <category>C语言</category>
-        <category>语言基础</category>
+        <category>编程工具</category>
       </categories>
       <tags>
-        <tag>C语言</tag>
-        <tag>语言基础</tag>
-        <tag>编译语言</tag>
+        <tag>编程工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git剖析</title>
+    <url>/tengpaz/2024/07/29/Git%E5%89%96%E6%9E%90/</url>
+    <content><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h2><p>对于Git怎么传输数据，官方文档给了两种不同的处理方式，分别是”哑<code>(dump)</code>“协议和”智能<code>(smart)</code>协议.</p>
+<h3 id="哑协议"><a href="#哑协议" class="headerlink" title="哑协议"></a>哑协议</h3><p>如果架设的仓库是一个基于HTTP协议的<strong>只读</strong>版本库,注意是<strong>只读</strong>.一般而言这种情况下使用的就是哑协议,它不允许客户端向服务端传输数据,可能这也是为什么会称为”哑”(不过具体是怎么命名的请另外深入了解).</p>
+<p>对于基于HTTP协议的一个版本库来说,如果我们使用<code>git clone</code>抓取仓库信息,那么就涉及到哑协议,具体实现过程如下:</p>
+<p>首先是我们使用了指令</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git clone http://server/repo-progit.git</span><br></pre></td></tr></table></figure></div>
+
+<p>这里的<code>server</code>指的是<strong>服务器</strong>,<code>repo</code>指的是<strong>仓库名</strong>.</p>
+<p>输入指令后第一件事是拉取<code>info/refs</code>文件.这个文件是通过<code>update-server-info</code>生成的,于是乎相当于经历了一下过程:</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">=&gt; GET info/refs</span><br><span class="line">xxxxxxxxxxxxxxx(一堆编号)       refs/heads/master</span><br></pre></td></tr></table></figure></div>
+
+<p>这样就获取了一个远程引用和<code>SHA-1</code>值的列表,接下来要确定HEAD引用的是什么,由此来确定完成后被检出到工作目录里的内容.</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">=&gt; GET HEAD</span><br><span class="line">ref: refs/heads/master</span><br></pre></td></tr></table></figure></div>
+
+<p>这说明在抓取完成后应该检出<code>master</code>分支,然后开始遍历处理,然后由于是从之前获取的<code>xxxxx</code>对象开始的,所以首先获取它:</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">=&gt; GET objects/xx/xxx</span><br><span class="line">([number] bytes of binary data)</span><br></pre></td></tr></table></figure></div>
+
+<p>然后就取得了一个服务器上保存的<strong>对象</strong>,这是使用静态<code>HTTP GET</code>请求获取的,然后可以<code>zlib</code>解压它</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>版本控制</tag>
       </tags>
   </entry>
   <entry>
@@ -353,19 +319,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Geany</title>
-    <url>/tengpaz/2023/10/07/Geany/</url>
-    <content><![CDATA[<p><strong>待更新</strong></p>
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>编程工具</category>
-      </categories>
-      <tags>
-        <tag>编程工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python实现网站邮箱爬取</title>
     <url>/tengpaz/2023/10/08/Python%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E9%82%AE%E7%AE%B1%E7%88%AC%E5%8F%96/</url>
     <content><![CDATA[<h1 id="网络爬虫之邮箱爬取"><a href="#网络爬虫之邮箱爬取" class="headerlink" title="网络爬虫之邮箱爬取"></a>网络爬虫之邮箱爬取</h1><h2 id="第一步-编程环境准备"><a href="#第一步-编程环境准备" class="headerlink" title="第一步 编程环境准备"></a>第一步 编程环境准备</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><h4 id="Python的安装"><a href="#Python的安装" class="headerlink" title="Python的安装"></a>Python的安装</h4><h5 id="检查你的系统是否安装了Python"><a href="#检查你的系统是否安装了Python" class="headerlink" title="检查你的系统是否安装了Python"></a>检查你的系统是否安装了Python</h5><p>在开始菜单中搜索cmd打开命令提示符，或者按住Shift并右击桌面选择<strong>在终端中打开</strong></p>
@@ -397,6 +350,81 @@
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言基础</title>
+    <url>/tengpaz/2023/10/07/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
+<h1 id="语言基础简介"><a href="#语言基础简介" class="headerlink" title="语言基础简介"></a>语言基础简介</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><input disabled="" type="checkbox"> C语言程序开发步骤</li>
+<li><input disabled="" type="checkbox"> 数据表示</li>
+<li><input disabled="" type="checkbox"> 数据处理与储存<ul>
+<li>编码</li>
+<li>进制</li>
+<li>储存</li>
+<li>浮点数的表达与储存</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 运算<ul>
+<li>关系运算</li>
+<li>算术运算</li>
+<li>逻辑运算</li>
+<li>位运算</li>
+<li>复合赋值运算</li>
+<li>自增自减运算</li>
+<li>运算优先级</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 控制结构<ul>
+<li>选择结构</li>
+<li>循环结构</li>
+<li>goto语句</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 函数<ul>
+<li>定义与调用</li>
+<li>参数传递原理</li>
+<li>递归函数</li>
+<li>标准库函数</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 复杂数据类型之数组<ul>
+<li>一维数组</li>
+<li>二维数组</li>
+<li>变长数组</li>
+<li>多维数组</li>
+<li>字符型数组与字符串</li>
+<li>标准字符串strings处理函数</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 复杂数据类型之指针<ul>
+<li>什么是指针</li>
+<li>指针变量</li>
+<li>指针运算</li>
+<li>空指针</li>
+<li>字符串指针</li>
+<li>数组指针</li>
+<li>多重指针</li>
+<li>指针数组</li>
+<li>函数指针</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 复杂数据类型之结构体</li>
+<li><input disabled="" type="checkbox"> 复杂数据类型之联合体</li>
+<li><input disabled="" type="checkbox"> 文件<br><strong>待更新</strong></li>
+</ul>
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编译语言</category>
+        <category>C语言</category>
+        <category>语言基础</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>语言基础</tag>
+        <tag>编译语言</tag>
       </tags>
   </entry>
   <entry>
@@ -497,112 +525,6 @@
         <tag>C语言</tag>
         <tag>环境配置</tag>
         <tag>VisualStdio2022</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo&amp;github pages建站指南</title>
-    <url>/tengpaz/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
-<p>有很多内容是直接搬自Hexo官方文档，所以也可以参照官网操作后遇到特殊情况再来看噢</p>
-<h1 id="Hexo-Github-pages-搭建个人博客指北"><a href="#Hexo-Github-pages-搭建个人博客指北" class="headerlink" title="Hexo &amp; Github pages 搭建个人博客指北"></a>Hexo &amp; Github pages 搭建个人博客指北</h1><p>中间如果遇到问题可以直接评论或联系我询问噢，我能帮一定会帮</p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="第一步-下载Node-js"><a href="#第一步-下载Node-js" class="headerlink" title="第一步 下载Node.js"></a>第一步 下载<strong>Node.js</strong></h3><p>建站过程中需要用到<strong>npm</strong>[^1]的指令下载相关代码包</p>
-<p>[^1]: <strong>npm</strong>全称为<strong>Node Package Manager</strong>，看名字就大概可以猜到它的用途了，npm是基于<strong>Node.js</strong>的一个代码包的库，如果没有npm，而我们又需要一些Node.js的拓展代码来完成一些特殊任务，就需要到代码所在的相应网站去下载，问题是，如果我们需要很多代码包，它们都分处不同的网站，那么这时候去挨个访问网站去下载代码就会非常麻烦了，npm就是为了解决这个问题而出现的，npm为那些代码的开发者提供了一个平台，使得代码可以被发布到npm上，使用者可以直接通过npm下载相应的代码，而不需要另外拜访相应网站去下载了。</p>
-<p>既然这是一个基于Node.js的工具，它的下载是伴随Node.js的，所以这里需要下载Node.js来支持网站搭建</p>
-<p><a class="link"   href="https://nodejs.org/en" >Node.js下载官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>这里不必下载最新版，下载推荐的版本即可</p>
-<p>下载要注意勾选<code>Add to PATH</code>的选项</p>
-<h3 id="第二步-下载Git"><a href="#第二步-下载Git" class="headerlink" title="第二步 下载Git"></a>第二步 下载<strong>Git</strong></h3><p>Git是一个代码版本管理器，详细可以参见搜索引擎或后期发表的文章</p>
-<p><a class="link"   href="https://git-scm.com/download/win" >Windows系统Git下载官方网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>这个网站由于是外国网站，可能你会无法正常访问，所以你也可以通过<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/"><strong>淘宝 Git for Windows 镜像</strong></a>下载Git安装包，下载最新版即可，在本文发布时最新版为**v2.42.0.windows.2&#x2F;**，你可以在网站里找找</p>
-<h3 id="第三步-安装Hexo"><a href="#第三步-安装Hexo" class="headerlink" title="第三步 安装Hexo"></a>第三步 安装Hexo</h3><p>请确认已经成功安装了上面两个东西，再来执行这一步</p>
-<h4 id="使用npm安装Hexo"><a href="#使用npm安装Hexo" class="headerlink" title="使用npm安装Hexo"></a>使用npm安装Hexo</h4><p>在系统开始栏搜索打开cmd</p>
-<p>输入以下指令</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="第四步-建站"><a href="#第四步-建站" class="headerlink" title="第四步 建站"></a>第四步 建站</h3><p>这里需要建一个放你网站文件的文件夹</p>
-<p>请找到你想把文件夹放在的地方，比如你想放到D盘的话，你就需要在cmd中先输入<code>D:</code>，然后输入以下指令</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>这里的<code>&lt;folder&gt;</code>是你想建的文件夹的名字，建议用英文</li>
-<li><code>cd &lt;folder&gt;</code>表示在终端中切换到你的博客文件夹中进行操作</li>
-<li><code>npm install</code>表示在选中的文件夹里安装npm相关的文件</li>
-</ul>
-<p>新建完成后，你选定的文件夹目录应该如下：</p>
-<ul>
-<li>_config.yml</li>
-<li>package.json</li>
-<li>scaffolds</li>
-<li>source<ul>
-<li>_drafts</li>
-<li>_posts</li>
-</ul>
-</li>
-<li>themes</li>
-</ul>
-<p>下面介绍各文件或文件夹的作用</p>
-<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><p>该文件储存的是网站的配置信息，在其中可以配置大部分的参数，后期在应用主题后，还会有单独的主题配置文件，用于针对主题内容进行配置。</p>
-<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>这里储存应用程序的信息，其中像<code>EJS</code>,<code>Stylus</code>和<code>Markdown渲染引擎</code>已经默认安装，可以后期被移除</p>
-<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo-site&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;private&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;hexo&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;hexo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.8.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-generator-archive&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.1.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-generator-category&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.1.3&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-generator-index&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.2.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-generator-tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-renderer-ejs&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.3.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-renderer-stylus&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.3.3&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-renderer-marked&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.3.2&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.3.3&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>其中<code>dependencies</code>中列出的就是已经安装好的应用程序</p>
-<h4 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h4><p>储存文件模板的文件夹，在新建文章、页面、草稿时，Hexo会根据相对应的模板生成一个带有模板内容的文件</p>
-<p>比如通过修改文件夹中<code>post.md</code>中的<code>Front-matter</code>的内容，那么这个修改将应用于以后所有生成的<code>post</code>文件中</p>
-<h4 id="source"><a href="#source" class="headerlink" title="source"></a>source</h4><p>资源文件夹，用来存放用户资源的地方，除了<code>_posts</code>文件夹外，其它所有开头名为<code>_</code>的文件和文件夹及隐藏的文件都会被忽略</p>
-<p>其中<code>Markdown</code>和<code>HTML</code>文件会被解析放到public文件夹，其它文件直接被拷贝进去</p>
-<h4 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h4><p>主题文件夹，<code>Hexo</code>会根据主题来生成静态页面</p>
-<h3 id="第五步-配置"><a href="#第五步-配置" class="headerlink" title="第五步 配置"></a>第五步 配置</h3><p>内容细节，详见<a class="link"   href="https://hexo.io/zh-cn/docs/configuration" >官方文档 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="第六步-主题选取"><a href="#第六步-主题选取" class="headerlink" title="第六步 主题选取"></a>第六步 主题选取</h3><p>水平够高可以自己写主题，我肯定是做不到的反正</p>
-<p><a class="link"   href="https://hexo.io/themes/" >hexo 主题 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>在这里你可以选择你想要的主题，并根据相应主题的说明，应用主题并调整相关配置</p>
-<h3 id="第七步-了解实用指令"><a href="#第七步-了解实用指令" class="headerlink" title="第七步 了解实用指令"></a>第七步 了解实用指令</h3><p>当你开始向网站中发布文章时，你会需要知道一些基本指令。</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></div>
-
-<p>新建一个布局类型为<code>layout</code>标题为<code>title</code>的文章或页面或草稿</p>
-<p>当你没有修改<code>config.yml</code>中的相关信息时，默认为<code>post</code></p>
-<p>新建后你可以编辑source&#x2F;_posts文件夹下相应新建的文件来更新文章内容</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure></div>
-
-<p>发表草稿</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure></div>
-
-<p>清除缓存和<code>public</code>文件夹中的文件</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-<p>简写为<code>hexo g</code><br>生成静态文件</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>预览网站</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
-<p>简写为<code>hexo d</code><br>部署网站</p>
-<p>执行这个指令可能经常会碰到连接不到仓库的情况，这是正常情况，毕竟中国连github还是太难了…</p>
-<p>反复试，直到连上！（我最多刷了几十遍，当然我不懂怎么解决网络不好的问题，虽然会用梯子）</p>
-<h3 id="第八步-？？？"><a href="#第八步-？？？" class="headerlink" title="第八步 ？？？"></a>第八步 ？？？</h3><p>不管过程中遇到了什么问题，细心、耐心，解决它~</p>
-<p>弄完这些基本网站就大概好啦</p>
-<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>后期操作熟悉后，发布文章是三步走</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
-<p>指令的简写可以上官网</p>
-<h5 id="欢迎指正建议"><a href="#欢迎指正建议" class="headerlink" title="欢迎指正建议~"></a>欢迎指正建议~</h5>]]></content>
-      <categories>
-        <category>建站</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>静态网站</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VisualStudioCode</title>
-    <url>/tengpaz/2023/10/07/VisualStudioCode/</url>
-    <content><![CDATA[<p><strong>待更新</strong></p>
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>编程工具</category>
-      </categories>
-      <tags>
-        <tag>编程工具</tag>
-        <tag>编辑器</tag>
       </tags>
   </entry>
   <entry>
@@ -776,6 +698,49 @@
       </tags>
   </entry>
   <entry>
+    <title>VisualStudioCode</title>
+    <url>/tengpaz/2023/10/07/VisualStudioCode/</url>
+    <content><![CDATA[<p><strong>待更新</strong></p>
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>编程工具</category>
+      </categories>
+      <tags>
+        <tag>编程工具</tag>
+        <tag>编辑器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>win11神奇操作指北</title>
+    <url>/tengpaz/2023/11/09/win11%E7%A5%9E%E5%A5%87%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8C%97/</url>
+    <content><![CDATA[<h1 id="错误类"><a href="#错误类" class="headerlink" title="错误类"></a>错误类</h1><h2 id="打字么有打字框"><a href="#打字么有打字框" class="headerlink" title="打字么有打字框"></a>打字么有打字框</h2><p>有些人使用（应该是绝大部分人）win11系统的电脑时可能某一时候突然发现，系统输入法打字没有打字框了叻，很神奇是不是</p>
+<p>但是咋解决捏</p>
+<p>很简单，原理我不是很懂，但是确实可以这样做</p>
+<p>打开任务管理器，如果你不会打开的话，右键<strong>开始</strong>的图标选择<strong>任务管理器</strong>即可，然后找到进程中的<strong>explorer.exe</strong>(找的话不方便直接搜索)或者中文名<strong>Windows资源管理器</strong>，右键这东西大胆点击重新启动，等待它重启完成后问题基本就解决了，如果还没解决，可能你得另找办法叻</p>
+<h1 id="操作类"><a href="#操作类" class="headerlink" title="操作类"></a>操作类</h1><h2 id="搜索项"><a href="#搜索项" class="headerlink" title="搜索项"></a>搜索项</h2><h3 id="打开注册表编辑器"><a href="#打开注册表编辑器" class="headerlink" title="打开注册表编辑器"></a>打开注册表编辑器</h3><p>开始菜单搜索输入regidit</p>
+<h3 id="打开用户账户的管理界面"><a href="#打开用户账户的管理界面" class="headerlink" title="打开用户账户的管理界面"></a>打开用户账户的管理界面</h3><p>开始菜单搜索输入netplwiz</p>
+<h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><h3 id="快捷复制历史输入的指令"><a href="#快捷复制历史输入的指令" class="headerlink" title="快捷复制历史输入的指令"></a>快捷复制历史输入的指令</h3><p>按$\uparrow$键</p>
+<h3 id="指令补全"><a href="#指令补全" class="headerlink" title="指令补全"></a>指令补全</h3><p>按Tap键</p>
+<h3 id="电脑执行策略"><a href="#电脑执行策略" class="headerlink" title="电脑执行策略"></a>电脑执行策略</h3><p><strong>查看当前电脑执行策略</strong></p>
+<ul>
+<li>所有项：Get-ExecutionPolicy -List或Get-ExecutionPolicy -l</li>
+<li>当前默认项：Get-ExecutionPolicy</li>
+</ul>
+<p><strong>设置当前电脑执行策略</strong><br>Set-ExecutionPolicy -ExecutionPolicy [ExecutionPolicy] -Scope [Scope]</p>
+<ul>
+<li>-ExecutionPolicy：执行策略类型的参数</li>
+<li>-Scope：设置的范围的参数</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>win11</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python语言基础</title>
     <url>/tengpaz/2023/10/07/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<p>这里所有笔记都是个人整理的，有参考等会列出，有误区会后期改正欢迎指出</p>
@@ -814,38 +779,101 @@
         <category>语言基础</category>
       </categories>
       <tags>
-        <tag>语言基础</tag>
         <tag>python</tag>
+        <tag>语言基础</tag>
         <tag>脚本语言</tag>
       </tags>
   </entry>
   <entry>
-    <title>win11神奇操作指北</title>
-    <url>/tengpaz/2023/11/09/win11%E7%A5%9E%E5%A5%87%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8C%97/</url>
-    <content><![CDATA[<h1 id="错误类"><a href="#错误类" class="headerlink" title="错误类"></a>错误类</h1><h2 id="打字么有打字框"><a href="#打字么有打字框" class="headerlink" title="打字么有打字框"></a>打字么有打字框</h2><p>有些人使用（应该是绝大部分人）win11系统的电脑时可能某一时候突然发现，系统输入法打字没有打字框了叻，很神奇是不是</p>
-<p>但是咋解决捏</p>
-<p>很简单，原理我不是很懂，但是确实可以这样做</p>
-<p>打开任务管理器，如果你不会打开的话，右键<strong>开始</strong>的图标选择<strong>任务管理器</strong>即可，然后找到进程中的<strong>explorer.exe</strong>(找的话不方便直接搜索)或者中文名<strong>Windows资源管理器</strong>，右键这东西大胆点击重新启动，等待它重启完成后问题基本就解决了，如果还没解决，可能你得另找办法叻</p>
-<h1 id="操作类"><a href="#操作类" class="headerlink" title="操作类"></a>操作类</h1><h2 id="搜索项"><a href="#搜索项" class="headerlink" title="搜索项"></a>搜索项</h2><h3 id="打开注册表编辑器"><a href="#打开注册表编辑器" class="headerlink" title="打开注册表编辑器"></a>打开注册表编辑器</h3><p>开始菜单搜索输入regidit</p>
-<h3 id="打开用户账户的管理界面"><a href="#打开用户账户的管理界面" class="headerlink" title="打开用户账户的管理界面"></a>打开用户账户的管理界面</h3><p>开始菜单搜索输入netplwiz</p>
-<h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><h3 id="快捷复制历史输入的指令"><a href="#快捷复制历史输入的指令" class="headerlink" title="快捷复制历史输入的指令"></a>快捷复制历史输入的指令</h3><p>按$\uparrow$键</p>
-<h3 id="指令补全"><a href="#指令补全" class="headerlink" title="指令补全"></a>指令补全</h3><p>按Tap键</p>
-<h3 id="电脑执行策略"><a href="#电脑执行策略" class="headerlink" title="电脑执行策略"></a>电脑执行策略</h3><p><strong>查看当前电脑执行策略</strong></p>
+    <title>hexo&amp;github pages建站指南</title>
+    <url>/tengpaz/2023/10/01/hexo&amp;github%20pages%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>我也是刚开始搭博客没多久，路上遇到了挺多问题，自己曾尝试一个人debug，但是最后没有完全解决所有问题，感谢很多学长耐心的帮助，得以搭建成这个博客，这里把我所知道的相关教程和经验分享给你们，希望你们能少走一些弯路，谢谢阅读！</p>
+<p>有很多内容是直接搬自Hexo官方文档，所以也可以参照官网操作后遇到特殊情况再来看噢</p>
+<h1 id="Hexo-Github-pages-搭建个人博客指北"><a href="#Hexo-Github-pages-搭建个人博客指北" class="headerlink" title="Hexo &amp; Github pages 搭建个人博客指北"></a>Hexo &amp; Github pages 搭建个人博客指北</h1><p>中间如果遇到问题可以直接评论或联系我询问噢，我能帮一定会帮</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="第一步-下载Node-js"><a href="#第一步-下载Node-js" class="headerlink" title="第一步 下载Node.js"></a>第一步 下载<strong>Node.js</strong></h3><p>建站过程中需要用到<strong>npm</strong>[^1]的指令下载相关代码包</p>
+<p>[^1]: <strong>npm</strong>全称为<strong>Node Package Manager</strong>，看名字就大概可以猜到它的用途了，npm是基于<strong>Node.js</strong>的一个代码包的库，如果没有npm，而我们又需要一些Node.js的拓展代码来完成一些特殊任务，就需要到代码所在的相应网站去下载，问题是，如果我们需要很多代码包，它们都分处不同的网站，那么这时候去挨个访问网站去下载代码就会非常麻烦了，npm就是为了解决这个问题而出现的，npm为那些代码的开发者提供了一个平台，使得代码可以被发布到npm上，使用者可以直接通过npm下载相应的代码，而不需要另外拜访相应网站去下载了。</p>
+<p>既然这是一个基于Node.js的工具，它的下载是伴随Node.js的，所以这里需要下载Node.js来支持网站搭建</p>
+<p><a class="link"   href="https://nodejs.org/en" >Node.js下载官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这里不必下载最新版，下载推荐的版本即可</p>
+<p>下载要注意勾选<code>Add to PATH</code>的选项</p>
+<h3 id="第二步-下载Git"><a href="#第二步-下载Git" class="headerlink" title="第二步 下载Git"></a>第二步 下载<strong>Git</strong></h3><p>Git是一个代码版本管理器，详细可以参见搜索引擎或后期发表的文章</p>
+<p><a class="link"   href="https://git-scm.com/download/win" >Windows系统Git下载官方网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这个网站由于是外国网站，可能你会无法正常访问，所以你也可以通过<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/"><strong>淘宝 Git for Windows 镜像</strong></a>下载Git安装包，下载最新版即可，在本文发布时最新版为**v2.42.0.windows.2&#x2F;**，你可以在网站里找找</p>
+<h3 id="第三步-安装Hexo"><a href="#第三步-安装Hexo" class="headerlink" title="第三步 安装Hexo"></a>第三步 安装Hexo</h3><p>请确认已经成功安装了上面两个东西，再来执行这一步</p>
+<h4 id="使用npm安装Hexo"><a href="#使用npm安装Hexo" class="headerlink" title="使用npm安装Hexo"></a>使用npm安装Hexo</h4><p>在系统开始栏搜索打开cmd</p>
+<p>输入以下指令</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="第四步-建站"><a href="#第四步-建站" class="headerlink" title="第四步 建站"></a>第四步 建站</h3><p>这里需要建一个放你网站文件的文件夹</p>
+<p>请找到你想把文件夹放在的地方，比如你想放到D盘的话，你就需要在cmd中先输入<code>D:</code>，然后输入以下指令</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></div>
+
 <ul>
-<li>所有项：Get-ExecutionPolicy -List或Get-ExecutionPolicy -l</li>
-<li>当前默认项：Get-ExecutionPolicy</li>
+<li>这里的<code>&lt;folder&gt;</code>是你想建的文件夹的名字，建议用英文</li>
+<li><code>cd &lt;folder&gt;</code>表示在终端中切换到你的博客文件夹中进行操作</li>
+<li><code>npm install</code>表示在选中的文件夹里安装npm相关的文件</li>
 </ul>
-<p><strong>设置当前电脑执行策略</strong><br>Set-ExecutionPolicy -ExecutionPolicy [ExecutionPolicy] -Scope [Scope]</p>
+<p>新建完成后，你选定的文件夹目录应该如下：</p>
 <ul>
-<li>-ExecutionPolicy：执行策略类型的参数</li>
-<li>-Scope：设置的范围的参数</li>
+<li>_config.yml</li>
+<li>package.json</li>
+<li>scaffolds</li>
+<li>source<ul>
+<li>_drafts</li>
+<li>_posts</li>
 </ul>
-]]></content>
+</li>
+<li>themes</li>
+</ul>
+<p>下面介绍各文件或文件夹的作用</p>
+<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><p>该文件储存的是网站的配置信息，在其中可以配置大部分的参数，后期在应用主题后，还会有单独的主题配置文件，用于针对主题内容进行配置。</p>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>这里储存应用程序的信息，其中像<code>EJS</code>,<code>Stylus</code>和<code>Markdown渲染引擎</code>已经默认安装，可以后期被移除</p>
+<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo-site&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;private&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;hexo&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;hexo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.8.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-generator-archive&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.1.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-generator-category&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.1.3&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-generator-index&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.2.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-generator-tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-renderer-ejs&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.3.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-renderer-stylus&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.3.3&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-renderer-marked&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.3.2&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.3.3&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>其中<code>dependencies</code>中列出的就是已经安装好的应用程序</p>
+<h4 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h4><p>储存文件模板的文件夹，在新建文章、页面、草稿时，Hexo会根据相对应的模板生成一个带有模板内容的文件</p>
+<p>比如通过修改文件夹中<code>post.md</code>中的<code>Front-matter</code>的内容，那么这个修改将应用于以后所有生成的<code>post</code>文件中</p>
+<h4 id="source"><a href="#source" class="headerlink" title="source"></a>source</h4><p>资源文件夹，用来存放用户资源的地方，除了<code>_posts</code>文件夹外，其它所有开头名为<code>_</code>的文件和文件夹及隐藏的文件都会被忽略</p>
+<p>其中<code>Markdown</code>和<code>HTML</code>文件会被解析放到public文件夹，其它文件直接被拷贝进去</p>
+<h4 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h4><p>主题文件夹，<code>Hexo</code>会根据主题来生成静态页面</p>
+<h3 id="第五步-配置"><a href="#第五步-配置" class="headerlink" title="第五步 配置"></a>第五步 配置</h3><p>内容细节，详见<a class="link"   href="https://hexo.io/zh-cn/docs/configuration" >官方文档 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="第六步-主题选取"><a href="#第六步-主题选取" class="headerlink" title="第六步 主题选取"></a>第六步 主题选取</h3><p>水平够高可以自己写主题，我肯定是做不到的反正</p>
+<p><a class="link"   href="https://hexo.io/themes/" >hexo 主题 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>在这里你可以选择你想要的主题，并根据相应主题的说明，应用主题并调整相关配置</p>
+<h3 id="第七步-了解实用指令"><a href="#第七步-了解实用指令" class="headerlink" title="第七步 了解实用指令"></a>第七步 了解实用指令</h3><p>当你开始向网站中发布文章时，你会需要知道一些基本指令。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>新建一个布局类型为<code>layout</code>标题为<code>title</code>的文章或页面或草稿</p>
+<p>当你没有修改<code>config.yml</code>中的相关信息时，默认为<code>post</code></p>
+<p>新建后你可以编辑source&#x2F;_posts文件夹下相应新建的文件来更新文章内容</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>发表草稿</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure></div>
+
+<p>清除缓存和<code>public</code>文件夹中的文件</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+<p>简写为<code>hexo g</code><br>生成静态文件</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>预览网站</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
+<p>简写为<code>hexo d</code><br>部署网站</p>
+<p>执行这个指令可能经常会碰到连接不到仓库的情况，这是正常情况，毕竟中国连github还是太难了…</p>
+<p>反复试，直到连上！（我最多刷了几十遍，当然我不懂怎么解决网络不好的问题，虽然会用梯子）</p>
+<h3 id="第八步-？？？"><a href="#第八步-？？？" class="headerlink" title="第八步 ？？？"></a>第八步 ？？？</h3><p>不管过程中遇到了什么问题，细心、耐心，解决它~</p>
+<p>弄完这些基本网站就大概好啦</p>
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>后期操作熟悉后，发布文章是三步走</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
+<p>指令的简写可以上官网</p>
+<h5 id="欢迎指正建议"><a href="#欢迎指正建议" class="headerlink" title="欢迎指正建议~"></a>欢迎指正建议~</h5>]]></content>
       <categories>
-        <category>计算机</category>
+        <category>建站</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>win11</tag>
+        <tag>静态网站</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
