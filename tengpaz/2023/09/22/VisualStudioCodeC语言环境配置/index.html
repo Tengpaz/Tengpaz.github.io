@@ -18,31 +18,25 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="【本文会不断更新，可以常来看看】VScode作为一个配置齐全功能强大语言使用范围广颜值颇高的编辑器，慕名而用者颇多，然而其环境配置要求苛刻，这里想教一下大家在windows系统VScode中如何配置C语言环境,顺便来看看有哪些配置过程中的常见问题和注意点。">
+    
+    
+        
+        <meta name="description" content="Tengpaz&#39;s Terminal Brain">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Visual Studio Code C语言环境配置">
 <meta property="og:url" content="https://tengpaz.github.io/tengpaz/2023/09/22/VisualStudioCodeC%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Tengpaz">
-<meta property="og:description" content="【本文会不断更新，可以常来看看】VScode作为一个配置齐全功能强大语言使用范围广颜值颇高的编辑器，慕名而用者颇多，然而其环境配置要求苛刻，这里想教一下大家在windows系统VScode中如何配置C语言环境,顺便来看看有哪些配置过程中的常见问题和注意点。">
+<meta property="og:description" content="Tengpaz&#39;s Terminal Brain">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/sourceforge.png">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/VScodewebsite.png">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/vscode%E7%95%8C%E9%9D%A2.jpg">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BC%B9%E5%87%BA%E6%A1%86.png">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%BC%B9%E5%87%BA%E6%A1%86.jpg">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/%E8%B7%AF%E5%BE%84%E5%87%BA%E7%8E%B0%E4%B8%AD%E6%96%87%E5%90%8D.png">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/%E8%AE%BE%E7%BD%AE.png">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/runcodeconfiguration.png">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/%E4%B8%89%E9%A1%B9.png">
-<meta property="og:image" content="https://tengpaz.github.io/tengpaz/images/%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5.png">
+<meta property="og:image" content="https://tengpaz.github.io/images/tengpaz.JPG">
 <meta property="article:published_time" content="2023-09-22T08:37:00.000Z">
 <meta property="article:modified_time" content="2024-10-07T03:36:53.674Z">
 <meta property="article:author" content="Tengpaz">
 <meta property="article:tag" content="C语言">
-<meta property="article:tag" content="vscode">
 <meta property="article:tag" content="环境配置">
+<meta property="article:tag" content="vscode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://tengpaz.github.io/tengpaz/images/sourceforge.png">
+<meta name="twitter:image" content="https://tengpaz.github.io/images/tengpaz.JPG">
     
     
     <!--- Icon Part-->
@@ -54,9 +48,8 @@
     
     <title>
         
-            Visual Studio Code C语言环境配置 -
+            Visual Studio Code C语言环境配置 | Tengpaz.io
         
-        Tengpaz.io
     </title>
 
     
@@ -72,7 +65,7 @@
 
     
         
-<link rel="stylesheet" href="/tengpaz/assets/build/styles.css">
+<link rel="stylesheet" href="/tengpaz/css/build/tailwind.css">
 
     
 
@@ -92,13 +85,13 @@
     
     
         
-<script src="/tengpaz/js/libs/anime.min.js"></script>
+<script src="/tengpaz/js/build/libs/anime.min.js"></script>
 
     
 
     <script id="hexo-configurations">
     window.config = {"hostname":"tengpaz.github.io","root":"/tengpaz/","language":"zh-CN","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Sans SC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":null},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Tengpaz","subtitle":{"text":["喜欢Debug嘛","不要放弃不断失败","有一天宇宙会毁灭","希望你有所顿悟","从零开始走向巅峰","每天两小时代码"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Tengpaz","instagram":null,"zhihu":"https://www.zhihu.com/people/84-23-2-19-92","twitter":"https://twitter.com/tengpaz33290","email":"tengpaz_zhen@outlook.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":"这一秒只想在爱里沉溺","artist":"邓壬鑫","url":"/musics/邓壬鑫 - 这一秒只想在爱里沉溺（治愈《恋愛の資格》日语念白-溯 (Reverse).feat.flac","cover":"/images/musiccover.jpg","lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"中转站":{"icon":"fa-regular fa-paper-plane","submenus":{"终端":"https://qinaida.cn","工科数学分析笔记":"/tengpazbook","Foruaa":"/foruaa","学科笔记":"https://tengpaz.notion.site","其它博客":"https://tengpaz.wordpress.com"}},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/Tengpaz","友链":"/links/"}},"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"友链":{"icon":"fa-solid fa-link","path":"/links/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"这里是藤爬的大脑终端# Announcement text","show_on_mobile":true,"links":{"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tags"},"分类":{"path":"/categories","icon":"fa-regular fa-folder"},"友链":{"path":"/links","icon":"fa-regular fa-link"},"说说":{"path":"/shuoshuo","icon":"fa-regular fa-comments"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":5},"tags":{"enable":true,"limit":5}},"footerStart":"2023/9/21 24:00:00"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Sans SC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":null},"open_graph":{"enable":true,"image":"/images/tengpaz.JPG","description":"Tengpaz's Terminal Brain"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Tengpaz","subtitle":{"text":["喜欢Debug嘛","不要放弃不断失败","有一天宇宙会毁灭","希望你有所顿悟","从零开始走向巅峰","每天两小时代码"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Tengpaz","instagram":null,"zhihu":"https://www.zhihu.com/people/84-23-2-19-92","twitter":"https://twitter.com/tengpaz33290","email":"tengpaz_zhen@outlook.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":"这一秒只想在爱里沉溺","artist":"邓壬鑫","url":"/musics/邓壬鑫 - 这一秒只想在爱里沉溺（治愈《恋愛の資格》日语念白-溯 (Reverse).feat.flac","cover":"/images/musiccover.jpg","lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"中转站":{"icon":"fa-regular fa-paper-plane","submenus":{"终端":"https://qinaida.cn","工科数学分析笔记":"/tengpazbook","Foruaa":"/foruaa","学科笔记":"https://tengpaz.notion.site","其它博客":"https://tengpaz.wordpress.com"}},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/Tengpaz","友链":"/links/"}},"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"Bookmarks":{"icon":"fa-solid fa-bookmark","path":"/bookmarks/"},"友链":{"icon":"fa-solid fa-link","path":"/links/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"这里是藤爬的大脑终端# Announcement text","show_on_mobile":true,"links":{"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tags"},"分类":{"path":"/categories","icon":"fa-regular fa-folder"},"友链":{"path":"/links","icon":"fa-regular fa-link"},"说说":{"path":"/shuoshuo","icon":"fa-regular fa-comments"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":5},"tags":{"enable":true,"limit":5}},"footerStart":"2023/9/21 24:00:00"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":false};
   </script>
@@ -123,21 +116,20 @@
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 
-<body>
-<div class="progress-bar-container">
-    
 
-    
-        <span class="pjax-progress-bar"></span>
-<!--        <span class="swup-progress-icon">-->
-<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
-<!--        </span>-->
-    
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
 </div>
 
-
-
-    <style>
+<style>
     :root {
         --preloader-background-color: #fff;
         --preloader-text-color: #000;
@@ -225,28 +217,30 @@
             textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
         });
 
-        var animation = anime.timeline({loop: true})
+        var animation = anime.timeline({ loop: true })
             .add({
                 targets: '.ml13 .letter',
-                translateY: [40,0],
+                translateY: [20, 0],
                 translateZ: 0,
-                opacity: [0,1],
-                filter: ['blur(5px)', 'blur(0px)'], // Starting from blurred to unblurred
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
                 easing: "easeOutExpo",
-                duration: 1400,
-                delay: (el, i) => 300 + 30 * i,
-            }).add({
-                targets: '.ml13 .letter',
-                translateY: [0,-40],
-                opacity: [1,0],
-                filter: ['blur(0px)', 'blur(5px)'], // Ending from unblurred to blurred
-                easing: "easeInExpo",
                 duration: 1200,
-                delay: (el, i) => 100 + 30 * i,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
                 complete: function() {
-                    hidePreloader(); // Call hidePreloader after the animation completes
+                    hidePreloader();
                 }
-            });
+            }, '-=700');
+
 
         let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
 
@@ -284,19 +278,16 @@
 
 <main class="page-container" id="swup">
 
-    
+	
 
-    <div class="main-content-container">
-
-
-        <div class="main-content-header">
-            <header class="navbar-container px-6 md:px-12">
-
-    <div class="navbar-content ">
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
         <div class="left">
             
-                <a class="logo-image" href="/tengpaz/">
-                    <img src="/tengpaz/images/tengpaz.JPG">
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/tengpaz/">
+                    <img src="/tengpaz/images/tengpaz.JPG" class="w-full h-full rounded-sm">
                 </a>
             
             <a class="logo-title" href="/tengpaz/">
@@ -469,6 +460,23 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
+                                   href="/tengpaz/bookmarks/"
+                                        >
+                                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
                                    href="/tengpaz/links/"
                                         >
                                     <i class="fa-solid fa-link fa-fw"></i>
@@ -501,7 +509,7 @@
     </div>
 
     <!-- Mobile sheet -->
-    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
         <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
             
                 
@@ -673,6 +681,26 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tengpaz/bookmarks/"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-solid fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/tengpaz/links/"
                         >
                             <span>
@@ -745,7 +773,7 @@
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tengpaz/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">22</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -756,44 +784,41 @@
 </header>
 
 
-        </div>
+		</div>
 
-        <div class="main-content-body">
+		<div class="main-content-body transition-fade-up">
+			
 
-            
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
 
-            <div class="main-content">
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://python.land/wp-content/uploads/2021/02/visual-studio-code.png" alt="Visual Studio Code C语言环境配置" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">Visual Studio Code C语言环境配置</h1>
+			</div>
+			
+		</div>
 
-                
-                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
-    <div class="article-content-container">
-
-        <div class="article-title relative w-full">
-            
-                
-                
-                <img src="https://python.land/wp-content/uploads/2021/02/visual-studio-code.png" alt="Visual Studio Code C语言环境配置" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
-                
-                <div class="w-full flex items-center absolute bottom-0 justify-start">
-                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">Visual Studio Code C语言环境配置</h1>
-                </div>
-            
-            </div>
-
-        
-            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
-                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
-                    <img src="/tengpaz/images/tengpaz.JPG">
-                </div>
-                <div class="info flex flex-col justify-between">
-                    <div class="author flex items-center">
-                        <span class="name text-default-text-color text-lg font-semibold">Tengpaz</span>
-                        
-                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/tengpaz/images/tengpaz.JPG">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Tengpaz</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
         <span class="desktop">2023-09-22 16:37</span>
@@ -886,11 +911,11 @@
                     </li>
                 
                     <li>
-                        | <a href="/tengpaz/tags/vscode/">vscode</a>&nbsp;
+                        | <a href="/tengpaz/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tengpaz/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>&nbsp;
+                        | <a href="/tengpaz/tags/vscode/">vscode</a>&nbsp;
                     </li>
                 
             </ul>
@@ -907,26 +932,26 @@
     
 </div>
 
-                    </div>
-                </div>
-            </div>
-        
+				</div>
+			</div>
+		</div>
+		
 
-        
+		
 
 
-        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <h2 id="第一步-安装gcc编译器"><a href="#第一步-安装gcc编译器" class="headerlink" title="第一步 安装gcc编译器"></a>第一步 安装gcc编译器</h2><h3 id="已经确认无误完成这一步的朋友可以跳过-检验方法如下"><a href="#已经确认无误完成这一步的朋友可以跳过-检验方法如下" class="headerlink" title="已经确认无误完成这一步的朋友可以跳过 检验方法如下"></a>已经确认无误完成这一步的朋友可以跳过 检验方法如下</h3><p>在windows开始搜索栏里搜索cmd（命令提示符）点开命令提示符</p>
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="第一步-安装gcc编译器"><a href="#第一步-安装gcc编译器" class="headerlink" title="第一步 安装gcc编译器"></a>第一步 安装gcc编译器</h2><h3 id="已经确认无误完成这一步的朋友可以跳过-检验方法如下"><a href="#已经确认无误完成这一步的朋友可以跳过-检验方法如下" class="headerlink" title="已经确认无误完成这一步的朋友可以跳过 检验方法如下"></a>已经确认无误完成这一步的朋友可以跳过 检验方法如下</h3><p>在windows开始搜索栏里搜索cmd（命令提示符）点开命令提示符</p>
 <p>输入以下代码</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gcc --version</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gcc --version</span><br></pre></td></tr></table></figure></div>
 
 <p>如果输出为</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gcc (Rev6, Built by MSYS2 project) 13.1.0</span><br><span class="line">Copyright (C) 2023 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions.  There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gcc (Rev6, Built by MSYS2 project) 13.1.0</span><br><span class="line">Copyright (C) 2023 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions.  There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure></div>
 
 <p>那么你这一步可以跳过了</p>
 <p>现在开始教你如何安装gcc编译器</p>
 <h3 id="下载MinGW-w64"><a href="#下载MinGW-w64" class="headerlink" title="下载MinGW-w64"></a>下载MinGW-w64</h3><p>在windows系统中想使用gcc编译器，一般需要安装MinGW-w64</p>
-<p>搜索MinGW-w64进入<a class="link"   target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/" >sourceforge网站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载压缩包</p>
+<p>搜索MinGW-w64进入<a class="link"   target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/" >sourceforge网站<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>下载压缩包</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -935,7 +960,7 @@
                 ></p>
 <p>下载完后把压缩包解压到你想放的文件目录下</p>
 <p>上面的方式在10.3时试出现了一些疑惑的状况，建议更换为以下方式</p>
-<p>点进这个<a class="link"   target="_blank" rel="noopener" href="https://github.com/niXman/mingw-builds-binaries/releases" >网址 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>点进这个<a class="link"   target="_blank" rel="noopener" href="https://github.com/niXman/mingw-builds-binaries/releases" >网址<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <p>找自己需要的安装包</p>
 <ul>
 <li><code>i686</code>是32位系统，<code>x86_64</code>为64位系统</li>
@@ -1017,7 +1042,7 @@
                      data-src="/tengpaz/images/%E4%B8%89%E9%A1%B9.png"
                       alt="三项"
                 ><br>这能让你的程序直接在终端运行，并在你每次运行程序时保存你的程序，避免修改或程序丢失</p>
-<h3 id="删除执行程序时生成的-exe文件"><a href="#删除执行程序时生成的-exe文件" class="headerlink" title="删除执行程序时生成的.exe文件"></a>删除执行程序时生成的.exe文件</h3><p>当你的代码一多，满屏的.c和.exe可能会让你目不暇接，这里推荐一个方法，这个教程可以看看一个学长的博客，非常有用<br><a class="link"   target="_blank" rel="noopener" href="https://swkfk.top/2023/07/30/VSCode-%E4%B8%AD-C-%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88for-Windows%EF%BC%89/" >搬运工:) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="删除执行程序时生成的-exe文件"><a href="#删除执行程序时生成的-exe文件" class="headerlink" title="删除执行程序时生成的.exe文件"></a>删除执行程序时生成的.exe文件</h3><p>当你的代码一多，满屏的.c和.exe可能会让你目不暇接，这里推荐一个方法，这个教程可以看看一个学长的博客，非常有用<br><a class="link"   target="_blank" rel="noopener" href="https://swkfk.top/2023/07/30/VSCode-%E4%B8%AD-C-%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88for-Windows%EF%BC%89/" >搬运工:)<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <h3 id="安装时没有勾选之前说过的项的后期解决方案"><a href="#安装时没有勾选之前说过的项的后期解决方案" class="headerlink" title="安装时没有勾选之前说过的项的后期解决方案"></a>安装时没有勾选之前说过的项的后期解决方案</h3><p>打开cmd命令提示符，输入<strong>regedit</strong>打开<strong>注册表编辑器</strong></p>
 <p>找到<strong>HKEY_CLASSES_ROOT</strong></p>
 <h4 id="配置“用VSCode打开文件”"><a href="#配置“用VSCode打开文件”" class="headerlink" title="配置“用VSCode打开文件”"></a>配置“用VSCode打开文件”</h4><p>找到<strong>HKEY_CLASSES_ROOT</strong>-<strong>*</strong>-<strong>shell</strong>，右键<strong>shell</strong>点击<strong>新建</strong>-<strong>项</strong></p>
@@ -1042,7 +1067,7 @@
 <p>右击建的项<strong>VSCode</strong>新建<strong>可扩充字符串值</strong>，名字设置为<strong>Icon</strong>双击它修改它的数值数据为你的VScode应用程序的路径，比如说我的电脑中是<strong>D:\Software\Microsoft VS Code\Code.exe</strong>（这一步还是给菜单的这一项添加图标缩略图）</p>
 <p>右击建的项<strong>VSCode</strong>新建<strong>项</strong>，名字设置为<strong>command</strong>，然后修改其中的默认文件的数值数据为”[你的VScode应用程序的路径]””%<strong>V</strong>“，我的电脑中是”D:\Software\Microsoft VS Code\Code.exe””%<strong>V</strong>“</p>
 <h3 id="C程序代码板子"><a href="#C程序代码板子" class="headerlink" title="C程序代码板子~"></a>C程序代码板子~</h3><p>如果你不想在每次打C语言代码时反复输入</p>
-<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;memory.h&gt;</span></span></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;memory.h&gt;</span></span></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p>那你可以考虑弄个自己的板子</p>
 <p>打开vscode在左上角那里找到文件-首选项-配置用户代码片段-c.json</p>
@@ -1054,22 +1079,22 @@
                 ></p>
 <p>在文件里输入你需要的板子</p>
 <p>比如这样</p>
-<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;#include&lt;stdio.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;math.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;string.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;stdlib.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;memory.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;int main()&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;	$0&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;	return 0;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;藤爬专用C语言模板~&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;#include&lt;stdio.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;math.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;string.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;stdlib.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;#include&lt;memory.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;int main()&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;	$0&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;	return 0;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;藤爬专用C语言模板~&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div>
 
 <p><code>prefix</code>表示调用这个模板你需要输入的东西<br><code>body</code>就是模板的主体内容啦<br><code>description</code>是对这个模板的描述，以免后期模板过多弄混<br><code>$0</code>表示最后打字光标停留的位置</p>
 <p>保存后，在你的C语言文件里输入一个<strong>C</strong>就会跳出选择框，选到<strong>C</strong>后按<strong>Tab</strong>键就可以一键粘贴啦~</p>
 <p>如果你还有其它需求比如读取数的二进制中1的个数模板</p>
 <p>代码片段可能如下</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	// Place your snippets for c here. Each snippet is defined under a snippet name and has a prefix, body and </span><br><span class="line">	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:</span><br><span class="line">	// $1, $2 for tab stops, $0 for the final cursor position, and $&#123;1:label&#125;, $&#123;2:another&#125; for placeholders. Placeholders with the </span><br><span class="line">	// same ids are connected.</span><br><span class="line">	// Example:</span><br><span class="line">	// &quot;Print to console&quot;: &#123;</span><br><span class="line">	// 	&quot;prefix&quot;: &quot;log&quot;,</span><br><span class="line">	// 	&quot;body&quot;: [</span><br><span class="line">	// 		&quot;console.log(&#x27;$1&#x27;);&quot;,</span><br><span class="line">	// 		&quot;$2&quot;</span><br><span class="line">	// 	],</span><br><span class="line">	// 	&quot;description&quot;: &quot;Log output to console&quot;</span><br><span class="line">	// &#125;</span><br><span class="line">	&quot;basement&quot;: &#123;</span><br><span class="line">		&quot;prefix&quot;: &quot;C&quot;,</span><br><span class="line">		&quot;body&quot;: [</span><br><span class="line">			&quot;#include&lt;stdio.h&gt;&quot;,</span><br><span class="line">			&quot;#include&lt;math.h&gt;&quot;,</span><br><span class="line">			&quot;#include&lt;string.h&gt;&quot;,</span><br><span class="line">			&quot;#include&lt;stdlib.h&gt;&quot;,</span><br><span class="line">			&quot;#include&lt;memory.h&gt;&quot;,</span><br><span class="line">			&quot;&quot;,</span><br><span class="line">			&quot;int main()&quot;,</span><br><span class="line">			&quot;&#123;&quot;,</span><br><span class="line">			&quot;	$0&quot;,</span><br><span class="line">			&quot;	return 0;&quot;,</span><br><span class="line">			&quot;&#125;&quot;,</span><br><span class="line">			&quot;&quot;,</span><br><span class="line">		],</span><br><span class="line">		&quot;description&quot;: &quot;藤爬专用C语言模板~&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;popcount&quot;: &#123;</span><br><span class="line">		&quot;prefix&quot;: &quot;popcount&quot;,</span><br><span class="line">		&quot;body&quot;: [</span><br><span class="line">			&quot;$&#123;1:unsigned int&#125; popcount($&#123;1:unsigned int&#125; g)&quot;,</span><br><span class="line">			&quot;&#123;&quot;,</span><br><span class="line">			&quot;	$&#123;1:unsigned int&#125; n = 0;//记录二进制中1的个数&quot;,</span><br><span class="line">			&quot;	for(int i = 0; i &lt;= 31; i++)&quot;,</span><br><span class="line">			&quot;	&#123;&quot;,</span><br><span class="line">			&quot;		n += (g &gt;&gt; i) &amp; 1u;&quot;,</span><br><span class="line">			&quot;	&#125;&quot;,</span><br><span class="line">			&quot;	return n;&quot;,</span><br><span class="line">			&quot;&#125;&quot;,</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	// Place your snippets for c here. Each snippet is defined under a snippet name and has a prefix, body and </span><br><span class="line">	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:</span><br><span class="line">	// $1, $2 for tab stops, $0 for the final cursor position, and $&#123;1:label&#125;, $&#123;2:another&#125; for placeholders. Placeholders with the </span><br><span class="line">	// same ids are connected.</span><br><span class="line">	// Example:</span><br><span class="line">	// &quot;Print to console&quot;: &#123;</span><br><span class="line">	// 	&quot;prefix&quot;: &quot;log&quot;,</span><br><span class="line">	// 	&quot;body&quot;: [</span><br><span class="line">	// 		&quot;console.log(&#x27;$1&#x27;);&quot;,</span><br><span class="line">	// 		&quot;$2&quot;</span><br><span class="line">	// 	],</span><br><span class="line">	// 	&quot;description&quot;: &quot;Log output to console&quot;</span><br><span class="line">	// &#125;</span><br><span class="line">	&quot;basement&quot;: &#123;</span><br><span class="line">		&quot;prefix&quot;: &quot;C&quot;,</span><br><span class="line">		&quot;body&quot;: [</span><br><span class="line">			&quot;#include&lt;stdio.h&gt;&quot;,</span><br><span class="line">			&quot;#include&lt;math.h&gt;&quot;,</span><br><span class="line">			&quot;#include&lt;string.h&gt;&quot;,</span><br><span class="line">			&quot;#include&lt;stdlib.h&gt;&quot;,</span><br><span class="line">			&quot;#include&lt;memory.h&gt;&quot;,</span><br><span class="line">			&quot;&quot;,</span><br><span class="line">			&quot;int main()&quot;,</span><br><span class="line">			&quot;&#123;&quot;,</span><br><span class="line">			&quot;	$0&quot;,</span><br><span class="line">			&quot;	return 0;&quot;,</span><br><span class="line">			&quot;&#125;&quot;,</span><br><span class="line">			&quot;&quot;,</span><br><span class="line">		],</span><br><span class="line">		&quot;description&quot;: &quot;藤爬专用C语言模板~&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;popcount&quot;: &#123;</span><br><span class="line">		&quot;prefix&quot;: &quot;popcount&quot;,</span><br><span class="line">		&quot;body&quot;: [</span><br><span class="line">			&quot;$&#123;1:unsigned int&#125; popcount($&#123;1:unsigned int&#125; g)&quot;,</span><br><span class="line">			&quot;&#123;&quot;,</span><br><span class="line">			&quot;	$&#123;1:unsigned int&#125; n = 0;//记录二进制中1的个数&quot;,</span><br><span class="line">			&quot;	for(int i = 0; i &lt;= 31; i++)&quot;,</span><br><span class="line">			&quot;	&#123;&quot;,</span><br><span class="line">			&quot;		n += (g &gt;&gt; i) &amp; 1u;&quot;,</span><br><span class="line">			&quot;	&#125;&quot;,</span><br><span class="line">			&quot;	return n;&quot;,</span><br><span class="line">			&quot;&#125;&quot;,</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p>$1表示光标第一次停留的位置，$2以此类推，每次按<strong>Tab</strong>键就可以实现光标的跳转</p>
 <p>这段代码里的花括号里给序号1添加了注释，按<strong>Tab</strong>键就默认不修改原注释内容并跳转至下一序号，一般情况下这些备注内容可能需要修改，此时相同序号的内容会被统一修改，非常方便</p>
 <h3 id="如果本文有什么问题，欢迎指正"><a href="#如果本文有什么问题，欢迎指正" class="headerlink" title="如果本文有什么问题，欢迎指正\ (^ - ^) &#x2F;"></a>如果本文有什么问题，欢迎指正\ (^ - ^) &#x2F;</h3>
-        </div>
+		</div>
 
-        
-            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
-                <div class="article-copyright-info-container">
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
     <ul>
         <li><strong>标题:</strong> Visual Studio Code C语言环境配置</li>
         <li><strong>作者:</strong> Tengpaz</li>
@@ -1082,7 +1107,7 @@
             </li>
         
         <li>
-            <strong>链接:</strong> https://qinaida.cn/tengpaz/2023/09/22/VisualStudioCodeC语言环境配置/
+            <strong>链接:</strong> https://qinaida.cn/2023/09/22/VisualStudioCodeC语言环境配置/
         </li>
         <li>
             <strong>
@@ -1097,55 +1122,52 @@
     </ul>
 </div>
 
-            </div>
-        
+		</div>
+		
 
-        
-            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
-                
-                    <li class="tag-item mx-0.5">
-                        <a href="/tengpaz/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>&nbsp;
-                    </li>
-                
-                    <li class="tag-item mx-0.5">
-                        <a href="/tengpaz/tags/vscode/">#vscode</a>&nbsp;
-                    </li>
-                
-                    <li class="tag-item mx-0.5">
-                        <a href="/tengpaz/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">#环境配置</a>&nbsp;
-                    </li>
-                
-            </ul>
-        
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tengpaz/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tengpaz/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">#环境配置</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tengpaz/tags/vscode/">#vscode</a>&nbsp;
+			</li>
+			
+		</ul>
+		
 
-        
+		
 
-        
-            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
-                
-                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-                        <a class="prev"
-                        rel="prev"
-                        href="/tengpaz/2023/09/24/2023%E7%BA%A7E2%E7%BB%83%E4%B9%A0%E8%B5%9B/"
-                        >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">2023级E2练习赛</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-            </div>
-        
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/tengpaz/2023/09/24/2023%E7%BA%A7E2%E7%BB%83%E4%B9%A0%E8%B5%9B/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">2023级E2练习赛</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+		</div>
+		
 
 
-        
-            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
-                <div class="comments-container mt-10 w-full ">
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
     <div id="comment-anchor" class="w-full h-2.5"></div>
     <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
         评论
@@ -1200,36 +1222,30 @@
     
 </div>
 
-            </div>
-        
-    </div>
+		</div>
+		
+	</div>
 
-    
-        <div class="toc-content-container">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <div class="toc-title">目录</div>
-        <div class="page-title">Visual Studio Code C语言环境配置</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%89%E8%A3%85gcc%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">第一步 安装gcc编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E7%A1%AE%E8%AE%A4%E6%97%A0%E8%AF%AF%E5%AE%8C%E6%88%90%E8%BF%99%E4%B8%80%E6%AD%A5%E7%9A%84%E6%9C%8B%E5%8F%8B%E5%8F%AF%E4%BB%A5%E8%B7%B3%E8%BF%87-%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E5%A6%82%E4%B8%8B"><span class="nav-text">已经确认无误完成这一步的朋友可以跳过 检验方法如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDMinGW-w64"><span class="nav-text">下载MinGW-w64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">添加环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%AE%89%E8%A3%85Visual-Studio-Code"><span class="nav-text">第二步 安装Visual Studio Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85VScode"><span class="nav-text">安装VScode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-VScode%E9%85%8D%E7%BD%AE"><span class="nav-text">第三步 VScode配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vscode%E6%8B%93%E5%B1%95%E6%8F%92%E4%BB%B6"><span class="nav-text">安装vscode拓展插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">代码文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E6%AD%A3%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-text">开始正式配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E6%9C%89%E9%85%8D%E7%BD%AE%E7%BB%8F%E5%8E%86%E5%B9%B6%E5%87%BA%E4%BA%86%E9%97%AE%E9%A2%98"><span class="nav-text">已经有配置经历并出了问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E6%89%80%E5%9C%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">检查代码所在文件夹的路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E6%9C%89%E4%BA%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">检查是否已经有了配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8C%89%E9%94%AE"><span class="nav-text">运行使用的按键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%AE%8C%E5%96%84%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-text">第四步 完善其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E8%BF%90%E8%A1%8C-%E4%BF%9D%E5%AD%98%E7%A8%8B%E5%BA%8F"><span class="nav-text">让程序在终端中运行&amp;&amp;保存程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%97%B6%E7%94%9F%E6%88%90%E7%9A%84-exe%E6%96%87%E4%BB%B6"><span class="nav-text">删除执行程序时生成的.exe文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%97%B6%E6%B2%A1%E6%9C%89%E5%8B%BE%E9%80%89%E4%B9%8B%E5%89%8D%E8%AF%B4%E8%BF%87%E7%9A%84%E9%A1%B9%E7%9A%84%E5%90%8E%E6%9C%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">安装时没有勾选之前说过的项的后期解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E6%9D%BF%E5%AD%90"><span class="nav-text">C程序代码板子~</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%9C%AC%E6%96%87%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8C%87%E6%AD%A3"><span class="nav-text">如果本文有什么问题，欢迎指正\ (^ - ^) &#x2F;</span></a></li></ol></li></ol>
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Visual Studio Code C语言环境配置</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%89%E8%A3%85gcc%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">第一步 安装gcc编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E7%A1%AE%E8%AE%A4%E6%97%A0%E8%AF%AF%E5%AE%8C%E6%88%90%E8%BF%99%E4%B8%80%E6%AD%A5%E7%9A%84%E6%9C%8B%E5%8F%8B%E5%8F%AF%E4%BB%A5%E8%B7%B3%E8%BF%87-%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E5%A6%82%E4%B8%8B"><span class="nav-text">已经确认无误完成这一步的朋友可以跳过 检验方法如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDMinGW-w64"><span class="nav-text">下载MinGW-w64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">添加环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%AE%89%E8%A3%85Visual-Studio-Code"><span class="nav-text">第二步 安装Visual Studio Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85VScode"><span class="nav-text">安装VScode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-VScode%E9%85%8D%E7%BD%AE"><span class="nav-text">第三步 VScode配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vscode%E6%8B%93%E5%B1%95%E6%8F%92%E4%BB%B6"><span class="nav-text">安装vscode拓展插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">代码文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E6%AD%A3%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-text">开始正式配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E6%9C%89%E9%85%8D%E7%BD%AE%E7%BB%8F%E5%8E%86%E5%B9%B6%E5%87%BA%E4%BA%86%E9%97%AE%E9%A2%98"><span class="nav-text">已经有配置经历并出了问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E6%89%80%E5%9C%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">检查代码所在文件夹的路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E6%9C%89%E4%BA%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">检查是否已经有了配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8C%89%E9%94%AE"><span class="nav-text">运行使用的按键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%AE%8C%E5%96%84%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-text">第四步 完善其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E8%BF%90%E8%A1%8C-%E4%BF%9D%E5%AD%98%E7%A8%8B%E5%BA%8F"><span class="nav-text">让程序在终端中运行&amp;&amp;保存程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%97%B6%E7%94%9F%E6%88%90%E7%9A%84-exe%E6%96%87%E4%BB%B6"><span class="nav-text">删除执行程序时生成的.exe文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%97%B6%E6%B2%A1%E6%9C%89%E5%8B%BE%E9%80%89%E4%B9%8B%E5%89%8D%E8%AF%B4%E8%BF%87%E7%9A%84%E9%A1%B9%E7%9A%84%E5%90%8E%E6%9C%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">安装时没有勾选之前说过的项的后期解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E6%9D%BF%E5%AD%90"><span class="nav-text">C程序代码板子~</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%9C%AC%E6%96%87%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8C%87%E6%AD%A3"><span class="nav-text">如果本文有什么问题，欢迎指正\ (^ - ^) &#x2F;</span></a></li></ol></li></ol>
 
-    </div>
+	</div>
 </div>
-        </div>
-    
+	</div>
+	
 </div>
+			</div>
 
+			
+		</div>
 
-
-                
-
-            </div>
-
-            
-
-        </div>
-
-        <div class="main-content-footer">
-            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
     <div class="info-container py-3 text-center">
         
             <div class="customize-info my-1">又来学习了嘛</div>
@@ -1240,12 +1256,12 @@
               <span>2023</span>
               -
             
-            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/tengpaz/">Tengpaz</a>
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/tengpaz/">Tengpaz</a>
             
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 18 篇文章
+                        共撰写了 22 篇文章
                     </span>
                     
                 </p>
@@ -1270,7 +1286,7 @@
         
         <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
             <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
-            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.1</a></span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
         </div>
         
         
@@ -1299,124 +1315,113 @@
         
     </div>  
 </footer>
-        </div>
-    </div>
+		</div>
+	</div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="article-tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="right-bottom-tools page-aside-toggle">
-                <i class="fa-regular fa-outdent"></i>
-            </li>
-        
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
 
-        <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fa-regular fa-comments"></i>
-            </li>
-        
-    </ul>
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
 </div>
 
-        </div>
-    
-
-    <div class="right-side-tools-container">
-        <div class="side-tools-container">
-    <ul class="hidden-tools-list">
-        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
-            <i class="fa-regular fa-magnifying-glass-plus"></i>
-        </li>
-
-        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
-            <i class="fa-regular fa-magnifying-glass-minus"></i>
-        </li>
-
-        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
-            <i class="fa-regular fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-
-        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
-            <i class="fa-regular fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="visible-tools-list">
-        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
-            <i class="fa-regular fa-cog fa-spin"></i>
-        </li>
-        
-            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-        
-    </ul>
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
 </div>
-
-    </div>
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
-
-
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fa-solid fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="站内搜索您需要的内容..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fa-solid fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
+	
 
 </main>
 
 
-    
-<script src="/tengpaz/js/libs/Swup.min.js"></script>
 
-<script src="/tengpaz/js/libs/SwupSlideTheme.min.js"></script>
+<script src="/tengpaz/js/build/libs/Swup.min.js"></script>
 
-<script src="/tengpaz/js/libs/SwupScriptsPlugin.min.js"></script>
+<script src="/tengpaz/js/build/libs/SwupSlideTheme.min.js"></script>
 
-<script src="/tengpaz/js/libs/SwupProgressPlugin.min.js"></script>
+<script src="/tengpaz/js/build/libs/SwupScriptsPlugin.min.js"></script>
 
-<script src="/tengpaz/js/libs/SwupScrollPlugin.min.js"></script>
+<script src="/tengpaz/js/build/libs/SwupProgressPlugin.min.js"></script>
 
-<script src="/tengpaz/js/libs/SwupPreloadPlugin.min.js"></script>
+<script src="/tengpaz/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/tengpaz/js/build/libs/SwupPreloadPlugin.min.js"></script>
 
 <script>
     const swup = new Swup({
@@ -1440,48 +1445,46 @@
 
 
 
+	
+<script src="/tengpaz/js/build/tools/imageViewer.js" type="module"></script>
 
+<script src="/tengpaz/js/build/utils.js" type="module"></script>
 
+<script src="/tengpaz/js/build/main.js" type="module"></script>
 
-<script src="/tengpaz/js/tools/imageViewer.js" type="module"></script>
+<script src="/tengpaz/js/build/layouts/navbarShrink.js" type="module"></script>
 
-<script src="/tengpaz/js/utils.js" type="module"></script>
+<script src="/tengpaz/js/build/tools/scrollTopBottom.js" type="module"></script>
 
-<script src="/tengpaz/js/main.js" type="module"></script>
+<script src="/tengpaz/js/build/tools/lightDarkSwitch.js" type="module"></script>
 
-<script src="/tengpaz/js/layouts/navbarShrink.js" type="module"></script>
-
-<script src="/tengpaz/js/tools/scrollTopBottom.js" type="module"></script>
-
-<script src="/tengpaz/js/tools/lightDarkSwitch.js" type="module"></script>
-
-<script src="/tengpaz/js/layouts/categoryList.js" type="module"></script>
+<script src="/tengpaz/js/build/layouts/categoryList.js" type="module"></script>
 
 
 
     
-<script src="/tengpaz/js/tools/localSearch.js" type="module"></script>
+<script src="/tengpaz/js/build/tools/localSearch.js" type="module"></script>
 
 
 
 
     
-<script src="/tengpaz/js/tools/codeBlock.js" type="module"></script>
+<script src="/tengpaz/js/build/tools/codeBlock.js" type="module"></script>
 
 
 
 
     
-<script src="/tengpaz/js/layouts/lazyload.js" type="module"></script>
+<script src="/tengpaz/js/build/layouts/lazyload.js" type="module"></script>
 
 
 
 
     
-<script src="/tengpaz/js/tools/runtime.js"></script>
+<script src="/tengpaz/js/build/tools/runtime.js"></script>
 
     
-<script src="/tengpaz/js/libs/odometer.min.js"></script>
+<script src="/tengpaz/js/build/libs/odometer.min.js"></script>
 
     
 <link rel="stylesheet" href="/tengpaz/assets/odometer-theme-minimal.css">
@@ -1490,10 +1493,10 @@
 
 
   
-<script src="/tengpaz/js/libs/Typed.min.js"></script>
+<script src="/tengpaz/js/build/libs/Typed.min.js"></script>
 
   
-<script src="/tengpaz/js/plugins/typed.js" type="module"></script>
+<script src="/tengpaz/js/build/plugins/typed.js" type="module"></script>
 
 
 
@@ -1503,18 +1506,32 @@
 
 
 
-<div class="post-scripts" data-swup-reload-script>
-    
-        
-<script src="/tengpaz/js/tools/tocToggle.js" type="module"></script>
 
-<script src="/tengpaz/js/layouts/toc.js" type="module"></script>
-
-<script src="/tengpaz/js/plugins/tabs.js" type="module"></script>
 
     
-</div>
+<script src="/tengpaz/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/tengpaz/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/tengpaz/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
 
 
+
+
+<script src="/tengpaz/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/tengpaz/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/tengpaz/js/build/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
 <script src="/tengpaz/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/tengpaz/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7,"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+
 </html>
